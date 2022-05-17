@@ -1,0 +1,90 @@
+{
+	"accion": [
+		{
+			"name": "Batalla real",
+			"description": "¡Una épica batalla cuerpo a cuerpo multijugador te espera en el juego batalla real! ¿Quieres sobrevivir a toda costa en el campo de batalla? Entonces es el momento de correr, trepar y tomar cualquier objeto que encuentres a lo largo del escenario para intentar defenderte y matar a los demás antes de que ellos te maten a ti.",
+			"image": "images/accion/batallareal.webp"
+		},
+		{
+			"name": "Bola saltarina",
+			"description": "Los esbirros del mal quieren transformar el planeta en forma de cuadrado. Y la famosa bola saltarina roja está aquí para rescatar al mundo. Rueda y salta derrotando a los enemigos y evitando cientos de obstáculos como los mortales rayos láser.",
+			"image": "images/accion/bolasaltarina.webp"
+		},
+		{
+			"name": "Mini zombies",
+			"description": "¡Tu familia y amigos han sido infectado por ese peligroso virus y ahora te encuentras tu solo ante el peligro! Lucha por sobrevivir a toda costa frente a oleadas de enemigos hambrientos de cerebros humanos, acumula suficiente munición y potentes armas de destrucción como ametralladoras o motosierras para protegerte y demuestra tu valor infinito! No permitas que un mal movimiento te ponga en peligro y pásalo mejor que nunca. Buena suerte...",
+			"image": "images/accion/minizombies.jpg"
+		},
+		{
+			"name": "Piratas de voxel",
+			"description": "Sumérgete entre la profunda y espesa selva, enfréntate contra decenas de animales salvajes y consigue encontrar tesoros ocultos y enterrados en algún rincón de la isla. ¡Si eres un verdadero pirata serás totalmente capaz de encontrarlos!",
+			"image": "images/accion/piratasdevoxel.jpg"
+		}
+	],
+	"carreras": [
+		{
+			"name": "Gran turismo",
+			"description": "Elige entre el modo arcade y modo simulación para comenzar a ganar carreras y desbloquear autos y pistas adicionales.",
+			"image": "images/carreras/granturismo.jpg"
+		},
+		{
+			"name": "Super mario kart",
+			"description": "¡Versión del clásico Super Mario Kart de Super Nintendo (SNES)! Ahora podrás disfrutar online con Mario, Luigi y compañia corriendo con sus Karts. Esquiva los obstáculos del circuito y adelanta a tus oponentes en esta divertida carrera llena de emociones.",
+			"image": "images/carreras/supermariokart.jpg"
+		},
+		{
+			"name": "Coches monstruosos",
+			"description": "¿Quién podría pensar que estos pequeños coches pueden luchar contra los monstruos? Conduce con habilidad, recoge todos los objetos que puedas y compra mejoras para tu vehículo. ",
+			"image": "images/carreras/cochesmonstruosos.jpg"
+		},
+		{
+			"name": "Batallas pixeladas",
+			"description": "Enfréntate a poderosos tanques, ¡El primero en ganar 3 puntos ganará el juego! ¿Serás capaz de superar con éxito este emocionante desafío lleno de píxeles? ",
+			"image": "images/carreras/batallaspixeladas.jpg"
+		}
+	],
+	"gestion": [
+		{
+			"name": "Mi isla",
+			"description": "Mi isla es un juego extremadamente curioso y original en el que transportarás directamente a una isla muy misteriosa. Has llegado hasta ese lugar con poco dinero en el bolsillo pero con muchas ganas de trabajar.",
+			"image": "images/gestion/miisla.webp"
+		},
+		{
+			"name": "Hamburgueseria",
+			"description": "Empieza a trabajar en una hamburguesería y atiende los pedidos. Levanta el negocio del restaurante creando las hamburguesas con los ingredientes correctos. ¡Haz felices a los clientes!",
+			"image": "images/gestion/hamburgueseria.jpg"
+		},
+		{
+			"name": "Panico en el cine",
+			"description": "¡Te han contratado como encargado en el cine de moda de la ciudad! Atiende a los clientes antes de ver una película para que disfruten de las más deliciosas palomitas de maíz, perritos calientes, refrescos, hamburguesas y muchas cosas más. ¡Gana dinero para comprar artículos y conseguir los mejores estrenos de cine! ",
+			"image": "images/gestion/panicoenelcine.jpg"
+		},
+		{
+			"name": "El restaurante de bob esponja",
+			"description": "Bob Esponja ha abierto un restaurante y necesita toda tu ayuda para preparar montones de deliciosas hamburguesas y entregar todo los pedidos de sus clientes a tiempo. ¡Ayúdalo a administrar todas las tareas y gana mucho dinero! ",
+			"image": "images/gestion/elrestaurantedebobesponja.jpg"
+		}
+	],
+	"infantiles": [
+		{
+			"name": "3 pandas en japon",
+			"description": "¡Los 3 pandas están de vuelta y esta vez han aterrizado en Japón! Nunca han estado allí, así que todo es nuevo y divertido para ellos. Ayúdales a superar todos los obstáculos que se presenten en su camino y consigue que disfruten de su viaje.",
+			"image": "images/infantiles/3pandasenjapon.jpg"
+		},
+		{
+			"name": "El caracol bob en el espacio",
+			"description": "El caracol bob vuelve con nuevos retos y pantallas esta vez en el espacio exterior. Controla la gravedad de cada fase, y utiliza la lógica para poder guiarle hasta la salida. ",
+			"image": "images/infantiles/elcaracolbobenelespacio.jpg"
+		},
+		{
+			"name": "Niño fuego y niña agua",
+			"description": "El niño Fuego y la niña Agua quieren explorar las cuevas en busca de gemas. Resuelve todos los puzzles controlando a los personajes por turnos. Consigue la máxima puntuación posible!",
+			"image": "images/infantiles/niñofuegoyñinaagua.webp"
+		},
+		{
+			"name": "Bola roja",
+			"description": "En esta nueva aventura de nuestra bola roja favorita, se enfrentará a los malvados cubos negros, que quieren cubizar el mundo entero. ¿Lo vas a permitir?",
+			"image": "images/infantiles/bolaroja.webp"
+		}
+	]
+}
