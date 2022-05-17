@@ -14,9 +14,10 @@ import { SearchComponent } from './components/search/search.component';
 import { CategoryComponent } from './components/category/category.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { IconComponent } from './components/icon/icon.component';
 
 @NgModule({
-	declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, ForPlayingComponent, PlayingComponent, RegisterComponent, LoginComponent, SearchComponent, CategoryComponent, ProfileComponent, FavoritesComponent],
+	declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, ForPlayingComponent, PlayingComponent, RegisterComponent, LoginComponent, SearchComponent, CategoryComponent, ProfileComponent, FavoritesComponent, IconComponent],
 	imports: [BrowserModule, AppRoutingModule],
 	providers: [],
 	bootstrap: [AppComponent],
