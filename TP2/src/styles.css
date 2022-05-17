@@ -1,1 +1,125 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+	/* Colors, use in component: 
+        .class{
+            color/background-color: var(--primary); 
+        }
+    */
+	--primary: #e5a2a2;
+	--primary-light-1: #ffd4d4;
+	--primary-light-2: #ffeded;
+	--primary-dark-1: #c16d6d;
+	--primary-dark-2: #a04545;
+
+	--secondary: #82b782;
+	--secondary-light-1: #afd3af;
+	--secondary-light-2: #d8e9d8;
+	--secondary-dark-1: #579a57;
+	--secondary-dark-2: #378037;
+
+	--black: #312e31;
+	--gray-dark: #7b737c;
+	--gray: #c9c9c9;
+	--gray-light: #e9e9e9;
+	--white: #fdfdfd;
+
+	--success: #47c11c;
+	--danger: #ef3a3a;
+	--link-dark: #0085e3;
+	--link-light: #48d7d7;
+	--accent: #618989;
+
+	/* Elevations, use in component: 
+        .class{
+            box-shadow: var(--elevation-1dp); 
+        }
+    */
+	--elevation-1dp: 0px 1px 3px rgba(0, 0, 0, 0.2),
+		0px 2px 2px rgba(0, 0, 0, 0.12), 0px 0px 2px rgba(0, 0, 0, 0.14);
+	--elevation-2dp: 0px 1px 5px rgba(0, 0, 0, 0.2),
+		0px 3px 4px rgba(0, 0, 0, 0.12), 0px 0px 4px rgba(0, 0, 0, 0.14);
+	--elevation-4dp: 0px 1px 10px rgba(0, 0, 0, 0.2),
+		0px 4px 5px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+	--elevation-16dp: 0px 8px 10px rgba(0, 0, 0, 0.2),
+		0px 6px 30px 5px rgba(0, 0, 0, 0.12),
+		0px 16px 24px 2px rgba(0, 0, 0, 0.14);
+
+	/* Spaces, use in component: 
+        .class{
+            padding/margin: var(--space-xx-small); 
+        }
+    */
+	--space-xx-small: 4px;
+	--space-x-small: 8px;
+	--space-small: 12px;
+	--space-medium: 16px;
+	--space-large: 24px;
+	--space-x-large: 48px;
+	--space-xx-large: 64px;
+}
+
+* {
+	font-family: "Roboto", sans-serif;
+}
+
+body {
+	margin: 0;
+}
+
+/* Box-sizing: you can use content-box or padding-box (where supported) at will, without worrying about a universal selector (*) overriding your CSS */
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+/* Fonts sizes*/
+h1,
+.h1 {
+	font-size: 36px;
+	font-weight: 700;
+}
+
+h2,
+.h2 {
+	font-size: 28px;
+	font-weight: 400;
+}
+
+h3,
+.h3 {
+	font-size: 24px;
+	font-weight: 400;
+}
+
+h4,
+.h4 {
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.body {
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.body-small {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.body-small-italic {
+	font-size: 14px;
+	font-weight: 400;
+	font-weight: italic;
+}
+
+/* Breadcrum */
+.breadcrum {
+	font-size: 16px;
+	font-weight: 400;
+	color: var(--link-light);
+	cursor: pointer;
+}
