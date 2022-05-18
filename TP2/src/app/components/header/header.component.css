@@ -1,0 +1,44 @@
+.header {
+	background-color: var(--primary);
+	color: var(--white);
+	height: 90px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--space-x-small);
+}
+
+.left,
+.right {
+	/*because position absolute of .center*/
+	z-index: 100;
+}
+.right {
+	display: flex;
+	align-items: center;
+	gap: var(--space-x-small);
+}
+
+.center {
+	/* position absolute for logo horizontal alignment */
+	position: absolute;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.menu-overlay {
+	padding: var(--space-medium) var(--space-large);
+}
+.menu-overlay > p:first-child {
+	padding-bottom: var(--space-x-small);
+}
+
+.category {
+	margin-left: var(--space-large);
+	margin-bottom: var(--space-x-small);
+}
+
+li.category:first-child {
+	margin-top: var(--space-x-small);
+}

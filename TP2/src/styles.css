@@ -53,7 +53,7 @@
 	--space-small: 12px;
 	--space-medium: 16px;
 	--space-large: 24px;
-	--space-x-large: 48px;
+	--space-x-large: 32px;
 	--space-xx-large: 64px;
 }
 
@@ -123,5 +123,9 @@ h4,
 	font-size: 16px;
 	font-weight: 400;
 	color: var(--link-light);
+	cursor: pointer;
+}
+
+.link {
 	cursor: pointer;
 }

@@ -1,1 +1,74 @@
-<p>header works!</p>
+<section class="header">
+	<div class="left" (click)="toggleMenuOverlay()">
+		<app-icon name="menu"></app-icon>
+	</div>
+	<div class="center">
+		<app-logo routerLink="/"></app-logo>
+	</div>
+	<div class="right">
+		<app-icon name="search" routerLink="/busqueda"></app-icon>
+		<div (click)="toggleProfileOverlay()">
+			<app-icon *ngIf="!userIsLogged()" name="avatar"></app-icon>
+			<app-avatar [size]="48" *ngIf="userIsLogged()"></app-avatar>
+		</div>
+	</div>
+</section>
+
+<app-overlay [(visible)]="menuOverlayVisible">
+	<div class="menu-overlay">
+		<p routerLink="/" (click)="closeMenuOverlay()" class="h4 link">
+			Inicio
+		</p>
+		<p class="h4">Categorias</p>
+		<ul>
+			<li
+				(click)="closeMenuOverlay()"
+				routerLink="/categorias/accion"
+				class="h4 link category"
+			>
+				Accion
+			</li>
+			<li
+				(click)="closeMenuOverlay()"
+				routerLink="/categorias/belleza"
+				class="h4 link category"
+			>
+				Belleza
+			</li>
+			<li
+				(click)="closeMenuOverlay()"
+				routerLink="/categorias/carreras"
+				class="h4 link category"
+			>
+				Carreras
+			</li>
+			<li
+				(click)="closeMenuOverlay()"
+				routerLink="/categorias/gestion"
+				class="h4 link category"
+			>
+				Gestion
+			</li>
+			<li
+				(click)="closeMenuOverlay()"
+				routerLink="/categorias/infantiles"
+				class="h4 link category"
+			>
+				Infantiles
+			</li>
+			<li
+				(click)="closeMenuOverlay()"
+				routerLink="/categorias/puzzle"
+				class="h4 link category"
+			>
+				Puzzle
+			</li>
+		</ul>
+	</div>
+</app-overlay>
+
+<app-overlay [(visible)]="profileOverlayVisible">
+	<app-header-overlay-profile
+		(close)="closeProfileOverlay()"
+	></app-header-overlay-profile>
+</app-overlay>
