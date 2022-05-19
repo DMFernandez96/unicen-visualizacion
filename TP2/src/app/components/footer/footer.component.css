@@ -1,0 +1,36 @@
+.footer {
+    background-color: var(--gray-dark);
+    color: var(--white);
+    height: 90px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-x-small);
+}
+
+@media(max-width:600px) {
+    .center {
+        /* position absolute for logo horizontal alignment */
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+        visibility: hidden;
+    }
+    .right,
+    .left p {
+        width: 100%;
+        justify-content: center;
+    }
+    .footer {
+        flex-flow: row wrap-reverse;
+    }
+}
