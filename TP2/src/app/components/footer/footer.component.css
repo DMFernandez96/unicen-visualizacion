@@ -5,32 +5,36 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
     position: fixed;
     bottom: 0;
+    flex-flow: row wrap-reverse;
 }
 
-.right {
+.center {
+    /* position absolute for logo horizontal alignment */
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    visibility: hidden;
+}
+
+.right,
+.left {
     display: flex;
-    align-items: center;
-    gap: var(--space-x-small);
+    width: 100%;
+    justify-content: center;
 }
 
-@media(max-width:600px) {
-    .center {
-        /* position absolute for logo horizontal alignment */
-        position: absolute;
-        left: 0;
-        right: 0;
-        text-align: center;
-        visibility: hidden;
-    }
-    .right,
-    .left p {
-        width: 100%;
-        justify-content: center;
-    }
+@media(min-width:1024px) {
     .footer {
-        flex-flow: row wrap-reverse;
+        justify-content: space-around;
+        flex-flow: nowrap;
+    }
+    .right {
+        gap: var(--space-x-small);
+    }
+    .center {
+        visibility: visible;
     }
 }
