@@ -55,6 +55,9 @@
 	--space-large: 24px;
 	--space-x-large: 32px;
 	--space-xx-large: 64px;
+
+	/* Breakpoints */
+	--breakpoint-desktop: 1024px;
 }
 
 * {
@@ -70,6 +73,8 @@
 /* Box-sizing: you can use content-box or padding-box (where supported) at will, without worrying about a universal selector (*) overriding your CSS */
 html {
 	box-sizing: border-box;
+	background-color: var(--black);
+	color: var(--white);
 }
 *,
 *:before,

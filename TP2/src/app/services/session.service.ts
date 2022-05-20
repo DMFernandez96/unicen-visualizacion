@@ -9,12 +9,7 @@ import { UserRegister } from "../interfaces/user-register";
 export class SessionService {
 	private user?: UserLogged;
 
-	constructor() {
-		this.user = {
-			username: "Jugador_001",
-			email: "",
-		};
-	}
+	constructor() {}
 
 	sigIn(user: UserLogin): boolean {
 		//TODO: simulate timeout to api for make animation load

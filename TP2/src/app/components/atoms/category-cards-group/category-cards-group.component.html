@@ -1,0 +1,21 @@
+<section class="category">
+	<div class="name">
+		<h3 class="name">{{ name }}</h3>
+		<ng-content></ng-content>
+		<button
+			*ngIf="viewMore"
+			routerLink="/categorias/{{ name | lowercase }}"
+			class="btn-view-more body-small"
+		>
+			Ver mas
+		</button>
+	</div>
+	<div class="cards-group">
+		<app-card-game
+			*ngFor="let game of games"
+			routerLink="/juego/{{ game.id }}"
+			src="{{ game.image }}"
+			name="{{ game.name }}"
+		></app-card-game>
+	</div>
+</section>

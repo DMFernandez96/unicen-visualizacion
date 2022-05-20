@@ -19,6 +19,8 @@ import { LogoComponent } from "./components/atoms/logo/logo.component";
 import { OverlayComponent } from "./components/atoms/overlay/overlay.component";
 import { AvatarComponent } from "./components/atoms/avatar/avatar.component";
 import { HeaderOverlayProfileComponent } from './components/header-overlay-profile/header-overlay-profile.component';
+import { CardGameComponent } from './components/atoms/card-game/card-game.component';
+import { CategoryCardsGroupComponent } from './components/atoms/category-cards-group/category-cards-group.component';
 
 @NgModule({
 	declarations: [
@@ -39,6 +41,8 @@ import { HeaderOverlayProfileComponent } from './components/header-overlay-profi
 		OverlayComponent,
 		AvatarComponent,
   HeaderOverlayProfileComponent,
+  CardGameComponent,
+  CategoryCardsGroupComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule],
 	providers: [],

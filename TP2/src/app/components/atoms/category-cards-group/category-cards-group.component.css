@@ -1,0 +1,37 @@
+.category {
+	margin-bottom: var(--space-x-large);
+}
+
+.cards-group {
+	display: flex;
+	overflow-x: scroll;
+	gap: var(--space-medium);
+	/* Hide scrollbar for IE, Edge and Firefox */
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.cards-group::-webkit-scrollbar {
+	display: none;
+}
+
+.name {
+	display: flex;
+	gap: var(--space-medium);
+	align-items: center;
+	margin-bottom: var(--space-xx-small);
+}
+
+.btn-view-more {
+	padding: var(--space-xx-small) var(--space-x-small);
+	margin: 0;
+	border-radius: 10px;
+	border: 1px solid var(--white);
+	background-color: var(--black);
+	color: var(--white);
+}
+
+app-card-game:last-child {
+	margin-right: var(--space-x-large);
+}

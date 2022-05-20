@@ -1,3 +1,9 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<div class="container">
+	<app-header></app-header>
+	<div class="scrollable">
+		<section class="router-content">
+			<router-outlet></router-outlet>
+		</section>
+		<app-footer></app-footer>
+	</div>
+</div>
