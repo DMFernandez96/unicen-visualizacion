@@ -1,3 +1,17 @@
 .card-game {
 	cursor: pointer;
 }
+
+.name {
+	max-width: 250px;
+}
+
+img {
+	width: 250px;
+}
+
+@media (min-width: 1024px) {
+	img {
+		width: 300px;
+	}
+}

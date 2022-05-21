@@ -3,8 +3,8 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
-import { HeaderComponent } from "./components/header/header.component";
-import { FooterComponent } from "./components/footer/footer.component";
+import { HeaderComponent } from "./components/molecules/header/header.component";
+import { FooterComponent } from "./components/molecules/footer/footer.component";
 import { HomeComponent } from "./components/pages/home/home.component";
 import { ForPlayingComponent } from "./components/pages/for-playing/for-playing.component";
 import { PlayingComponent } from "./components/pages/playing/playing.component";
@@ -18,9 +18,9 @@ import { IconComponent } from "./components/atoms/icon/icon.component";
 import { LogoComponent } from "./components/atoms/logo/logo.component";
 import { OverlayComponent } from "./components/atoms/overlay/overlay.component";
 import { AvatarComponent } from "./components/atoms/avatar/avatar.component";
-import { HeaderOverlayProfileComponent } from './components/header-overlay-profile/header-overlay-profile.component';
-import { CardGameComponent } from './components/atoms/card-game/card-game.component';
-import { CategoryCardsGroupComponent } from './components/atoms/category-cards-group/category-cards-group.component';
+import { HeaderOverlayProfileComponent } from "./components/molecules/header-overlay-profile/header-overlay-profile.component";
+import { CardGameComponent } from "./components/atoms/card-game/card-game.component";
+import { CategoryCardsGroupComponent } from "./components/molecules/category-cards-group/category-cards-group.component";
 
 @NgModule({
 	declarations: [
@@ -40,9 +40,9 @@ import { CategoryCardsGroupComponent } from './components/atoms/category-cards-g
 		LogoComponent,
 		OverlayComponent,
 		AvatarComponent,
-  HeaderOverlayProfileComponent,
-  CardGameComponent,
-  CategoryCardsGroupComponent,
+		HeaderOverlayProfileComponent,
+		CardGameComponent,
+		CategoryCardsGroupComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule],
 	providers: [],

@@ -166,8 +166,8 @@ export const GAMES: Game[] = [
 	},
 	{
 		id: 22,
-		name: "",
-		description: "Rompecabezas de explosión de juguetes",
+		name: "Rompecabezas de explosión de juguetes",
+		description: "",
 		image: "/assets/images/puzzle/rompecabezasdeexplosiondejuguetes.png",
 		category: "puzzle",
 	},

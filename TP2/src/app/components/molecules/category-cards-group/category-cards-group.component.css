@@ -35,3 +35,9 @@
 app-card-game:last-child {
 	margin-right: var(--space-x-large);
 }
+
+@media (min-width: 1024px) {
+	.cards-group {
+		gap: var(--space-large);
+	}
+}
