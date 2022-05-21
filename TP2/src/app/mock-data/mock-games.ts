@@ -36,28 +36,32 @@ export const GAMES: Game[] = [
 	{
 		id: 5,
 		name: "Cambio de imagen de princesa Boho",
-		description: "",
+		description:
+			"Audrey y Jessie, nuestras dos hermosas y divertidas jóvenes amantes de la moda, han decidido unir fuerzas en este cambio de imagen y probar un nuevo estilo: ¡boho-chic! Primero se pondrán el pelo con rulos para aplicar mascarillas faciales y limpiar su rostro de cualquier imperfección. A continuación necesitarán tu ayuda para maquillarse, ¡elige colores que les queden bien!. ¡Finalmente, depende de ti decidir cuáles son los mejores atuendos para combinar con este estilo fluido, con volantes y hermoso!",
 		image: "/assets/images/belleza/cambiodeimagendeprincesaboho.png",
 		category: "belleza",
 	},
 	{
 		id: 6,
 		name: "Maquillaje halloween",
-		description: "",
+		description: 
+			"Se acerca Halloween, esta chica quiere prepararse para ello. Ahora compárela con un estilo diferente y vea qué estilo es el mejor. ¡Diviértete!",
 		image: "/assets/images/belleza/maquillajehalloween.png",
 		category: "belleza",
 	},
 	{
 		id: 7,
 		name: "Cambio de imagen de princesa de invierno",
-		description: "",
+		description: 
+			"Nuestra princesa se está preparando para un evento especial de invierno y tu trabajo es realizar un cambio de imagen total. ",
 		image: "/assets/images/belleza/cambiodeimagendeprincesadeinvierno.png",
 		category: "belleza",
 	},
 	{
 		id: 8,
 		name: "Cambio de imagen de la reina de las nieves",
-		description: "",
+		description: 
+			"tendrás la oportunidad de conocer a una hermosa Reina de las Nieves que busca ansiosamente un nuevo look. ¿Quieres aceptar este desafío y ayudar a la princesa a conseguir un cambio de imagen real? Limpia su rostro, aplica todos los tratamientos de belleza posibles y aplica mascarillas en su rostro.",
 		image: "/assets/images/belleza/cambiodeimagendelareinadelasnieves.png",
 		category: "belleza",
 	},
@@ -160,28 +164,32 @@ export const GAMES: Game[] = [
 	{
 		id: 21,
 		name: "Templo del rompecabezas",
-		description: "",
+		description:
+			"¡Con Temple Puzzle, prepárate para entrar en un templo misterioso lleno de rompecabezas! Como puedes entender por el nombre del juego, la única salida es aferrarte a tu sublime paciencia y resolver los rompecabezas de imágenes deslizantes. Si tienes el coraje de entrar en este templo ahora, ¡que comience ya esta aventura!",
 		image: "/assets/images/puzzle/templodelrompecabezas.png",
 		category: "puzzle",
 	},
 	{
 		id: 22,
 		name: "Rompecabezas de explosión de juguetes",
-		description: "",
+		description: 
+			"Es un juego de rompecabezas de combinación de iconos creado por Avix Games. Con imágenes impresionantes y animaciones satisfactorias ofrece una visión diferente del género de rompecabezas a juego. Desde animales hasta frutas y objetos cotidianos, puede explorar una gran cantidad de elegantes gráficos para admirar. Haga clic en el icono duplicado para deshacerse de él antes de que se acabe el tiempo, ya que se le puntuará en función de su agilidad. ¡Solo vives una vez, pero puedes jugar dos veces! Tanto como quieras.",
 		image: "/assets/images/puzzle/rompecabezasdeexplosiondejuguetes.png",
 		category: "puzzle",
 	},
 	{
 		id: 23,
 		name: "Jigsaw 3",
-		description: "",
+		description: 
+			"Jigsaw 3 es un juego de rompecabezas creado por Avix Games en el que arrastra las piezas del rompecabezas y las coloca en el lugar correcto para revelar una imagen impresionante. Si tienes todas las piezas en el lugar correcto, ¡completas el nivel! Hay 3 niveles de dificultad para elegir: fácil, normal y difícil, cada uno de los cuales agrega más y más piezas al rompecabezas. ¡El juego tiene un total de 500 niveles! ¿Puedes completarlos todos?",
 		image: "/assets/images/puzzle/jigsaw3.png",
 		category: "puzzle",
 	},
 	{
 		id: 24,
 		name: "Acertijos de velas 3",
-		description: "",
+		description: 
+			"Este es un juego de plataformas de rompecabezas estilo escape room en el que debes usar el poder del fuego y el agua para ayudar a una vela a llegar al final del nivel y prender fuego a la meta.",
 		image: "/assets/images/puzzle/acertijosdevelas3.png",
 		category: "puzzle",
 	},
