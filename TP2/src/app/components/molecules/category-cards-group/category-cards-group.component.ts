@@ -14,4 +14,13 @@ export class CategoryCardsGroupComponent implements OnInit {
 	constructor() {}
 
 	ngOnInit(): void {}
+
+	scrollRight(el: HTMLElement): void {
+		// el.scrollIntoView({ behavior: "smooth" });
+		el.scrollLeft = el.scrollLeft + 250;
+	}
+
+	scrollLeft(el: HTMLElement): void {
+		el.scrollLeft = el.scrollLeft - 250;
+	}
 }

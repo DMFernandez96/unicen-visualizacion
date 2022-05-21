@@ -1,0 +1,31 @@
+.btn {
+	border-radius: 10px;
+	color: var(--white);
+	cursor: pointer;
+}
+
+.btn-small {
+	padding: var(--space-xx-small) var(--space-x-small);
+	background-color: var(--black);
+	border: 1px solid var(--white);
+}
+
+.btn-small:hover {
+	background-color: var(--white);
+	color: var(--black);
+}
+
+.btn-normal {
+	padding: var(--space-medium);
+	background-color: var(--secondary);
+}
+
+.btn-large {
+	padding: var(--space-medium) var(--space-x-large);
+	background-color: var(--secondary);
+}
+
+.btn-normal:hover,
+.btn-large:hover {
+	background-color: var(--secondary-dark-2);
+}

@@ -2,6 +2,12 @@
 	margin-bottom: var(--space-x-large);
 }
 
+.container-cards-group {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
 .cards-group {
 	display: flex;
 	overflow-x: scroll;
@@ -16,20 +22,15 @@
 	display: none;
 }
 
+.arrow-scroll {
+	display: none;
+}
+
 .name {
 	display: flex;
 	gap: var(--space-medium);
 	align-items: center;
 	margin-bottom: var(--space-xx-small);
-}
-
-.btn-view-more {
-	padding: var(--space-xx-small) var(--space-x-small);
-	margin: 0;
-	border-radius: 10px;
-	border: 1px solid var(--white);
-	background-color: var(--black);
-	color: var(--white);
 }
 
 app-card-game:last-child {
@@ -39,5 +40,24 @@ app-card-game:last-child {
 @media (min-width: 1024px) {
 	.cards-group {
 		gap: var(--space-large);
+		margin-left: calc(var(--space-x-large) + 36px + var(--space-x-large));
+		margin-right: calc(var(--space-x-large) + 36px + var(--space-x-large));
+	}
+
+	.arrow-scroll {
+		display: block;
+		position: absolute;
+	}
+
+	.arrow-scroll-left {
+		left: var(--space-x-large);
+	}
+
+	.arrow-scroll-right {
+		right: var(--space-x-large);
+	}
+
+	.name {
+		padding-left: var(--space-medium);
 	}
 }

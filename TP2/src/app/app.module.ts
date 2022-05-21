@@ -21,6 +21,7 @@ import { AvatarComponent } from "./components/atoms/avatar/avatar.component";
 import { HeaderOverlayProfileComponent } from "./components/molecules/header-overlay-profile/header-overlay-profile.component";
 import { CardGameComponent } from "./components/atoms/card-game/card-game.component";
 import { CategoryCardsGroupComponent } from "./components/molecules/category-cards-group/category-cards-group.component";
+import { ButtonComponent } from './components/atoms/button/button.component';
 
 @NgModule({
 	declarations: [
@@ -43,6 +44,7 @@ import { CategoryCardsGroupComponent } from "./components/molecules/category-car
 		HeaderOverlayProfileComponent,
 		CardGameComponent,
 		CategoryCardsGroupComponent,
+  ButtonComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule],
 	providers: [],

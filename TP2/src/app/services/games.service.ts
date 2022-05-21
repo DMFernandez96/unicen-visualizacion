@@ -17,7 +17,15 @@ export class GamesService {
 	}
 
 	getByCategory(category: string): Game[] {
-		return this.games.filter((g) => g.category == category);
+		let gamesResponse: Game[] = [];
+		// Add games repeatedly at the end for horizontal scroll in desktop
+		this.games.forEach((game) => {
+			if (game.category == category) gamesResponse.push(game);
+		});
+		this.games.forEach((game) => {
+			if (game.category == category) gamesResponse.push(game);
+		});
+		return gamesResponse;
 	}
 
 	getContinuePlaying(): Game[] {
@@ -44,8 +52,11 @@ export class GamesService {
 		let recommended: Game[] = [];
 		recommended.push(this.getById(10));
 		recommended.push(this.getById(13));
-		recommended.push(this.getById(3));
 		recommended.push(this.getById(18));
+		recommended.push(this.getById(16));
+		recommended.push(this.getById(19));
+		recommended.push(this.getById(23));
+		recommended.push(this.getById(3));
 		return recommended;
 	}
 }
