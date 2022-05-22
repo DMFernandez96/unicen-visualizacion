@@ -1,0 +1,9 @@
+<section class="favorites">
+    <div class="name">
+        <h3 class="name">{{ name }}</h3>
+        <ng-content></ng-content>
+    </div>
+    <div class="cards-group">
+        <app-card-favorites *ngFor="let game of games" routerLink="/juego/{{ game.id }}" src="{{ game.image }}" name="{{ game.name }}"></app-card-favorites>
+    </div>
+</section>

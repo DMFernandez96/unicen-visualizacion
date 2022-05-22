@@ -22,6 +22,8 @@ import { HeaderOverlayProfileComponent } from "./components/molecules/header-ove
 import { CardGameComponent } from "./components/atoms/card-game/card-game.component";
 import { CategoryCardsGroupComponent } from "./components/molecules/category-cards-group/category-cards-group.component";
 import { ButtonComponent } from './components/atoms/button/button.component';
+import { CardFavoritesComponent } from './components/atoms/card-favorites/card-favorites.component';
+import { FavoritesCardsGroupComponent } from './components/molecules/favorites-cards-group/favorites-cards-group.component';
 
 @NgModule({
 	declarations: [
@@ -45,6 +47,8 @@ import { ButtonComponent } from './components/atoms/button/button.component';
 		CardGameComponent,
 		CategoryCardsGroupComponent,
   ButtonComponent,
+  CardFavoritesComponent,
+  FavoritesCardsGroupComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule],
 	providers: [],
