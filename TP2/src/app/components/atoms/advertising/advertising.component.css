@@ -1,0 +1,32 @@
+.advertising {
+    width: 100%;
+    height: 80px;
+    position: absolute;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.close {
+    font-size: 2.5rem;
+    position: absolute;
+    right: 16px;
+    top: 0;
+    cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+    img {
+        visibility: hidden;
+    }
+    .advertising {
+        display: flex;
+        right: 1%;
+        width: 400px;
+        height: 500px;
+        background-color: var(--gray);
+        visibility: hidden;
+    }
+}

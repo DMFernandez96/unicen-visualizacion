@@ -24,6 +24,7 @@ import { CategoryCardsGroupComponent } from "./components/molecules/category-car
 import { ButtonComponent } from './components/atoms/button/button.component';
 import { CardFavoritesComponent } from './components/atoms/card-favorites/card-favorites.component';
 import { FavoritesCardsGroupComponent } from './components/molecules/favorites-cards-group/favorites-cards-group.component';
+import { AdvertisingComponent } from './components/atoms/advertising/advertising.component';
 
 @NgModule({
 	declarations: [
@@ -49,6 +50,7 @@ import { FavoritesCardsGroupComponent } from './components/molecules/favorites-c
   ButtonComponent,
   CardFavoritesComponent,
   FavoritesCardsGroupComponent,
+  AdvertisingComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule],
 	providers: [],
