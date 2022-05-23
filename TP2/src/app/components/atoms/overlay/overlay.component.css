@@ -1,18 +1,24 @@
 .overlay {
-	background-color: var(--primary-light-2);
-	color: var(--primary-dark-2);
-	border-radius: 0 0 20px 20px;
-	border: 1px solid var(--black);
-	box-shadow: var(--elevation-4dp);
-	position: absolute;
-	left: 0;
-	right: 0;
+    background-color: var(--primary-light-2);
+    color: var(--primary-dark-2);
+    border-radius: 0 0 20px 20px;
+    border: 1px solid var(--black);
+    box-shadow: var(--elevation-4dp);
+    position: absolute;
+    width: 100%;
+    z-index: 2;
 }
 
 .close {
-	font-size: 2.5rem;
-	position: absolute;
-	right: 16px;
-	top: 0;
-	cursor: pointer;
+    font-size: 2.5rem;
+    position: absolute;
+    right: 16px;
+    top: 0;
+    cursor: pointer;
+}
+
+@media(min-width: 1024px) {
+    .overlay {
+        width: 30%;
+    }
 }

@@ -1,35 +1,41 @@
 .profile-overlay {
-	padding-left: var(--space-large);
-	padding-bottom: var(--space-large);
+    padding-left: var(--space-large);
+    padding-bottom: var(--space-large);
 }
 
-.profile-overlay > .title {
-	margin: var(--space-x-large) 0;
-	text-align: center;
+.profile-overlay>.title {
+    margin: var(--space-x-large) 0;
+    text-align: center;
 }
 
-.profile-overlay > .avatar {
-	text-align: center;
-	margin-bottom: var(--space-xx-large);
+.profile-overlay>.avatar {
+    text-align: center;
+    margin-bottom: var(--space-xx-large);
 }
 
-.profile-overlay > .avatar > p {
-	margin-top: var(--space-small);
+.profile-overlay>.avatar>p {
+    margin-top: var(--space-small);
 }
 
-.profile-overlay > .navigation {
-	text-align: left;
+.profile-overlay>.navigation {
+    text-align: left;
 }
 
-.profile-overlay > .navigation > p {
-	margin-bottom: var(--space-medium);
+.profile-overlay>.navigation>p {
+    margin-bottom: var(--space-medium);
 }
 
 .divider {
-	border-top: 1px solid var(--primary);
-	margin-bottom: var(--space-medium);
+    border-top: 1px solid var(--primary);
+    margin-bottom: var(--space-medium);
 }
 
 .profile-no-logged {
-	margin-top: var(--space-x-large);
+    margin-top: var(--space-x-large);
+}
+
+@media(min-width: 1024px) {
+    .profile-overlay p:hover {
+        color: var(--secondary);
+    }
 }
