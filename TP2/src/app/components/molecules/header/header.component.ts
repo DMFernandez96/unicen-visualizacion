@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { SessionService } from "src/app/services/session.service";
+import {Router} from '@angular/router';
 
 @Component({
 	selector: "app-header",
@@ -10,7 +11,7 @@ export class HeaderComponent implements OnInit {
 	menuOverlayVisible: boolean = false;
 	profileOverlayVisible: boolean = false;
 
-	constructor(public sessionService: SessionService) {}
+	constructor(public sessionService: SessionService, private router: Router) {}
 
 	ngOnInit(): void {}
 
@@ -32,5 +33,9 @@ export class HeaderComponent implements OnInit {
 
 	userIsLogged(): boolean {
 		return this.sessionService.isLoggedIn();
+	}
+
+	onKeyDownEvent(): void{
+		this.router.navigate(['/busqueda']);
 	}
 }
