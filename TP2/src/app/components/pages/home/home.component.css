@@ -2,6 +2,7 @@
 	background-color: var(--black);
 	padding-top: var(--space-x-large);
 	padding-left: var(--space-medium);
+	margin-bottom: var(--space-xx-large);
 }
 .title {
 	text-align: center;

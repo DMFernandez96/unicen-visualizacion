@@ -1,11 +1,10 @@
-<button *ngIf="size == 'small'" class="btn btn-small body-small">
-	{{ text }}
-</button>
-
-<button *ngIf="size == 'normal'" class="btn btn-normal body">
-	{{ text }}
-</button>
-
-<button *ngIf="size == 'large'" class="btn btn-large body">
+<button
+	class="btn {{ classList }}"
+	[ngClass]="{
+		'btn-small body-small': size == 'small',
+		'btn-normal body': size == 'normal',
+		'btn-large body': size == 'large'
+	}"
+>
 	{{ text }}
 </button>

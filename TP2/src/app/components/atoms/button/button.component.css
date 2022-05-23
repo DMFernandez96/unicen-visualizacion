@@ -29,3 +29,11 @@
 .btn-large:hover {
 	background-color: var(--secondary-dark-2);
 }
+
+.w-100 {
+	width: 100%;
+}
+
+.text-black {
+	color: var(--black);
+}

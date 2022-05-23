@@ -11,5 +11,4 @@
 
 .router-content {
 	flex-grow: 1;
-	margin-bottom: var(--space-xx-large);
 }

@@ -21,10 +21,12 @@ import { AvatarComponent } from "./components/atoms/avatar/avatar.component";
 import { HeaderOverlayProfileComponent } from "./components/molecules/header-overlay-profile/header-overlay-profile.component";
 import { CardGameComponent } from "./components/atoms/card-game/card-game.component";
 import { CategoryCardsGroupComponent } from "./components/molecules/category-cards-group/category-cards-group.component";
-import { ButtonComponent } from './components/atoms/button/button.component';
-import { CardFavoritesComponent } from './components/atoms/card-favorites/card-favorites.component';
-import { FavoritesCardsGroupComponent } from './components/molecules/favorites-cards-group/favorites-cards-group.component';
-import { AdvertisingComponent } from './components/atoms/advertising/advertising.component';
+import { ButtonComponent } from "./components/atoms/button/button.component";
+import { CardFavoritesComponent } from "./components/atoms/card-favorites/card-favorites.component";
+import { FavoritesCardsGroupComponent } from "./components/molecules/favorites-cards-group/favorites-cards-group.component";
+import { AdvertisingComponent } from "./components/atoms/advertising/advertising.component";
+import { InputComponent } from "./components/atoms/input/input.component";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
 	declarations: [
@@ -47,12 +49,13 @@ import { AdvertisingComponent } from './components/atoms/advertising/advertising
 		HeaderOverlayProfileComponent,
 		CardGameComponent,
 		CategoryCardsGroupComponent,
-  ButtonComponent,
-  CardFavoritesComponent,
-  FavoritesCardsGroupComponent,
-  AdvertisingComponent,
+		ButtonComponent,
+		CardFavoritesComponent,
+		FavoritesCardsGroupComponent,
+		AdvertisingComponent,
+		InputComponent,
 	],
-	imports: [BrowserModule, AppRoutingModule],
+	imports: [BrowserModule, AppRoutingModule, FormsModule],
 	providers: [],
 	bootstrap: [AppComponent],
 })
