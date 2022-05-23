@@ -11,6 +11,7 @@ import { SessionService } from "src/app/services/session.service";
 export class RegisterComponent implements OnInit {
 	user: UserRegister;
 	confirmPassword: string = "";
+	spinnerLoading: boolean = false;
 
 	constructor(
 		private router: Router,
@@ -29,11 +30,14 @@ export class RegisterComponent implements OnInit {
 		e.preventDefault();
 		//TODO: validate inputs (before register and redirect to home)
 		if (
-			this.user.password.length > 0 &&
+			// this.user.password.length > 0 &&
 			this.user.password == this.confirmPassword
 		) {
-			this.sessionService.register(this.user);
-			this.router.navigate(["/"]);
+			this.spinnerLoading = true;
+			setTimeout(() => {
+				this.sessionService.register(this.user);
+				this.router.navigate(["/"]);
+			}, 2000);
 		} else console.log("TODO: inform errors");
 	}
 }

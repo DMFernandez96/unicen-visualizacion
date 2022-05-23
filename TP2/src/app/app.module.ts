@@ -27,6 +27,7 @@ import { FavoritesCardsGroupComponent } from "./components/molecules/favorites-c
 import { AdvertisingComponent } from "./components/atoms/advertising/advertising.component";
 import { InputComponent } from "./components/atoms/input/input.component";
 import { FormsModule } from "@angular/forms";
+import { SpinnerComponent } from './components/atoms/spinner/spinner.component';
 
 @NgModule({
 	declarations: [
@@ -54,6 +55,7 @@ import { FormsModule } from "@angular/forms";
 		FavoritesCardsGroupComponent,
 		AdvertisingComponent,
 		InputComponent,
+  SpinnerComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, FormsModule],
 	providers: [],
