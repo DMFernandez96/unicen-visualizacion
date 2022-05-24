@@ -1,1 +1,76 @@
 <app-advertising></app-advertising>
+<section class="for-playing">
+	<div class="top">
+		<div>
+			<span class="link body" routerLink="/">Inicio/</span>
+			<span class="link body" routerLink="/categorias/infantiles">
+				infantiles/
+			</span>
+		</div>
+		<div class="right">
+			<app-icon name="share" [width]="24"></app-icon>
+			<app-icon name="favorites-empty" [width]="24"></app-icon>
+		</div>
+	</div>
+	<h1>3 pandas en Japón</h1>
+	<div class="image-container">
+		<app-button
+			class="btn-play"
+			text="Jugar"
+			classList="background-success"
+			size="large"
+			routerLink="/jugando/17"
+		></app-button>
+		<app-card-game
+			src="/assets/images/infantiles/3pandasenjapon.jpg"
+			[width]="328"
+		></app-card-game>
+	</div>
+	<div class="tabs-container">
+		<app-tabs-header [(tabSelected)]="tabSelected"></app-tabs-header>
+
+		<app-tab-content *ngIf="tabSelected == 1">
+			¡Los 3 pandas están de vuelta y esta vez han aterrizado en Japón!
+			Nunca han estado allí, así que todo es nuevo y divertido para ellos.
+			Ayúdales a superar todos los obstáculos que se presenten en su
+			camino y consigue que disfruten de su viaje.
+		</app-tab-content>
+
+		<app-tab-content *ngIf="tabSelected == 2">
+			<ul class="instructions">
+				<li>Un toque: saltar</li>
+				<li>Doble toque: salto largo</li>
+			</ul>
+		</app-tab-content>
+
+		<app-tab-content *ngIf="tabSelected == 3">
+			<div class="multimedia">
+				<p>Video</p>
+				<div class="video">
+					<img
+						src="/assets/images/infantiles/3pandasenjaponvideo.jpg"
+						alt="video"
+					/>
+					<app-icon
+						class="video-play"
+						name="play"
+						[width]="48"
+					></app-icon>
+				</div>
+			</div>
+			<div class="multimedia">
+				<p>Multimedia</p>
+				<div class="multimedia-flex">
+					<img
+						src="/assets/images/infantiles/3pandasenjaponmultimedia1.jpg"
+						alt="image1"
+					/>
+					<img
+						src="/assets/images/infantiles/3pandasenjaponmultimedia2.jpg"
+						alt="image2"
+					/>
+				</div>
+			</div>
+		</app-tab-content>
+	</div>
+</section>

@@ -1,4 +1,9 @@
 <div class="card-game">
-	<img [src]="src" alt="game" />
+	<img
+		[class.width-250]="width == 250"
+		[class.width-328]="width == 328"
+		[src]="src"
+		alt="game"
+	/>
 	<p class="name body">{{ name }}</p>
 </div>

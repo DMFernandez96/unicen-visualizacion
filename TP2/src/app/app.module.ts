@@ -28,6 +28,9 @@ import { AdvertisingComponent } from "./components/atoms/advertising/advertising
 import { InputComponent } from "./components/atoms/input/input.component";
 import { FormsModule } from "@angular/forms";
 import { SpinnerComponent } from './components/atoms/spinner/spinner.component';
+import { TabComponent } from './components/atoms/tab/tab.component';
+import { TabContentComponent } from './components/atoms/tab-content/tab-content.component';
+import { TabsHeaderComponent } from './components/molecules/tabs-header/tabs-header.component';
 
 @NgModule({
 	declarations: [
@@ -56,6 +59,9 @@ import { SpinnerComponent } from './components/atoms/spinner/spinner.component';
 		AdvertisingComponent,
 		InputComponent,
   SpinnerComponent,
+  TabComponent,
+  TabContentComponent,
+  TabsHeaderComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, FormsModule],
 	providers: [],

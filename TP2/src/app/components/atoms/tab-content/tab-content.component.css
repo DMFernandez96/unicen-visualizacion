@@ -1,0 +1,7 @@
+.tab-content {
+	background-color: var(--primary-dark-2);
+	color: var(--white);
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: var(--space-small);
+}

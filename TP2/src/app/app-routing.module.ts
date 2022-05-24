@@ -14,7 +14,7 @@ import { FavoritesComponent } from "./components/pages/favorites/favorites.compo
 const routes: Routes = [
 	{ path: "", component: HomeComponent },
 	{ path: "juego/:ID", component: ForPlayingComponent },
-	{ path: "jugando", component: PlayingComponent },
+	{ path: "jugando/:ID", component: PlayingComponent },
 	{ path: "crear-cuenta", component: RegisterComponent },
 	{ path: "iniciar-sesion", component: LoginComponent },
 	{ path: "busqueda", component: SearchComponent },

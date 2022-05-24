@@ -21,7 +21,7 @@
 }
 
 .btn-large {
-	padding: var(--space-medium) var(--space-x-large);
+	padding: var(--space-large) var(--space-xx-large);
 	background-color: var(--secondary);
 }
 
@@ -36,4 +36,8 @@
 
 .text-black {
 	color: var(--black);
+}
+
+.background-success {
+	background-color: var(--success);
 }
