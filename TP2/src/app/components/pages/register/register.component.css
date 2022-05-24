@@ -13,6 +13,18 @@
 	border-radius: 20px;
 }
 
+/* inicio bloque "voltereta onload"  */
+.register {
+	animation: register-onload 3s;
+}
+
+@keyframes register-onload {
+	100% {
+		transform: rotate3d(2, 2, 2, 360deg);
+	}
+}
+/* fin bloque "voltereta onload"  */
+
 .center {
 	text-align: center;
 }
