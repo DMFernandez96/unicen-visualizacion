@@ -1,4 +1,4 @@
-<section *ngIf="visible" class="overlay">
+<section *ngIf="visible" class="overlay" [class.overlay-right]="right == true">
 	<span (click)="toggleVisible()" class="close">&times;</span>
 	<ng-content></ng-content>
 </section>

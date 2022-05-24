@@ -10,6 +10,8 @@ export class OverlayComponent implements OnInit {
 	@Input() visible: boolean = true;
 	@Output() visibleChange = new EventEmitter<boolean>();
 
+	@Input() right: boolean = false;
+
 	constructor() {}
 
 	ngOnInit(): void {}
