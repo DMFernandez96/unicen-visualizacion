@@ -30,5 +30,4 @@ form {
     color: var(--link-dark);
     text-align: center;
     margin-top: var(--space-medium);
-    text-decoration: dashed;
 }
