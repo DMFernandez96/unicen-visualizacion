@@ -31,6 +31,7 @@ import { SpinnerComponent } from './components/atoms/spinner/spinner.component';
 import { TabComponent } from './components/atoms/tab/tab.component';
 import { TabContentComponent } from './components/atoms/tab-content/tab-content.component';
 import { TabsHeaderComponent } from './components/molecules/tabs-header/tabs-header.component';
+import { SelectComponent } from './components/atoms/select/select.component';
 
 @NgModule({
 	declarations: [
@@ -62,6 +63,7 @@ import { TabsHeaderComponent } from './components/molecules/tabs-header/tabs-hea
   TabComponent,
   TabContentComponent,
   TabsHeaderComponent,
+  SelectComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, FormsModule],
 	providers: [],

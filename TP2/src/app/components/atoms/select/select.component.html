@@ -1,0 +1,14 @@
+<label for="select-{{ label | lowercase }}">{{ label }}</label>
+<section class="select-group">
+	<select
+		[(ngModel)]="value"
+		(ngModelChange)="handleChange()"
+		name="select-{{ label | lowercase }}"
+		class="body"
+	>
+		<option *ngFor="let option of options" value="{{ option | lowercase }}">
+			{{ option }}
+		</option>
+	</select>
+	<app-icon class="icon" name="dropdown-arrow-black"></app-icon>
+</section>
