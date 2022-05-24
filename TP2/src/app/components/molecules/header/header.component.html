@@ -1,15 +1,20 @@
 <section class="header">
     <div class="left" (click)="toggleMenuOverlay()">
-        <app-icon name="menu"></app-icon>
+        <app-icon class="hamburger-menu" name="menu"></app-icon>
+
     </div>
     <div class="center">
         <app-logo class="link" routerLink="/"></app-logo>
+        <div class="menu desktop">
+            <p class="link home h4" routerLink="/">Inicio</p>
+            <p class="menu-category h4" (click)="toggleCategoryOverlay()">Categorias</p>
+        </div>
     </div>
     <div class="right">
-        <input class="search-bar" type="text" (keydown.enter)="onKeyDownEvent()" placeholder="Buscar juego...">
-        <app-icon name="search" routerLink="/busqueda"></app-icon>
+        <input class="search-bar" type="text" [(ngModel)]="searchValue" (keydown.enter)="onKeyDownEvent()" placeholder="Buscar juego...">
+        <app-icon class="search" name="search" routerLink="/busqueda"></app-icon>
         <div (click)="toggleProfileOverlay()">
-            <app-icon *ngIf="!userIsLogged()" name="avatar"></app-icon>
+            <app-icon *ngIf="!userIsLogged()" class="avatar" name="avatar"></app-icon>
             <app-avatar [size]="48" *ngIf="userIsLogged()"></app-avatar>
         </div>
     </div>
@@ -45,5 +50,31 @@
 </app-overlay>
 
 <app-overlay [(visible)]="profileOverlayVisible">
-    <app-header-overlay-profile (close)="closeProfileOverlay()"></app-header-overlay-profile>
+    <div class="profile-overlay">
+        <app-header-overlay-profile (close)="closeProfileOverlay()"></app-header-overlay-profile>
+    </div>
+</app-overlay>
+<app-overlay [(visible)]="categoryOverlayVisible">
+    <div class="category-overlay">
+        <ul>
+            <li (click)="closeCategoryOverlay()" routerLink="/categorias/accion" class="h4 link category">
+                Accion
+            </li>
+            <li (click)="closeCategoryOverlay()" routerLink="/categorias/belleza" class="h4 link category">
+                Belleza
+            </li>
+            <li (click)="closeCategoryOverlay()" routerLink="/categorias/carreras" class="h4 link category">
+                Carreras
+            </li>
+            <li (click)="closeCategoryOverlay()" routerLink="/categorias/gestion" class="h4 link category">
+                Gestion
+            </li>
+            <li (click)="closeCategoryOverlay()" routerLink="/categorias/infantiles" class="h4 link category">
+                Infantiles
+            </li>
+            <li (click)="closeCategoryOverlay()" routerLink="/categorias/puzzle" class="h4 link category">
+                Puzzle
+            </li>
+        </ul>
+    </div>
 </app-overlay>

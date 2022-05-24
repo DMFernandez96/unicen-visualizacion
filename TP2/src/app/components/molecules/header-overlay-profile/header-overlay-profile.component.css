@@ -38,4 +38,7 @@
     .profile-overlay p:hover {
         color: var(--secondary);
     }
+    .profile-overlay {
+        right: 0;
+    }
 }
