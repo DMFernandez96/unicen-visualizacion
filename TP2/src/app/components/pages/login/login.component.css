@@ -7,9 +7,10 @@
 }
 
 .login {
-    background-color: var(--primary);
     padding: var(--space-x-large) var(--space-medium);
     color: var(--black);
+    border-radius: 20px;
+    background-color: rgba(229, 162, 162, 0.9);
     border-radius: 20px;
 }
 
@@ -30,4 +31,5 @@ form {
     color: var(--link-dark);
     text-align: center;
     margin-top: var(--space-medium);
+    text-decoration: underline;
 }

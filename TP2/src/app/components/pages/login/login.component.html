@@ -1,5 +1,7 @@
 <section class="login-container">
+    <app-background-animated></app-background-animated>
     <section class="login">
+        <div class="fondo"></div>
         <div class="center">
             <h1>Iniciar Sesión</h1>
         </div>
@@ -9,7 +11,7 @@
             <app-button text="Ingresar" classList="w-100 text-black h4"></app-button>
         </form>
         <app-spinner [loading]="spinnerLoading"></app-spinner>
-        <p class="link" routerLink="/registrarse">¿Aun no tienes una cuenta?</p>
+        <p class="link" routerLink="/registrarse">¿Olvidaste tu contraseña?</p>
         <p class="link" routerLink="/">Volver a inicio</p>
     </section>
 </section>
