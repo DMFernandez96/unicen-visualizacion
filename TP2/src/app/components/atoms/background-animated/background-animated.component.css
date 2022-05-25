@@ -1,0 +1,187 @@
+.container-background-animated {
+    background-color: var(--black);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+div.container-all {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.container-cube {
+    /*se define la profundidad del documento*/
+    perspective: 800px;
+    margin: 0 auto;
+    width: 25px;
+    height: 25px;
+}
+
+.cube {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50vh 25vw;
+    transform-style: preserve-3d;
+    animation-name: toTurn;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    position: absolute;
+}
+
+.cube::after {
+    content: "";
+    height: 180px;
+    left: 10px;
+    position: absolute;
+    width: 180px;
+}
+
+.x1 {
+    animation: animateCube 25s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    left: -5%;
+    top: 5%;
+}
+
+.x2 {
+    animation: animateCube 20s linear infinite, sideWays 6s ease-in-out infinite alternate;
+    left: 10%;
+    top: 80%;
+    animation-delay: -2s;
+}
+
+.x3 {
+    animation: animateCube 28s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    left: 10%;
+    top: 40%;
+    animation-delay: -4s;
+}
+
+.x4 {
+    animation: animateCube 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
+    left: 20%;
+    top: 0;
+    animation-delay: -6s;
+}
+
+.x5 {
+    animation: animateCube 29s linear infinite, sideWays 7s ease-in-out infinite alternate;
+    left: 30%;
+    top: 50%;
+    animation-delay: -8s;
+}
+
+.x6 {
+    animation: animateCube 21s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    left: 50%;
+    top: 0;
+    animation-delay: -10s;
+}
+
+.x7 {
+    animation: animateCube 20s linear infinite, sideWays 6s ease-in-out infinite alternate;
+    left: 65%;
+    top: 70%;
+    animation-delay: -12s;
+}
+
+.x8 {
+    animation: animateCube 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
+    left: 80%;
+    top: 10%;
+    animation-delay: -14s;
+}
+
+.x9 {
+    animation: animateCube 29s linear infinite, sideWays 5s ease-in-out infinite alternate;
+    left: 90%;
+    top: 50%;
+    animation-delay: -16s;
+}
+
+.x10 {
+    animation: animateCube 26s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    left: 80%;
+    top: 80%;
+    animation-delay: -18s;
+}
+
+.face {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    opacity: 0.7;
+}
+
+div.front {
+    background-color: var(--primary);
+    transform: translateZ(12.5px);
+}
+
+div.back {
+    background-color: var(--primary);
+    transform: translateZ(-12.5px);
+}
+
+div.top {
+    background-color: var(--primary-light-2);
+    transform: translateY(-12.5px) rotateX(90deg);
+}
+
+div.bottom {
+    background-color: var(--primary-dark-1);
+    transform: translateY(12.5px) rotateX(90deg);
+}
+
+div.left {
+    background-color: var(--primary-light-2);
+    transform: translateX(-12.5px) rotateY(90deg);
+}
+
+div.right {
+    background-color: var(--primary-light-2);
+    transform: translateX(12.5px) rotateY(90deg);
+}
+
+@keyframes toTurn {
+    0% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(270deg);
+    }
+    75% {
+        transform: rotateY(-270deg);
+    }
+    100% {
+        transform: rotateY(-360deg);
+    }
+}
+
+@keyframes animateCube {
+    0% {
+        margin-top: 400px;
+    }
+    100% {
+        margin-top: -1000%;
+    }
+}
+
+@keyframes sideWays {
+    0% {
+        margin-left: 0px;
+    }
+    100% {
+        margin-left: -200px;
+    }
+}
