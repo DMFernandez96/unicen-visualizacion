@@ -1,24 +1,48 @@
 <section class="profile">
+	<div class="container">
+		<div class="center">
+			<h1>Editar Perfil</h1>
+		</div>
+		<app-avatar class="avatar" [size]="150"></app-avatar>
 
-    <div class="container">
-        <div class="center">
-            <h1>Editar Perfil</h1>
-        </div>
-        <app-avatar class="avatar" [size]="150"></app-avatar>
-
-        <form (submit)="editProfile($event)">
-            <app-input [(value)]="user.username" label="Nombre de usuario" placeholder="jugador001"></app-input>
-            <app-input [(value)]="user.email" label="Correo electronico" placeholder="juanGamer1@gmail.com"></app-input>
-            <app-input [(value)]="user.password" label="Contraseña actual" type="password" placeholder="******"></app-input>
-            <app-input [(value)]="confirmPassword" label="Nueva contraseña" type="password" placeholder="*********"></app-input>
-            <app-input [(value)]="confirmPassword" label="Repetir nueva contraseña" type="password" placeholder="*********">
-            </app-input>
-            <div class="successEdit" *ngIf="isShown">
-                <p>Cambios guardados exitosamente!</p>
-            </div>
-            <app-button text="Editar" classList="w-100 text-black h4" (click)="toggleShow()"></app-button>
-        </form>
-        <app-spinner [loading]="spinnerLoading"></app-spinner>
-
-    </div>
+		<form (submit)="editProfile($event)">
+			<app-input
+				[(value)]="user.username"
+				label="Nombre de usuario"
+				placeholder="jugador001"
+			></app-input>
+			<app-input
+				[(value)]="user.email"
+				label="Correo electronico"
+				placeholder="juanGamer1@gmail.com"
+			></app-input>
+			<app-input
+				[(value)]="user.password"
+				label="Contraseña actual"
+				type="password"
+				placeholder="******"
+			></app-input>
+			<app-input
+				[(value)]="confirmPassword"
+				label="Nueva contraseña"
+				type="password"
+				placeholder="*********"
+			></app-input>
+			<app-input
+				[(value)]="confirmPassword"
+				label="Repetir nueva contraseña"
+				type="password"
+				placeholder="*********"
+			>
+			</app-input>
+			<div class="successEdit" *ngIf="isShown">
+				<p>Cambios guardados exitosamente!</p>
+			</div>
+			<app-button
+				text="Editar"
+				classList="w-100 text-black h4"
+				(click)="toggleShow()"
+			></app-button>
+		</form>
+	</div>
 </section>

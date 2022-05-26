@@ -27,14 +27,13 @@ import { FavoritesCardsGroupComponent } from "./components/molecules/favorites-c
 import { AdvertisingComponent } from "./components/atoms/advertising/advertising.component";
 import { InputComponent } from "./components/atoms/input/input.component";
 import { FormsModule } from "@angular/forms";
-import { SpinnerComponent } from './components/atoms/spinner/spinner.component';
-import { TabComponent } from './components/atoms/tab/tab.component';
-import { TabContentComponent } from './components/atoms/tab-content/tab-content.component';
-import { TabsHeaderComponent } from './components/molecules/tabs-header/tabs-header.component';
-import { SelectComponent } from './components/atoms/select/select.component';
-import { BackgroundAnimatedComponent } from './components/atoms/background-animated/background-animated.component';
-import { DropdownComponent } from './components/atoms/dropdown/dropdown.component';
-import { SpinnerOverlayComponent } from './components/atoms/spinner-overlay/spinner-overlay.component';
+import { TabComponent } from "./components/atoms/tab/tab.component";
+import { TabContentComponent } from "./components/atoms/tab-content/tab-content.component";
+import { TabsHeaderComponent } from "./components/molecules/tabs-header/tabs-header.component";
+import { SelectComponent } from "./components/atoms/select/select.component";
+import { BackgroundAnimatedComponent } from "./components/atoms/background-animated/background-animated.component";
+import { DropdownComponent } from "./components/atoms/dropdown/dropdown.component";
+import { SpinnerOverlayComponent } from "./components/atoms/spinner-overlay/spinner-overlay.component";
 
 @NgModule({
 	declarations: [
@@ -62,14 +61,13 @@ import { SpinnerOverlayComponent } from './components/atoms/spinner-overlay/spin
 		FavoritesCardsGroupComponent,
 		AdvertisingComponent,
 		InputComponent,
-  SpinnerComponent,
-  TabComponent,
-  TabContentComponent,
-  TabsHeaderComponent,
-  SelectComponent,
-  BackgroundAnimatedComponent,
-  DropdownComponent,
-  SpinnerOverlayComponent,
+		TabComponent,
+		TabContentComponent,
+		TabsHeaderComponent,
+		SelectComponent,
+		BackgroundAnimatedComponent,
+		DropdownComponent,
+		SpinnerOverlayComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, FormsModule],
 	providers: [],

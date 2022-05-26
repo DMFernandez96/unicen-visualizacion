@@ -1,23 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { GamesService } from "src/app/services/games.service";
 
 @Component({
-  selector: 'app-favorites',
-  templateUrl: './favorites.component.html',
-  styleUrls: ['./favorites.component.css']
+	selector: "app-favorites",
+	templateUrl: "./favorites.component.html",
+	styleUrls: ["./favorites.component.css"],
 })
 export class FavoritesComponent implements OnInit {
-  spinnerLoading: boolean = false;
+	constructor(public gamesService: GamesService) {}
 
-  constructor(
-    public gamesService: GamesService
-    ) { }
-
-  ngOnInit(): void {
-    this.spinnerLoading = true;
-    setTimeout(() => {
-      this.spinnerLoading = false;
-    }, 2000);
-  }
-
+	ngOnInit(): void {}
 }

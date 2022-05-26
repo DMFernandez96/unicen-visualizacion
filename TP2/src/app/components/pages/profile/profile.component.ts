@@ -1,47 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserRegister } from "src/app/interfaces/user-register";
-import { NgZone } from '@angular/core';
+import { NgZone } from "@angular/core";
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+	selector: "app-profile",
+	templateUrl: "./profile.component.html",
+	styleUrls: ["./profile.component.css"],
 })
 export class ProfileComponent implements OnInit {
-  user: UserRegister;
+	user: UserRegister;
 	confirmPassword: string = "";
-	spinnerLoading: boolean = false;
-  isShown: boolean = false ; // hidden by default
+	isShown: boolean = false; // hidden by default
 
-  constructor(private router: Router, ) { 
-    this.user = {
+	constructor(private router: Router) {
+		this.user = {
 			username: "",
 			email: "",
 			password: "",
 		};
-  }
+	}
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {}
 
-  editProfile(e: any) {
+	editProfile(e: any) {
 		e.preventDefault();
 		if (
 			// this.user.password.length > 0 &&
 			this.user.password == this.confirmPassword
 		) {
-			this.spinnerLoading = true;
-			setTimeout(() => {
-				this.router.navigate(["/"]);
-			}, 2000);
+			this.router.navigate(["/"]);
 		} else console.log("TODO: inform errors");
 	}
 
-  toggleShow(): void {
-    setTimeout(() => {
-      this.isShown = !this.isShown;
-    }, 1000);
-		
+	toggleShow(): void {
+		setTimeout(() => {
+			this.isShown = !this.isShown;
+		}, 1000);
 	}
 }
