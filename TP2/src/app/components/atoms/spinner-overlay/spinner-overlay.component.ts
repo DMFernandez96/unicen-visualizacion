@@ -21,7 +21,6 @@ export class SpinnerOverlayComponent implements OnInit {
 					break;
 				}
 				default: {
-					console.log(event);
 					break;
 				}
 			}

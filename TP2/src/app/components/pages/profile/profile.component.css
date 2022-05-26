@@ -1,26 +1,32 @@
 .profile {
-    display: flex;
-    padding-top: var(--space-x-large);
-    margin-bottom: var(--space-xx-large);
-    justify-content: center;
+	display: flex;
+	padding-top: var(--space-x-large);
+	margin-bottom: var(--space-xx-large);
+	justify-content: center;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .center {
-    text-align: center;
+	text-align: center;
 }
 
 .avatar {
-    align-self: center;
-    margin-top: var(--space-large);
-    margin-bottom: var(--space-medium);
+	align-self: center;
+	margin-top: var(--space-large);
+	margin-bottom: var(--space-medium);
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-large);
 }
 
 .successEdit p {
-    color: var(--secondary);
-    margin-bottom: var(--space-small);
+	color: var(--secondary);
+	margin-bottom: var(--space-small);
 }
