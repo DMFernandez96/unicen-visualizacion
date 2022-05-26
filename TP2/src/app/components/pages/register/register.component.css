@@ -1,51 +1,34 @@
 .register-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: var(--space-xx-large) 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: var(--space-xx-large) 0;
 }
 
 .register {
-    background-color: rgba(229, 162, 162, 0.9);
-    ;
-    padding: var(--space-x-large) var(--space-medium);
-    color: var(--black);
-    border-radius: 20px;
+	background-color: rgba(229, 162, 162, 0.9);
+	padding: var(--space-x-large) var(--space-medium);
+	color: var(--black);
+	border-radius: 20px;
 }
-
-
-/* inicio bloque "voltereta onload"  */
-
-.register {
-    animation: register-onload 3s;
-}
-
-@keyframes register-onload {
-    100% {
-        transform: rotate3d(2, 2, 2, 360deg);
-    }
-}
-
-
-/* fin bloque "voltereta onload"  */
 
 .center {
-    text-align: center;
+	text-align: center;
 }
 
 .center h1 {
-    margin-bottom: var(--space-x-small);
+	margin-bottom: var(--space-x-small);
 }
 
 form {
-    margin-top: var(--space-x-large);
+	margin-top: var(--space-x-large);
 }
 
 .link {
-    cursor: pointer;
-    color: var(--link-dark);
-    text-align: center;
-    margin-top: var(--space-medium);
-    text-decoration: underline;
+	cursor: pointer;
+	color: var(--link-dark);
+	text-align: center;
+	margin-top: var(--space-medium);
+	text-decoration: underline;
 }
