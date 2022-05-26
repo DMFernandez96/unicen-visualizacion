@@ -25,38 +25,9 @@
 	></app-category-cards-group>
 
 	<app-category-cards-group
-		name="Accion"
-		[games]="gamesService.getByCategory('accion')"
-		[viewMore]="true"
-	></app-category-cards-group>
-
-	<app-category-cards-group
-		name="Belleza"
-		[games]="gamesService.getByCategory('belleza')"
-		[viewMore]="true"
-	></app-category-cards-group>
-
-	<app-category-cards-group
-		name="Carreras"
-		[games]="gamesService.getByCategory('carreras')"
-		[viewMore]="true"
-	></app-category-cards-group>
-
-	<app-category-cards-group
-		name="Gestion"
-		[games]="gamesService.getByCategory('gestion')"
-		[viewMore]="true"
-	></app-category-cards-group>
-
-	<app-category-cards-group
-		name="Infantiles"
-		[games]="gamesService.getByCategory('infantiles')"
-		[viewMore]="true"
-	></app-category-cards-group>
-
-	<app-category-cards-group
-		name="Puzzle"
-		[games]="gamesService.getByCategory('puzzle')"
+		*ngFor="let category of getCategories()"
+		name="{{ category }}"
+		[games]="gamesService.getByCategory(category | lowercase)"
 		[viewMore]="true"
 	></app-category-cards-group>
 </section>

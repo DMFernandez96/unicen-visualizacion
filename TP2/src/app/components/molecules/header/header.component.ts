@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { SessionService } from "src/app/services/session.service";
-import {Router} from '@angular/router';
+import { Router } from "@angular/router";
 import { Observable } from "rxjs";
+import { CategoriesService } from "src/app/services/categories.service";
 
 @Component({
 	selector: "app-header",
@@ -11,9 +12,13 @@ import { Observable } from "rxjs";
 export class HeaderComponent implements OnInit {
 	menuOverlayVisible: boolean = false;
 	profileOverlayVisible: boolean = false;
-	categoryOverlayVisible: boolean =false;
 	searchValue!: String;
-	constructor(public sessionService: SessionService, private router: Router) {}
+
+	constructor(
+		public sessionService: SessionService,
+		private router: Router,
+		private categoriesService: CategoriesService
+	) {}
 
 	ngOnInit(): void {}
 
@@ -37,16 +42,12 @@ export class HeaderComponent implements OnInit {
 		return this.sessionService.isLoggedIn();
 	}
 
-	onKeyDownEvent(): void{
-		this.searchValue= " ";
-		this.router.navigate(['/busqueda']);
+	onKeyDownEvent(): void {
+		this.searchValue = " ";
+		this.router.navigate(["/busqueda"]);
 	}
 
-	toggleCategoryOverlay():void{
-		this.categoryOverlayVisible = !this.categoryOverlayVisible;
+	getCategories(): string[] {
+		return this.categoriesService.getCategories();
 	}
-	closeCategoryOverlay(): Observable<MouseEvent> | void{
-		this.categoryOverlayVisible = false;	
-	}
-
 }

@@ -33,6 +33,7 @@ import { TabContentComponent } from './components/atoms/tab-content/tab-content.
 import { TabsHeaderComponent } from './components/molecules/tabs-header/tabs-header.component';
 import { SelectComponent } from './components/atoms/select/select.component';
 import { BackgroundAnimatedComponent } from './components/atoms/background-animated/background-animated.component';
+import { DropdownComponent } from './components/atoms/dropdown/dropdown.component';
 
 @NgModule({
 	declarations: [
@@ -66,6 +67,7 @@ import { BackgroundAnimatedComponent } from './components/atoms/background-anima
   TabsHeaderComponent,
   SelectComponent,
   BackgroundAnimatedComponent,
+  DropdownComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, FormsModule],
 	providers: [],

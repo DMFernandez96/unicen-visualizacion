@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { CategoriesService } from "src/app/services/categories.service";
 
 @Component({
 	selector: "app-search",
@@ -6,20 +7,15 @@ import { Component, OnInit } from "@angular/core";
 	styleUrls: ["./search.component.css"],
 })
 export class SearchComponent implements OnInit {
-	categories: string[];
 	category: string = "todas";
 
-	constructor() {
-		this.categories = [
-			"Todas",
-			"Accion",
-			"Belleza",
-			"Carreras",
-			"Gestion",
-			"Infantiles",
-			"Puzzle",
-		];
-	}
+	constructor(private categoriesService: CategoriesService) {}
 
 	ngOnInit(): void {}
+
+	getCategories(): string[] {
+		let result = ["Todas"];
+		result = result.concat(this.categoriesService.getCategories());
+		return result;
+	}
 }

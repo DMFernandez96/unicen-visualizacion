@@ -6,9 +6,12 @@
 		<app-logo class="link" routerLink="/"></app-logo>
 		<div class="menu desktop">
 			<p class="link home h4" routerLink="/">Inicio</p>
-			<p class="menu-category h4" (click)="toggleCategoryOverlay()">
-				Categorias
-			</p>
+			<app-dropdown
+				class="menu-category"
+				text="Categorias"
+				[options]="getCategories()"
+				classList="h4"
+			></app-dropdown>
 		</div>
 	</div>
 	<div class="right">
@@ -93,54 +96,5 @@
 		<app-header-overlay-profile
 			(close)="closeProfileOverlay()"
 		></app-header-overlay-profile>
-	</div>
-</app-overlay>
-
-<app-overlay [(visible)]="categoryOverlayVisible">
-	<div class="category-overlay">
-		<ul>
-			<li
-				(click)="closeCategoryOverlay()"
-				routerLink="/categorias/accion"
-				class="h4 link category"
-			>
-				Accion
-			</li>
-			<li
-				(click)="closeCategoryOverlay()"
-				routerLink="/categorias/belleza"
-				class="h4 link category"
-			>
-				Belleza
-			</li>
-			<li
-				(click)="closeCategoryOverlay()"
-				routerLink="/categorias/carreras"
-				class="h4 link category"
-			>
-				Carreras
-			</li>
-			<li
-				(click)="closeCategoryOverlay()"
-				routerLink="/categorias/gestion"
-				class="h4 link category"
-			>
-				Gestion
-			</li>
-			<li
-				(click)="closeCategoryOverlay()"
-				routerLink="/categorias/infantiles"
-				class="h4 link category"
-			>
-				Infantiles
-			</li>
-			<li
-				(click)="closeCategoryOverlay()"
-				routerLink="/categorias/puzzle"
-				class="h4 link category"
-			>
-				Puzzle
-			</li>
-		</ul>
 	</div>
 </app-overlay>
