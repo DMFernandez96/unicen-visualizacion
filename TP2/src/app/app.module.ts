@@ -34,6 +34,7 @@ import { TabsHeaderComponent } from './components/molecules/tabs-header/tabs-hea
 import { SelectComponent } from './components/atoms/select/select.component';
 import { BackgroundAnimatedComponent } from './components/atoms/background-animated/background-animated.component';
 import { DropdownComponent } from './components/atoms/dropdown/dropdown.component';
+import { SpinnerOverlayComponent } from './components/atoms/spinner-overlay/spinner-overlay.component';
 
 @NgModule({
 	declarations: [
@@ -68,6 +69,7 @@ import { DropdownComponent } from './components/atoms/dropdown/dropdown.componen
   SelectComponent,
   BackgroundAnimatedComponent,
   DropdownComponent,
+  SpinnerOverlayComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, FormsModule],
 	providers: [],
