@@ -59,4 +59,12 @@ export class GamesService {
 		recommended.push(this.getById(3));
 		return recommended;
 	}
+
+	getFiltered(name: string, category: string, ascendente: boolean): Game[] {
+		let gamesFiltered: Game[] = this.games.filter(
+			(g) => g.name.toLowerCase().includes(name) && g.category == category
+		);
+		if (!ascendente) gamesFiltered.reverse();
+		return gamesFiltered;
+	}
 }

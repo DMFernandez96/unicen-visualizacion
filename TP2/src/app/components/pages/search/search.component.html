@@ -1,5 +1,34 @@
-<app-select
-	[(value)]="category"
-	label="Categoria"
-	[options]="getCategories()"
-></app-select>
+<section class="search">
+	<h1 class="title">Busqueda</h1>
+
+	<form (submit)="search($event)">
+		<app-input [(value)]="name" label="Busca por nombre"></app-input>
+
+		<app-select
+			[(value)]="category"
+			label="Categoria"
+			[options]="getCategoriesWithAll()"
+		></app-select>
+
+		<app-select
+			[(value)]="orden"
+			label="Orden"
+			[options]="['Mas nuevos primero', 'Mas antiguos primero']"
+		></app-select>
+
+		<app-button
+			class="button-submit"
+			text="Buscar"
+			classList="w-100"
+			type="submit"
+		></app-button>
+	</form>
+</section>
+<section class="results">
+	<h2 class="title-results">Resultados</h2>
+	<app-category-cards-group
+		*ngFor="let category of getCategories()"
+		name="{{ category }}"
+		[games]="getGames(category)"
+	></app-category-cards-group>
+</section>
