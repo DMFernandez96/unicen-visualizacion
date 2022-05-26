@@ -6,7 +6,7 @@
 		"start": "ng serve",
 		"build": "ng build",
 		"watch": "ng build --watch --configuration development",
-		"deploy": "ng build --base-href=https://dmfernandez96.github.io/unicen-visualizacion/TP2/EntregaFinal/",
+		"deploy": "ng build --base-href=/unicen-visualizacion/TP2/EntregaFinal/",
 		"test": "ng test"
 	},
 	"private": true,
