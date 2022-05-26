@@ -1,0 +1,26 @@
+.profile {
+    display: flex;
+    padding-top: var(--space-x-large);
+    margin-bottom: var(--space-xx-large);
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    text-align: center;
+}
+
+.avatar {
+    align-self: center;
+    margin-top: var(--space-large);
+    margin-bottom: var(--space-medium);
+}
+
+.successEdit p {
+    color: var(--secondary);
+    margin-bottom: var(--space-small);
+}

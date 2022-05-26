@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { UserRegister } from "src/app/interfaces/user-register";
+import { NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +9,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  user: UserRegister;
+	confirmPassword: string = "";
+	spinnerLoading: boolean = false;
+  isShown: boolean = false ; // hidden by default
 
-  constructor() { }
+  constructor(private router: Router, ) { 
+    this.user = {
+			username: "",
+			email: "",
+			password: "",
+		};
+  }
 
   ngOnInit(): void {
   }
 
+  editProfile(e: any) {
+		e.preventDefault();
+		if (
+			// this.user.password.length > 0 &&
+			this.user.password == this.confirmPassword
+		) {
+			this.spinnerLoading = true;
+			setTimeout(() => {
+				this.router.navigate(["/"]);
+			}, 2000);
+		} else console.log("TODO: inform errors");
+	}
+
+  toggleShow(): void {
+    setTimeout(() => {
+      this.isShown = !this.isShown;
+    }, 1000);
+		
+	}
 }
