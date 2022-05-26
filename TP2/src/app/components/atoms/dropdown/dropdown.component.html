@@ -4,6 +4,12 @@
 		<app-icon name="dropdown-arrow"></app-icon>
 	</p>
 	<div id="dropdown-categories" class="dropdown-content">
-		<p *ngFor="let option of options" class="dropdown-item">{{ option }}</p>
+		<p
+			*ngFor="let option of options"
+			[routerLink]="link ? [linkPrefix + option | lowercase] : []"
+			class="dropdown-item"
+		>
+			{{ option }}
+		</p>
 	</div>
 </div>

@@ -9,6 +9,8 @@ export class DropdownComponent implements OnInit {
 	@Input() text!: string;
 	@Input() options!: string[];
 	@Input() classList!: string;
+	@Input() link: boolean = false;
+	@Input() linkPrefix!: string;
 
 	constructor() {}
 
