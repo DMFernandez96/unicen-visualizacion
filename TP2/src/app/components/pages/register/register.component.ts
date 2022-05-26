@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
 		) {
 			setTimeout(() => {
 				this.sessionService.register(this.user);
-			}, 2000);
+			}, 500);
 			this.router.navigate(["/"]);
 		} else console.log("TODO: inform errors");
 	}

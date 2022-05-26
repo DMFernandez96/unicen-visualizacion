@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
 		) {
 			setTimeout(() => {
 				this.sessionService.sigIn(this.user);
-			}, 2000);
+			}, 500);
 			this.router.navigate(["/"]);
 		} else console.log("TODO: inform errors");
 	}
