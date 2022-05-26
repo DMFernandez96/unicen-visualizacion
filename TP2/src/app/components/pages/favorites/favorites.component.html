@@ -2,4 +2,5 @@
     <h1 class="title"> Mis favoritos</h1>
     <app-favorites-cards-group [games]="gamesService.getFavorites()">
     </app-favorites-cards-group>
+    <app-spinner-overlay [loading]="spinnerLoading"></app-spinner-overlay>
 </section>

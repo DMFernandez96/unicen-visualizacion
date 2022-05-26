@@ -7,12 +7,17 @@ import { GamesService } from "src/app/services/games.service";
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent implements OnInit {
+  spinnerLoading: boolean = false;
 
   constructor(
     public gamesService: GamesService
     ) { }
 
   ngOnInit(): void {
+    this.spinnerLoading = true;
+    setTimeout(() => {
+      this.spinnerLoading = false;
+    }, 2000);
   }
 
 }
