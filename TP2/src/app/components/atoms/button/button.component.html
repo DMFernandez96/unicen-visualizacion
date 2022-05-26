@@ -1,0 +1,10 @@
+<button
+	class="btn {{ classList }}"
+	[ngClass]="{
+		'btn-small body-small': size == 'small',
+		'btn-normal body': size == 'normal',
+		'btn-large h4': size == 'large'
+	}"
+>
+	{{ text }}
+</button>

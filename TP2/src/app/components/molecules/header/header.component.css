@@ -1,0 +1,121 @@
+.header {
+    background-color: var(--primary);
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-x-small);
+}
+
+.search-bar {
+    display: none;
+}
+
+.left,
+.right {
+    /*because position absolute of .center*/
+    z-index: 100;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-x-small);
+}
+
+.center {
+    /* position absolute for logo horizontal alignment */
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.menu-overlay {
+    padding: var(--space-medium) var(--space-large);
+}
+
+.menu-overlay>p:first-child {
+    padding-bottom: var(--space-x-small);
+}
+
+.category {
+    margin-left: var(--space-large);
+    margin-bottom: var(--space-x-small);
+}
+
+li.category:first-child {
+    margin-top: var(--space-x-small);
+}
+
+.link.home,
+.menu-category {
+    display: none;
+}
+
+@media(min-width: 1024px) {
+    .menu-overlay p:hover,
+    li:hover {
+        color: var(--secondary);
+    }
+    .search-bar {
+        display: flex;
+        visibility: visible;
+        height: 40px;
+        width: 300px;
+        border-radius: 16px;
+        padding-left: 4%;
+        border: none;
+        background-color: var(--primary-light-2);
+        box-shadow: var(--elevation-1dp);
+        cursor: pointer;
+    }
+    .search-bar:focus {
+        background-color: var(--white);
+    }
+    .search,
+    .avatar {
+        cursor: pointer;
+    }
+    .left,
+    .hamburger-menu {
+        display: none;
+    }
+    .center {
+        display: flex;
+        width: 50%;
+        margin-left: var(--space-medium);
+    }
+    .link.home,
+    .menu-category {
+        display: inline-flex;
+        margin-left: var(--space-medium);
+        margin-top: auto;
+        margin-bottom: auto;
+        cursor: pointer;
+    }
+    .menu.desktop {
+        display: flex;
+        width: 30%;
+        justify-content: baseline;
+    }
+    .menu-category:hover,
+    .link.home:hover {
+        color: var(--secondary-dark-2);
+    }
+    .link.home {
+        margin-right: var(--space-large);
+    }
+    .left {
+        display: flex;
+        align-items: center;
+        margin-left: var(--space-large);
+    }
+    .link {
+        left: 0;
+        margin-right: var(--space-large);
+    }
+    .profile-overlay p:hover li:hover {
+        color: var(--secondary);
+    }
+}

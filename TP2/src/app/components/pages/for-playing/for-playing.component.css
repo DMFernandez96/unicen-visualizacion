@@ -1,0 +1,64 @@
+.for-playing {
+	padding: var(--space-medium);
+	margin-bottom: var(--space-x-large);
+}
+
+.top {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: var(--space-xx-small);
+}
+
+.link {
+	color: var(--link-light);
+}
+
+.right {
+	display: flex;
+	gap: var(--space-medium);
+}
+
+.image-container {
+	margin-top: var(--space-medium);
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.btn-play {
+	position: absolute;
+	bottom: 20%;
+}
+
+.tabs-container {
+	margin-top: var(--space-large);
+}
+
+.instructions {
+	list-style: inside;
+}
+
+.multimedia {
+	margin-bottom: var(--space-large);
+}
+
+.multimedia > p {
+	margin-bottom: var(--space-xx-small);
+}
+
+.video {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.video-play {
+	position: absolute;
+}
+
+.multimedia-flex {
+	display: flex;
+	gap: var(--space-x-small);
+}

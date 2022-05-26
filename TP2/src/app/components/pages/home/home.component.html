@@ -1,0 +1,33 @@
+<section class="home">
+	<h1 class="title">
+		Bienvenido a
+		<span> juegos games </span>
+	</h1>
+
+	<app-category-cards-group
+		name="Continuar jugando"
+		[games]="gamesService.getContinuePlaying()"
+	>
+		<app-icon name="continue-playing" [width]="29"></app-icon>
+	</app-category-cards-group>
+
+	<app-category-cards-group
+		*ngIf="sessionService.isLoggedIn()"
+		name="Mis favoritos"
+		[games]="gamesService.getFavorites()"
+	>
+		<app-icon name="favorites-empty" [width]="29"></app-icon>
+	</app-category-cards-group>
+
+	<app-category-cards-group
+		name="Recomendados para ti"
+		[games]="gamesService.getRecommendedForYou()"
+	></app-category-cards-group>
+
+	<app-category-cards-group
+		*ngFor="let category of getCategories()"
+		name="{{ category }}"
+		[games]="gamesService.getByCategory(category | lowercase)"
+		[viewMore]="true"
+	></app-category-cards-group>
+</section>

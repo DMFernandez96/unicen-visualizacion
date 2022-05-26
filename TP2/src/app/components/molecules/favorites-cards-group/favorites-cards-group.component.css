@@ -1,0 +1,26 @@
+.favorites {
+    margin-bottom: var(--space-x-large);
+    display: flex;
+    justify-content: center;
+}
+
+.cards-group {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    justify-content: center;
+    gap: var(--space-xx-large);
+}
+
+.name {
+    gap: var(--space-medium);
+    margin-bottom: var(--space-xx-small);
+}
+
+@media (min-width: 1024px) {
+    .cards-group {
+        gap: var(--space-large);
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

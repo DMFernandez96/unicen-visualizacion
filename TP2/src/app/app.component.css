@@ -1,0 +1,14 @@
+.container {
+	overflow: hidden;
+}
+
+.scrollable {
+	display: flex;
+	flex-direction: column;
+	height: calc(100vh - 90px);
+	overflow-y: scroll;
+}
+
+.router-content {
+	flex-grow: 1;
+}

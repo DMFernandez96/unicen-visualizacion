@@ -1,0 +1,31 @@
+.search {
+	/* text-align: center; */
+}
+
+.title {
+	text-align: center;
+	margin-top: var(--space-x-large);
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-large);
+	margin-top: var(--space-x-large);
+	padding: auto;
+}
+
+.button-submit {
+	width: 300px;
+}
+
+.results {
+	margin-top: var(--space-xx-large);
+	padding-left: var(--space-medium);
+}
+
+.title-results {
+	text-align: center;
+	margin-bottom: var(--space-large);
+}
