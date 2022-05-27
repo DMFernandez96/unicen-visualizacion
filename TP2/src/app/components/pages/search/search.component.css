@@ -1,7 +1,3 @@
-.search {
-	/* text-align: center; */
-}
-
 .title {
 	text-align: center;
 	margin-top: var(--space-x-large);
@@ -13,7 +9,6 @@ form {
 	align-items: center;
 	gap: var(--space-large);
 	margin-top: var(--space-x-large);
-	padding: auto;
 }
 
 .button-submit {
@@ -22,10 +17,44 @@ form {
 
 .results {
 	margin-top: var(--space-xx-large);
-	padding-left: var(--space-medium);
+	position: relative;
 }
 
 .title-results {
 	text-align: center;
 	margin-bottom: var(--space-large);
+}
+
+.container-btn-filter {
+	display: flex;
+	justify-content: end;
+	margin-bottom: var(--space-x-small);
+}
+
+.btn-filter {
+	background-color: var(--link-dark);
+	color: var(--white);
+	padding: var(--space-small);
+	cursor: pointer;
+	/* position: absolute; */
+	/* right: var(--space-medium); */
+}
+
+.result-name {
+	color: var(--primary-dark-2);
+	font-weight: bold;
+}
+
+.results-info {
+	background-color: var(--secondary-dark-1);
+	padding: var(--space-medium);
+	margin-bottom: var(--space-large);
+}
+
+.filter-overlay {
+	padding: var(--space-medium);
+}
+
+.results-games {
+	padding-left: var(--space-medium);
 }
