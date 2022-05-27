@@ -1,7 +1,17 @@
 <section class="playing">
-	<img src="assets/images/jugando.jpg" alt="playing" />
-	<div class="icons-container">
-		<app-icon class="question" name="question" [width]="30"></app-icon>
-		<app-icon class="back" name="back" [width]="30"></app-icon>
-	</div>
+    <img src="assets/images/jugando.jpg" alt="playing" />
+    <div class="icons-container">
+        <app-icon class="question" name="question" [width]="30" (click)="toggleHelpOverlay()"></app-icon>
+        <app-icon class="back" name="back" [width]="30" routerLink="/juego/17"></app-icon>
+    </div>
 </section>
+<div class="help-overlay" *ngIf="visible">
+    <span (click)="close()" class="close">&times;</span>
+    <div class="help-overlay-container">
+        <p class="title h3"> Controles</p>
+        <ul>
+            <li><b>Un toque: </b>saltar</li>
+            <li><b>Dos toques: </b>salto largo</li>
+        </ul>
+    </div>
+</div>
