@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Game } from "src/app/interfaces/game";
 import { CategoriesService } from "src/app/services/categories.service";
 import { GamesService } from "src/app/services/games.service";
@@ -12,13 +13,38 @@ export class SearchComponent implements OnInit {
 	name: string = "";
 	category: string = "todas";
 	orden: string = "mas nuevos primero";
+	search: boolean = false;
+
+	filterOverlayVisible: boolean = false;
 
 	constructor(
 		private categoriesService: CategoriesService,
-		public gamesService: GamesService
+		public gamesService: GamesService,
+		private router: Router,
+		private route: ActivatedRoute
 	) {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.route.queryParamMap.subscribe((params) => {
+			if (
+				params.has("name") ||
+				params.has("category") ||
+				params.has("orden")
+			)
+				this.search = true;
+			else {
+				this.search = false;
+			}
+
+			this.name = params.get("name") || "";
+			this.category = params.get("category") || "todas";
+			if (params.has("orden")) {
+				if (params.get("orden") == "masnuevosprimero")
+					this.orden = "mas nuevos primero";
+				else this.orden = "mas antiguos primero";
+			} else this.orden = "mas nuevos primero";
+		});
+	}
 
 	getCategories(): string[] {
 		return this.categoriesService.getCategories();
@@ -40,7 +66,21 @@ export class SearchComponent implements OnInit {
 		else return [];
 	}
 
-	search(e: any): void {
-		// e.preventDefault();
+	searchGame(e: any): void {
+		this.router.navigate(["/busqueda"], {
+			queryParams: {
+				name: this.name,
+				category: this.category,
+				orden: this.orden.replace(/ /g, ""),
+			},
+		});
+	}
+
+	toggleFilterOverlay(): void {
+		this.filterOverlayVisible = !this.filterOverlayVisible;
+	}
+
+	closeFilterOverlay(): void {
+		this.filterOverlayVisible = false;
 	}
 }

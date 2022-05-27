@@ -1,7 +1,7 @@
 <section class="search">
 	<h1 class="title">Busqueda</h1>
 
-	<form (submit)="search($event)">
+	<form *ngIf="!search" (submit)="searchGame($event)">
 		<app-input [(value)]="name" label="Busca por nombre"></app-input>
 
 		<app-select
@@ -24,11 +24,44 @@
 		></app-button>
 	</form>
 </section>
-<section class="results">
-	<h2 class="title-results">Resultados</h2>
-	<app-category-cards-group
-		*ngFor="let category of getCategories()"
-		name="{{ category }}"
-		[games]="getGames(category)"
-	></app-category-cards-group>
+<section *ngIf="search" class="results">
+	<!-- <h2 class="title-results">Resultados</h2> -->
+	<div class="container-btn-filter">
+		<button (click)="toggleFilterOverlay()" class="btn-filter">
+			Filtros
+		</button>
+	</div>
+
+	<app-overlay [right]="true" [(visible)]="filterOverlayVisible">
+		<div class="filter-overlay">
+			<app-input [(value)]="name" label="Busca por nombre"></app-input>
+			<app-select
+				[(value)]="category"
+				label="Categoria"
+				[options]="getCategoriesWithAll()"
+			></app-select>
+			<app-select
+				[(value)]="orden"
+				label="Orden"
+				[options]="['Mas nuevos primero', 'Mas antiguos primero']"
+			></app-select>
+		</div>
+	</app-overlay>
+
+	<div class="results-info">
+		<p>
+			118 juegos coinciden con
+			<span *ngIf="name.length > 0" class="result-name">
+				{{ name }}
+			</span>
+			<span *ngIf="name.length < 1"> la busqueda </span>
+		</p>
+	</div>
+	<div class="results-games">
+		<app-category-cards-group
+			*ngFor="let category of getCategories()"
+			name="{{ category }}"
+			[games]="getGames(category)"
+		></app-category-cards-group>
+	</div>
 </section>
