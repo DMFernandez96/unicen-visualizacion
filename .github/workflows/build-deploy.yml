@@ -25,7 +25,10 @@ jobs:
           npm install
           npm run-script deploy
           cd EntregaFinal
-          cp index.html 404.html
+          echo "---" >> 404.html
+          echo "permalink: /404.html" >> 404.html
+          echo "---" >> 404.html
+          echo $(cat index.html) >> 404.html
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
