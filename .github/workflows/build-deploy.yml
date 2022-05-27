@@ -24,6 +24,8 @@ jobs:
           cd TP2
           npm install
           npm run-script deploy
+          cd EntregaFinal
+          cp index.html 404.html
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
