@@ -40,15 +40,27 @@ form {
 	/* right: var(--space-medium); */
 }
 
-.result-name {
-	color: var(--primary-dark-2);
-	font-weight: bold;
+.results {
+	padding: var(--space-medium);
+	margin-bottom: var(--space-large);
 }
 
 .results-info {
 	background-color: var(--secondary-dark-1);
-	padding: var(--space-medium);
-	margin-bottom: var(--space-large);
+}
+
+.results-error {
+	background-color: var(--danger);
+}
+
+.results-info .result-name {
+	color: var(--primary-dark-2);
+	font-weight: bold;
+}
+
+.results-error .result-name {
+	color: var(--black);
+	font-weight: bold;
 }
 
 .filter-overlay {

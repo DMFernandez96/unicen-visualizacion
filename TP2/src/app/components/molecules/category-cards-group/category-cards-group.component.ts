@@ -10,6 +10,7 @@ export class CategoryCardsGroupComponent implements OnInit {
 	@Input() name!: string;
 	@Input() games: Game[] = [];
 	@Input() viewMore: boolean = false;
+	@Input() search!: string;
 
 	constructor() {}
 
