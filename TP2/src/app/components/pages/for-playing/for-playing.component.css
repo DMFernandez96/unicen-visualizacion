@@ -41,6 +41,7 @@
 
 .multimedia {
     margin-bottom: var(--space-large);
+    overflow: hidden;
 }
 
 .multimedia>p {
@@ -66,26 +67,26 @@ div.image_one {
 
 div.image img,
 div.image_one img {
-    animation-duration: 3s;
-    animation-name: slideIn;
-    transform-origin: center bottom;
-    animation-iteration-count: 1;
-    scroll-snap-align: center;
+    width: 301.6px;
 }
 
 .multimedia-flex {
     display: flex;
-    gap: var(--space-x-small);
     position: relative;
     overflow-x: scroll;
+    width: 500%;
+    animation-delay: 4s;
+    animation: automation 20s infinite linear;
+    transition: all 0.75s ease-in;
 }
 
 .multimedia-flex img {
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
-@keyframes slideIn {
+
+/*@keyframes slideIn {
     from {
         margin-left: 100%;
         opacity: 0;
@@ -93,5 +94,41 @@ div.image_one img {
     to {
         margin-left: 0%;
         opacity: 1;
+    }
+}*/
+
+@keyframes automation {
+    0% {
+        margin-left: 0;
+    }
+    10% {
+        margin-left: 0;
+    }
+    15% {
+        margin-left: -100%;
+    }
+    35% {
+        margin-left: -100%;
+    }
+    40% {
+        margin-left: -200%;
+    }
+    60% {
+        margin-left: -200%;
+    }
+    65% {
+        margin-left: -300%;
+    }
+    75% {
+        margin-left: -300%;
+    }
+    80% {
+        margin-left: -400%;
+    }
+    95% {
+        margin-left: -400%;
+    }
+    100% {
+        margin-left: 0;
     }
 }
