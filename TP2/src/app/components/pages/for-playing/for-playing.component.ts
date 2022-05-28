@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
 	styleUrls: ["./for-playing.component.css"],
 })
 export class ForPlayingComponent implements OnInit {
-	tabSelected: number = 3;
+	tabSelected: number = 1;
 
 	constructor() {}
 
