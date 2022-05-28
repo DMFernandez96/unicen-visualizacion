@@ -14,6 +14,8 @@ export class SearchComponent implements OnInit {
 	category: string = "todas";
 	orden: string = "mas nuevos primero";
 	search: boolean = false;
+	games: Map<string, Game[]>;
+	quantityGames: number = 0;
 
 	filterOverlayVisible: boolean = false;
 
@@ -22,7 +24,10 @@ export class SearchComponent implements OnInit {
 		public gamesService: GamesService,
 		private router: Router,
 		private route: ActivatedRoute
-	) {}
+	) {
+		this.games = new Map();
+		this.fetchGames();
+	}
 
 	ngOnInit(): void {
 		this.route.queryParamMap.subscribe((params) => {
@@ -56,6 +61,13 @@ export class SearchComponent implements OnInit {
 		return result;
 	}
 
+	fetchGames(): void {
+		this.getCategories().forEach((category) =>
+			this.games.set(category, this.getGames(category))
+		);
+		this.gamesCount();
+	}
+
 	getGames(category: string): Game[] {
 		if (this.category == "todas" || this.category == category.toLowerCase())
 			return this.gamesService.getFiltered(
@@ -74,6 +86,8 @@ export class SearchComponent implements OnInit {
 				orden: this.orden.replace(/ /g, ""),
 			},
 		});
+		this.fetchGames();
+		this.closeFilterOverlay();
 	}
 
 	toggleFilterOverlay(): void {
@@ -82,5 +96,13 @@ export class SearchComponent implements OnInit {
 
 	closeFilterOverlay(): void {
 		this.filterOverlayVisible = false;
+	}
+
+	gamesCount() {
+		let counter = 0;
+		this.getCategories().forEach((category) => {
+			counter += this.games.get(category)!.length;
+		});
+		this.quantityGames = counter;
 	}
 }

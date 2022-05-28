@@ -34,23 +34,39 @@
 
 	<app-overlay [right]="true" [(visible)]="filterOverlayVisible">
 		<div class="filter-overlay">
-			<app-input [(value)]="name" label="Busca por nombre"></app-input>
-			<app-select
-				[(value)]="category"
-				label="Categoria"
-				[options]="getCategoriesWithAll()"
-			></app-select>
-			<app-select
-				[(value)]="orden"
-				label="Orden"
-				[options]="['Mas nuevos primero', 'Mas antiguos primero']"
-			></app-select>
+			<form (submit)="searchGame($event)">
+				<app-input
+					[(value)]="name"
+					label="Busca por nombre"
+				></app-input>
+				<app-select
+					[(value)]="category"
+					label="Categoria"
+					[options]="getCategoriesWithAll()"
+				></app-select>
+				<app-select
+					[(value)]="orden"
+					label="Orden"
+					[options]="['Mas nuevos primero', 'Mas antiguos primero']"
+				></app-select>
+
+				<app-button
+					class="button-submit"
+					text="Buscar"
+					classList="w-100"
+					type="submit"
+				></app-button>
+			</form>
 		</div>
 	</app-overlay>
 
-	<div class="results-info">
+	<div
+		class="results"
+		[class.results-info]="quantityGames > 0"
+		[class.results-error]="quantityGames == 0"
+	>
 		<p>
-			118 juegos coinciden con
+			{{ quantityGames }} juegos coinciden con
 			<span *ngIf="name.length > 0" class="result-name">
 				{{ name }}
 			</span>
@@ -58,10 +74,18 @@
 		</p>
 	</div>
 	<div class="results-games">
-		<app-category-cards-group
+		<!-- <app-category-cards-group
 			*ngFor="let category of getCategories()"
 			name="{{ category }}"
 			[games]="getGames(category)"
+			search="{{ name }}"
+		></app-category-cards-group> -->
+
+		<app-category-cards-group
+			*ngFor="let category of getCategories()"
+			name="{{ category }}"
+			[games]="games.get(category) || []"
+			search="{{ name }}"
 		></app-category-cards-group>
 	</div>
 </section>
