@@ -34,7 +34,7 @@ class LoginRequired implements CanActivate {
 const routes: Routes = [
 	{ path: "", component: HomeComponent },
 	{ path: "juego/:ID", component: ForPlayingComponent },
-	{ path: "jugando/:ID", component: PlayingComponent },
+	{ path: "jugando", component: PlayingComponent },
 	{ path: "busqueda", component: SearchComponent },
 	{ path: "categorias/:ID", component: CategoryComponent },
 	{ path: "crear-cuenta", component: RegisterComponent },
