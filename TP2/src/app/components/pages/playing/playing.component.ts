@@ -1,22 +1,26 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-playing',
-  templateUrl: './playing.component.html',
-  styleUrls: ['./playing.component.css']
+	selector: "app-playing",
+	templateUrl: "./playing.component.html",
+	styleUrls: ["./playing.component.css"],
 })
 export class PlayingComponent implements OnInit {
-  @Input() visible: boolean = false;
-  constructor() { }
+	helpOverlayVisible: boolean = true;
+	orientation: string;
 
-  ngOnInit(): void {
-  }
+	constructor() {
+		this.orientation = window.screen.orientation.type;
+	}
 
-  toggleHelpOverlay():void{
-    this.visible= !this.visible;
-  }
+	ngOnInit(): void {
+		window.addEventListener("orientationchange", () => {
+			console.log(window.screen.orientation.type);
+			this.orientation = window.screen.orientation.type;
+		});
+	}
 
-  close():void{
-    this.visible = !this.visible;
-  }
+	toggleHelpOverlay(): void {
+		this.helpOverlayVisible = !this.helpOverlayVisible;
+	}
 }

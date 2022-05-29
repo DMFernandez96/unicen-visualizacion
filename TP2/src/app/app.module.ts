@@ -34,6 +34,7 @@ import { SelectComponent } from "./components/atoms/select/select.component";
 import { BackgroundAnimatedComponent } from "./components/atoms/background-animated/background-animated.component";
 import { DropdownComponent } from "./components/atoms/dropdown/dropdown.component";
 import { SpinnerOverlayComponent } from "./components/atoms/spinner-overlay/spinner-overlay.component";
+import { HowToPlayComponent } from './components/atoms/how-to-play/how-to-play.component';
 
 @NgModule({
 	declarations: [
@@ -68,6 +69,7 @@ import { SpinnerOverlayComponent } from "./components/atoms/spinner-overlay/spin
 		BackgroundAnimatedComponent,
 		DropdownComponent,
 		SpinnerOverlayComponent,
+  HowToPlayComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, FormsModule],
 	providers: [],

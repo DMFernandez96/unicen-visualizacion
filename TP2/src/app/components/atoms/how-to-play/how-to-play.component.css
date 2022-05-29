@@ -1,0 +1,8 @@
+.instructions {
+	list-style: inside;
+}
+
+.how-to-play {
+	margin-top: var(--space-large);
+	width: 100%;
+}

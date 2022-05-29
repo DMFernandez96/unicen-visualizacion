@@ -37,10 +37,6 @@
 	margin-top: var(--space-large);
 }
 
-.instructions {
-	list-style: inside;
-}
-
 .multimedia {
 	margin-bottom: var(--space-large);
 	overflow: hidden;
