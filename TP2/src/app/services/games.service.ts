@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Game } from "../interfaces/game";
 import { GAMES } from "../mock-data/mock-games";
+import { FavoritesService } from "./favorites.service";
 
 @Injectable({
 	providedIn: "root",
@@ -8,7 +9,7 @@ import { GAMES } from "../mock-data/mock-games";
 export class GamesService {
 	games: Game[] = [];
 
-	constructor() {
+	constructor(private favoritesService: FavoritesService) {
 		this.games = GAMES;
 	}
 
@@ -37,14 +38,9 @@ export class GamesService {
 
 	getFavorites(): Game[] {
 		let favorites: Game[] = [];
-		favorites.push(this.getById(15));
-		favorites.push(this.getById(17));
-		favorites.push(this.getById(23));
-		favorites.push(this.getById(20));
-		favorites.push(this.getById(10));
-		favorites.push(this.getById(4));
-		favorites.push(this.getById(9));
-		favorites.push(this.getById(6));
+		this.favoritesService.getFavorites().forEach((id) => {
+			favorites.push(this.getById(id));
+		});
 		return favorites;
 	}
 

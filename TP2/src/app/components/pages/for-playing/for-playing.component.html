@@ -9,7 +9,19 @@
 		</div>
 		<div class="right">
 			<app-icon name="share" [width]="24"></app-icon>
-			<app-icon name="favorites-empty" [width]="24"></app-icon>
+			<app-icon
+				*ngIf="!isFavorite"
+				name="favorites-empty"
+				[width]="24"
+				[routerLink]="!isLoggedIn() ? ['/crear-cuenta'] : []"
+				(click)="toggleFavorite()"
+			></app-icon>
+			<app-icon
+				*ngIf="isFavorite"
+				(click)="toggleFavorite()"
+				name="favorites-fill"
+				[width]="24"
+			></app-icon>
 		</div>
 	</div>
 	<h1>3 pandas en Japón</h1>
