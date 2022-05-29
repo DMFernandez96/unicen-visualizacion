@@ -11,6 +11,7 @@ export class ForPlayingComponent implements OnInit {
 	tabSelected: number = 1;
 	id: number = 17;
 	isFavorite: boolean = false;
+	like!: boolean | undefined;
 
 	constructor(
 		private favoritesService: FavoritesService,
@@ -37,5 +38,18 @@ export class ForPlayingComponent implements OnInit {
 
 	isLoggedIn(): boolean {
 		return this.sessionService.isLoggedIn();
+	}
+
+	toggleLike(state: string) {
+		if (this.like == undefined) {
+			this.like = state == "like";
+		} else {
+			if (
+				(this.like && state == "like") ||
+				(!this.like && state == "dislike")
+			)
+				this.like = undefined;
+			else this.like = !this.like;
+		}
 	}
 }
