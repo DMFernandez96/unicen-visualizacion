@@ -12,3 +12,7 @@
 .router-content {
 	flex-grow: 1;
 }
+
+.hidden {
+	display: none;
+}
