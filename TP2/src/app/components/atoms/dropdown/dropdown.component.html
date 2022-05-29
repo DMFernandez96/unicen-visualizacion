@@ -1,15 +1,11 @@
 <div class="dropdown">
-	<p class="{{ classList }}">
-		{{ text }}
-		<app-icon name="dropdown-arrow"></app-icon>
-	</p>
-	<div id="dropdown-categories" class="dropdown-content">
-		<p
-			*ngFor="let option of options"
-			[routerLink]="link ? [linkPrefix + option | lowercase] : []"
-			class="dropdown-item"
-		>
-			{{ option }}
-		</p>
-	</div>
+    <p class="title-dropdown {{ classList }}">
+        {{ text }}
+        <app-icon class="dropdown-arrow" name="dropdown-arrow"></app-icon>
+    </p>
+    <div id="dropdown-categories" class="dropdown-content">
+        <p *ngFor="let option of options" [routerLink]="link ? [linkPrefix + option | lowercase] : []" class="dropdown-item">
+            {{ option }}
+        </p>
+    </div>
 </div>
