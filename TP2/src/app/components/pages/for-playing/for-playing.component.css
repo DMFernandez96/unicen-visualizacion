@@ -13,11 +13,6 @@
 	color: var(--link-light);
 }
 
-.right {
-	display: flex;
-	gap: var(--space-medium);
-}
-
 .image-container {
 	margin-top: var(--space-medium);
 	position: relative;
@@ -29,6 +24,13 @@
 .btn-play {
 	position: absolute;
 	bottom: 20%;
+}
+
+.icons-right {
+	display: flex;
+	justify-content: center;
+	margin-top: var(--space-medium);
+	gap: var(--space-medium);
 }
 
 .tabs-container {
