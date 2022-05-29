@@ -17,7 +17,7 @@ export class CardGameComponent implements OnInit {
 
 	getNameText(): string {
 		if (this.name == undefined) return "";
-		if (this.search == "") return this.name;
+		if (this.search == "" || this.search == undefined) return this.name;
 
 		this.search = this.search.toLowerCase();
 		let searchCapitalize = this.capitalize(this.search);

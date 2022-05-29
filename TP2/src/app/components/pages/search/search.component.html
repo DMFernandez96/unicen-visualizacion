@@ -56,7 +56,7 @@
 </section>
 
 <div *ngIf="filterOverlayVisible" class="container-overlay">
-	<div class="opacity-overlay">
+	<div (click)="closeFilterOverlay()" class="opacity-overlay">
 		<span (click)="closeFilterOverlay()" class="close">&times;</span>
 	</div>
 	<div class="filter-overlay">

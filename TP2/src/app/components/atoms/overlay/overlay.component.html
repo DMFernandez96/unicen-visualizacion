@@ -1,5 +1,5 @@
 <section *ngIf="visible" class="container-overlay">
-	<div class="opacity-overlay"></div>
+	<div (click)="toggleVisible()" class="opacity-overlay"></div>
 	<div class="content" [class.overlay-right]="right == true">
 		<span (click)="toggleVisible()" class="close">&times;</span>
 		<ng-content></ng-content>
