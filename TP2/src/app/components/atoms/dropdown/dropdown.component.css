@@ -5,7 +5,8 @@ p {
 
 .dropdown p.title-dropdown {
     height: 64.2px;
-    padding-left: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .dropdown {
