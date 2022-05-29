@@ -7,31 +7,6 @@
 				infantiles/
 			</span>
 		</div>
-		<div class="right">
-			<app-icon
-				tabindex="0"
-				class="scale-animation"
-				(click)="toggleLike('like')"
-				name="{{ like == true ? 'like-fill' : 'like' }}"
-				[width]="24"
-			></app-icon>
-			<app-icon
-				tabindex="0"
-				class="scale-animation"
-				(click)="toggleLike('dislike')"
-				name="{{ like == false ? 'dislike-fill' : 'dislike' }}"
-				[width]="24"
-			></app-icon>
-			<app-icon name="share" [width]="24"></app-icon>
-			<app-icon
-				tabindex="0"
-				class="scale-animation"
-				name="{{ isFavorite ? 'favorites-fill' : 'favorites-empty' }}"
-				[width]="24"
-				[routerLink]="!isLoggedIn() ? ['/crear-cuenta'] : []"
-				(click)="toggleFavorite()"
-			></app-icon>
-		</div>
 	</div>
 
 	<h1>3 pandas en Japón</h1>
@@ -47,6 +22,31 @@
 			src="assets/images/infantiles/3pandasenjapon.jpg"
 			[width]="328"
 		></app-card-game>
+	</div>
+	<div class="icons-right">
+		<app-icon
+			tabindex="0"
+			class="scale-animation"
+			(click)="toggleLike('like')"
+			name="{{ like == true ? 'like-fill' : 'like' }}"
+			[width]="36"
+		></app-icon>
+		<app-icon
+			tabindex="0"
+			class="scale-animation"
+			(click)="toggleLike('dislike')"
+			name="{{ like == false ? 'dislike-fill' : 'dislike' }}"
+			[width]="36"
+		></app-icon>
+		<app-icon name="share" [width]="36"></app-icon>
+		<app-icon
+			tabindex="0"
+			class="scale-animation"
+			name="{{ isFavorite ? 'favorites-fill' : 'favorites-empty' }}"
+			[width]="36"
+			[routerLink]="!isLoggedIn() ? ['/crear-cuenta'] : []"
+			(click)="toggleFavorite()"
+		></app-icon>
 	</div>
 
 	<div class="tabs-container">
