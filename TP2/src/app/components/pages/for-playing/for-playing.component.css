@@ -122,7 +122,7 @@ div.image_one img {
 }
 
 .scale-animation:focus {
-	animation: scale-animation 1s linear;
+	animation: scale-animation 2s linear;
 }
 
 .scale-animation:active {
@@ -133,7 +133,10 @@ div.image_one img {
 	0% {
 		scale: 1;
 	}
-	100% {
+	50% {
 		scale: 2;
+	}
+	100% {
+		scale: 1;
 	}
 }
