@@ -1,72 +1,87 @@
 .title {
-	text-align: center;
-	margin-top: var(--space-x-large);
+    text-align: center;
+    margin-top: var(--space-x-large);
 }
 
 form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: var(--space-large);
-	margin-top: var(--space-x-large);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-large);
+    margin-top: var(--space-x-large);
 }
 
 .button-submit {
-	width: 300px;
+    width: 300px;
 }
 
 .results {
-	margin-top: var(--space-xx-large);
-	position: relative;
+    margin-top: var(--space-xx-large);
+    position: relative;
 }
 
 .title-results {
-	text-align: center;
-	margin-bottom: var(--space-large);
+    text-align: center;
+    margin-bottom: var(--space-large);
 }
 
-.container-btn-filter {
-	display: flex;
-	justify-content: end;
-	margin-bottom: var(--space-x-small);
+.container-quantity-filter .container-btn-filter {
+    margin-bottom: var(--space-x-small);
+    width: fit-content;
+    margin-right: 0;
 }
 
 .btn-filter {
-	background-color: var(--link-dark);
-	color: var(--white);
-	padding: var(--space-small);
-	cursor: pointer;
-	/* position: absolute; */
-	/* right: var(--space-medium); */
+    background-color: var(--link-dark);
+    color: var(--white);
+    padding: var(--space-small);
+    cursor: pointer;
+    box-shadow: var(--elevation-2dp);
+    margin-bottom: 0;
+    /* position: absolute; */
+    /* right: var(--space-medium); */
 }
 
 .results {
-	padding: var(--space-medium);
-	margin-bottom: var(--space-large);
+    padding: var(--space-medium);
+    margin-bottom: var(--space-large);
 }
 
 .results-info {
-	background-color: var(--secondary-dark-1);
+    background-color: var(--secondary-dark-1);
+    width: fit-content;
+    margin: 0;
+    margin-left: 0;
+    padding: 10px;
+    justify-content: center;
 }
 
 .results-error {
-	background-color: var(--danger);
+    background-color: var(--danger);
+    margin: 0;
 }
 
 .results-info .result-name {
-	color: var(--primary-dark-2);
-	font-weight: bold;
+    color: var(--primary-dark-2);
+    font-weight: bold;
 }
 
 .results-error .result-name {
-	color: var(--black);
-	font-weight: bold;
+    color: var(--black);
+    font-weight: bold;
 }
 
 .filter-overlay {
-	padding: var(--space-medium);
+    padding-bottom: var(--space-medium);
 }
 
 .results-games {
-	padding-left: var(--space-medium);
+    padding-left: var(--space-medium);
+}
+
+.container-row-quantity-filter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-large);
+    gap: var(--space-small);
 }
