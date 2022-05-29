@@ -17,6 +17,10 @@ export class SearchComponent implements OnInit {
 	games: Map<string, Game[]>;
 	quantityGames: number = 0;
 
+	nameFilter: string = "";
+	categoryFilter: string = "todas";
+	ordenFilter: string = "mas nuevos primero";
+
 	filterOverlayVisible: boolean = false;
 
 	constructor(
@@ -78,7 +82,7 @@ export class SearchComponent implements OnInit {
 		else return [];
 	}
 
-	searchGame(e: any): void {
+	searchGame(): void {
 		this.router.navigate(["/busqueda"], {
 			queryParams: {
 				name: this.name,
@@ -87,6 +91,13 @@ export class SearchComponent implements OnInit {
 			},
 		});
 		this.fetchGames();
+	}
+
+	searchGameBtnFilter(): void {
+		this.name = this.nameFilter;
+		this.category = this.categoryFilter;
+		this.orden = this.ordenFilter;
+		this.searchGame();
 		this.closeFilterOverlay();
 	}
 
