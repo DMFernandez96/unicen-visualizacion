@@ -1,91 +1,45 @@
 <section class="search">
-	<h1 class="title">Busqueda</h1>
-
-	<form *ngIf="!search" (submit)="searchGame($event)">
-		<app-input [(value)]="name" label="Busca por nombre"></app-input>
-
-		<app-select
-			[(value)]="category"
-			label="Categoria"
-			[options]="getCategoriesWithAll()"
-		></app-select>
-
-		<app-select
-			[(value)]="orden"
-			label="Orden"
-			[options]="['Mas nuevos primero', 'Mas antiguos primero']"
-		></app-select>
-
-		<app-button
-			class="button-submit"
-			text="Buscar"
-			classList="w-100"
-			type="submit"
-		></app-button>
-	</form>
+    <h1 class="title">Búsqueda</h1>
+    <form *ngIf="!search" (submit)="searchGame($event)">
+        <app-input [(value)]="name" label="Busca por nombre"></app-input>
+        <app-select [(value)]="category" label="Categoria" [options]="getCategoriesWithAll()"></app-select>
+        <app-select [(value)]="orden" label="Orden" [options]="['Mas nuevos primero', 'Mas antiguos primero']"></app-select>
+        <app-button class="button-submit" text="Buscar" classList="w-100" type="submit"></app-button>
+    </form>
 </section>
 <section *ngIf="search" class="results">
-	<!-- <h2 class="title-results">Resultados</h2> -->
-	<div class="container-btn-filter">
-		<button (click)="toggleFilterOverlay()" class="btn-filter">
-			Filtros
-		</button>
-	</div>
-
-	<app-overlay [right]="true" [(visible)]="filterOverlayVisible">
-		<div class="filter-overlay">
-			<form (submit)="searchGame($event)">
-				<app-input
-					[(value)]="name"
-					label="Busca por nombre"
-				></app-input>
-				<app-select
-					[(value)]="category"
-					label="Categoria"
-					[options]="getCategoriesWithAll()"
-				></app-select>
-				<app-select
-					[(value)]="orden"
-					label="Orden"
-					[options]="['Mas nuevos primero', 'Mas antiguos primero']"
-				></app-select>
-
-				<app-button
-					class="button-submit"
-					text="Buscar"
-					classList="w-100"
-					type="submit"
-				></app-button>
-			</form>
-		</div>
-	</app-overlay>
-
-	<div
-		class="results"
-		[class.results-info]="quantityGames > 0"
-		[class.results-error]="quantityGames == 0"
-	>
-		<p>
-			{{ quantityGames }} juegos coinciden con
-			<span *ngIf="name.length > 0" class="result-name">
-				{{ name }}
-			</span>
-			<span *ngIf="name.length < 1"> la busqueda </span>
-		</p>
-	</div>
-	<div class="results-games">
-		<!-- <app-category-cards-group
-			*ngFor="let category of getCategories()"
-			name="{{ category }}"
-			[games]="getGames(category)"
-			search="{{ name }}"
-		></app-category-cards-group> -->
-
-		<app-category-cards-group
-			*ngFor="let category of getCategories()"
-			name="{{ category }}"
-			[games]="games.get(category) || []"
-			search="{{ name }}"
-		></app-category-cards-group>
-	</div>
+    <!-- <h2 class="title-results">Resultados</h2> -->
+    <div class="container-row-quantity-filter">
+        <div class="results" [class.results-info]="quantityGames > 0" [class.results-error]="quantityGames == 0">
+            <p>
+                {{ quantityGames }} juegos coinciden con
+                <span *ngIf="name.length > 0" class="result-name">{{ name }}</span>
+                <span *ngIf="name.length < 1"> la búsqueda </span>
+            </p>
+        </div>
+        <div class="container-btn-filter">
+            <button (click)="toggleFilterOverlay()" class="btn-filter">
+							Filtros
+						</button>
+        </div>
+    </div>
+    <app-overlay [right]="true" [(visible)]="filterOverlayVisible">
+        <div class="filter-overlay">
+            <form (submit)="searchGame($event)">
+                <app-input [(value)]="name" label="Busca por nombre"></app-input>
+                <app-select [(value)]="category" label="Categoria" [options]="getCategoriesWithAll()"></app-select>
+                <app-select [(value)]="orden" label="Orden" [options]="['Mas nuevos primero', 'Mas antiguos primero']"></app-select>
+                <app-button class="button-submit" text="Buscar" classList="w-100" type="submit"></app-button>
+            </form>
+        </div>
+    </app-overlay>
+    <div class="results-games">
+        <!-- <app-category-cards-group
+															*ngFor="let category of getCategories()"
+															name="{{ category }}"
+															[games]="getGames(category)"
+															search="{{ name }}"
+															></app-category-cards-group> -->
+        <app-category-cards-group *ngFor="let category of getCategories()" name="{{ category }}" [games]="games.get(category) || []" search="{{ name }}"></app-category-cards-group>
+    </div>
 </section>
