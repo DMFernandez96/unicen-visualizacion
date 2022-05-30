@@ -1,14 +1,20 @@
 <label for="select-{{ label | lowercase }}">{{ label }}</label>
-<section class="select-group">
-	<select
-		[(ngModel)]="value"
-		(ngModelChange)="handleChange()"
-		name="select-{{ label | lowercase }}"
-		class="body"
+<div class="select-container" [class.select-container-open]="open == true">
+	<p
+		(click)="toggleOpen()"
+		class="select-value"
+		[class.select-value-open]="open == true"
 	>
-		<option *ngFor="let option of options" value="{{ option | lowercase }}">
+		{{ value }}
+	</p>
+	<div class="select-options" [class.options-open]="open == true">
+		<p
+			(click)="changeValue(option)"
+			*ngFor="let option of options"
+			class="select-item"
+			[class.select-item-selected]="value == option"
+		>
 			{{ option }}
-		</option>
-	</select>
-	<app-icon class="icon" name="dropdown-arrow-black"></app-icon>
-</section>
+		</p>
+	</div>
+</div>

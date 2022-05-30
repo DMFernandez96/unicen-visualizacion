@@ -11,15 +11,15 @@ import { GamesService } from "src/app/services/games.service";
 })
 export class SearchComponent implements OnInit {
 	name: string = "";
-	category: string = "todas";
-	orden: string = "mas nuevos primero";
+	category: string = "Todas";
+	orden: string = "Mas nuevos primero";
 	search: boolean = false;
 	games: Map<string, Game[]>;
 	quantityGames: number = 0;
 
 	nameFilter: string = "";
-	categoryFilter: string = "todas";
-	ordenFilter: string = "mas nuevos primero";
+	categoryFilter: string = "Todas";
+	ordenFilter: string = "Mas nuevos primero";
 
 	filterOverlayVisible: boolean = false;
 
@@ -46,12 +46,12 @@ export class SearchComponent implements OnInit {
 			}
 
 			this.name = params.get("name") || "";
-			this.category = params.get("category") || "todas";
+			this.category = params.get("category") || "Todas";
 			if (params.has("orden")) {
-				if (params.get("orden") == "masnuevosprimero")
-					this.orden = "mas nuevos primero";
-				else this.orden = "mas antiguos primero";
-			} else this.orden = "mas nuevos primero";
+				if (params.get("orden") == "Masnuevosprimero")
+					this.orden = "Mas nuevos primero";
+				else this.orden = "Mas antiguos primero";
+			} else this.orden = "Mas nuevos primero";
 		});
 	}
 
@@ -73,11 +73,11 @@ export class SearchComponent implements OnInit {
 	}
 
 	getGames(category: string): Game[] {
-		if (this.category == "todas" || this.category == category.toLowerCase())
+		if (this.category == "Todas" || this.category == category)
 			return this.gamesService.getFiltered(
 				this.name.toLowerCase(),
 				category.toLowerCase(),
-				this.orden == "mas nuevos primero" ? true : false
+				this.orden == "Mas nuevos primero" ? true : false
 			);
 		else return [];
 	}
