@@ -1,5 +1,6 @@
 .upgrade-account {
 	padding-left: var(--space-medium);
+	padding-right: var(--space-medium);
 	padding-top: var(--space-x-large);
 }
 
@@ -13,6 +14,10 @@
 
 .checkout {
 	margin-top: var(--space-x-large);
+	text-align: center;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .center {
@@ -22,8 +27,7 @@
 
 .message {
 	margin-top: var(--space-medium);
-	display: flex;
-	justify-content: center;
+	margin-bottom: var(--space-medium);
 }
 
 .message-component {
