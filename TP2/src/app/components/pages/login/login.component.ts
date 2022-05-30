@@ -28,12 +28,12 @@ export class LoginComponent implements OnInit {
 
 	login() {
 		if (this.validateForm()) {
-			this.toggleShow();
+			this.showSuccess = true;
 			setTimeout(() => {
 				this.sessionService.sigIn(this.user);
 				this.router.navigate(["/"]);
 			}, 2000);
-		} else console.log("TODO: inform errors");
+		}
 	}
 
 	validateForm(): boolean {
@@ -51,13 +51,5 @@ export class LoginComponent implements OnInit {
 			this.passwordError = false;
 		}
 		return state;
-	}
-
-	toggleShow(): void {
-		this.showSuccess = true;
-	}
-
-	isShown(show: any): void {
-		this.showSuccess = show;
 	}
 }

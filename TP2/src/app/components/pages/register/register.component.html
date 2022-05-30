@@ -1,20 +1,64 @@
 <section class="register-container">
-    <app-background-animated></app-background-animated>
-    <section class="register">
-        <div class="center">
-            <h1>Crear cuenta</h1>
-            <p class="body-small">Podrás añadir juegos a favoritos!</p>
-        </div>
-        <form (submit)="register($event)">
-            <app-input [(value)]="user.username" label="Nombre de usuario"></app-input>
-            <app-input [(value)]="user.email" label="Correo electronico"></app-input>
-            <app-input [(value)]="user.password" label="Contraseña" type="password"></app-input>
-            <app-input [(value)]="confirmPassword" label="Confirmar contraseña" type="password"></app-input>
-            <app-success-message class="success-message" (successMessage)="isShown($event)" *ngIf="show">Registro exitoso!
-            </app-success-message>
-            <app-button text="Registrarse" classList="w-100 text-black h4 btn-submit" (click)="toggleShow()"></app-button>
-        </form>
-        <p class="link" routerLink="/iniciar-sesion">¿Ya tienes una cuenta?</p>
-        <p class="link" routerLink="/">Volver a inicio</p>
-    </section>
+	<app-background-animated></app-background-animated>
+	<section class="register">
+		<div class="center">
+			<h1>Crear cuenta</h1>
+			<p class="body-small">Podrás añadir juegos a favoritos!</p>
+		</div>
+
+		<form (submit)="register()">
+			<app-input
+				[(value)]="user.username"
+				label="Nombre de usuario"
+			></app-input>
+			<app-error-message *ngIf="usernameError">
+				El nombre de usuario tener al menos 3 caracteres.
+			</app-error-message>
+
+			<app-input
+				[(value)]="user.email"
+				label="Correo electronico"
+			></app-input>
+			<app-error-message *ngIf="emailError">
+				El correo electronico debe incluir @ y tener al menos 5
+				caracteres.
+			</app-error-message>
+
+			<app-input
+				[(value)]="user.password"
+				label="Contraseña"
+				type="password"
+			></app-input>
+			<app-error-message *ngIf="passwordError">
+				La contraseña debe tener al menos 3 caracteres. Las contraseñas
+				deben coincidir.
+			</app-error-message>
+
+			<app-input
+				[(value)]="confirmPassword"
+				label="Confirmar contraseña"
+				type="password"
+			></app-input>
+			<app-error-message *ngIf="passwordError">
+				La contraseña debe tener al menos 3 caracteres. Las contraseñas
+				deben coincidir.
+			</app-error-message>
+
+			<app-success-message class="success-message" *ngIf="showSuccess"
+				>Registro exitoso!
+			</app-success-message>
+
+			<app-button
+				text="Registrarse"
+				classList="{{
+					showSuccess
+						? 'w-100 text-black h4 btn-submit'
+						: 'w-100 text-black h4'
+				}}
+				"
+			></app-button>
+		</form>
+		<p class="link" routerLink="/iniciar-sesion">¿Ya tienes una cuenta?</p>
+		<p class="link" routerLink="/">Volver a inicio</p>
+	</section>
 </section>
