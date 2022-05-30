@@ -36,6 +36,7 @@ import { DropdownComponent } from "./components/atoms/dropdown/dropdown.componen
 import { SpinnerOverlayComponent } from "./components/atoms/spinner-overlay/spinner-overlay.component";
 import { HowToPlayComponent } from './components/atoms/how-to-play/how-to-play.component';
 import { SuccessMessageComponent } from './components/atoms/success-message/success-message.component';
+import { UpgradeAccountComponent } from './components/pages/upgrade-account/upgrade-account.component';
 
 @NgModule({
 	declarations: [
@@ -72,6 +73,7 @@ import { SuccessMessageComponent } from './components/atoms/success-message/succ
 		SpinnerOverlayComponent,
   HowToPlayComponent,
   SuccessMessageComponent,
+  UpgradeAccountComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, FormsModule],
 	providers: [],

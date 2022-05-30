@@ -8,6 +8,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
 export class CardGameComponent implements OnInit {
 	@Input() src!: string;
 	@Input() name!: string;
+	@Input() premium!: boolean;
 	@Input() width: number = 250;
 	@Input() search!: string;
 

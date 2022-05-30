@@ -1,0 +1,32 @@
+.upgrade-account {
+	padding-left: var(--space-medium);
+	padding-top: var(--space-x-large);
+}
+
+.title {
+	text-align: center;
+}
+
+.description {
+	margin-top: var(--space-medium);
+}
+
+.checkout {
+	margin-top: var(--space-x-large);
+}
+
+.center {
+	text-align: center;
+	margin-bottom: var(--space-x-small);
+}
+
+.message {
+	margin-top: var(--space-medium);
+	display: flex;
+	justify-content: center;
+}
+
+.message-component {
+	flex-grow: 1;
+	text-align: center;
+}

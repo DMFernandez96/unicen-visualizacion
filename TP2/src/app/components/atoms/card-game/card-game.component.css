@@ -1,5 +1,20 @@
 .card-game {
 	cursor: pointer;
+	position: relative;
+}
+
+.icon-premium {
+	position: absolute;
+	top: var(--space-x-small);
+	left: var(--space-xx-small);
+}
+
+.img-premium {
+	border: 2px solid var(--golden);
+}
+
+.name-premium {
+	color: var(--golden);
 }
 
 .name {

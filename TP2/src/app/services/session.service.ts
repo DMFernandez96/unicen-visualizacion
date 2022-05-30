@@ -9,13 +9,19 @@ import { UserRegister } from "../interfaces/user-register";
 export class SessionService {
 	private user?: UserLogged;
 
-	constructor() {}
+	constructor() {
+		// this.user = {
+		// 	email: "jugador@gmail.com",
+		// 	username: "Jugador_001",
+		// 	premium: false,
+		// };
+	}
 
 	sigIn(user: UserLogin): boolean {
-		//TODO: simulate timeout to api for make animation load
 		this.user = {
 			username: "Jugador_001",
 			email: user.email,
+			premium: false,
 		};
 		//valid anyone values as true
 		return true;
@@ -37,5 +43,14 @@ export class SessionService {
 
 	getUser(): UserLogged {
 		return this.user!;
+	}
+
+	userIsPremium(): boolean {
+		if (this.user == undefined) return false;
+		return this.user!.premium;
+	}
+
+	setPremium(): void {
+		this.user!.premium = true;
 	}
 }

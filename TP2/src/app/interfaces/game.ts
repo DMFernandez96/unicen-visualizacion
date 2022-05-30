@@ -4,4 +4,5 @@ export interface Game {
 	description: string;
 	category: string;
 	image: string;
+	premium: boolean;
 }

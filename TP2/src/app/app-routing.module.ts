@@ -5,7 +5,6 @@ import {
 	CanActivate,
 	ActivatedRouteSnapshot,
 	RouterStateSnapshot,
-	UrlTree,
 } from "@angular/router";
 import { HomeComponent } from "./components/pages/home/home.component";
 
@@ -18,6 +17,7 @@ import { CategoryComponent } from "./components/pages/category/category.componen
 import { ProfileComponent } from "./components/pages/profile/profile.component";
 import { FavoritesComponent } from "./components/pages/favorites/favorites.component";
 import { SessionService } from "./services/session.service";
+import { UpgradeAccountComponent } from "./components/pages/upgrade-account/upgrade-account.component";
 
 @Injectable()
 class LoginRequired implements CanActivate {
@@ -42,6 +42,11 @@ const routes: Routes = [
 	{
 		path: "perfil",
 		component: ProfileComponent,
+		canActivate: [LoginRequired],
+	},
+	{
+		path: "mejorar-cuenta",
+		component: UpgradeAccountComponent,
 		canActivate: [LoginRequired],
 	},
 	{
