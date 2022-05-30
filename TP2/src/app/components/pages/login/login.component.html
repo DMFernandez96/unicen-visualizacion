@@ -8,9 +8,8 @@
         <form (submit)="login($event)">
             <app-input [(value)]="user.email" label="Correo electronico"></app-input>
             <app-input [(value)]="user.password" label="Contraseña" type="password"></app-input>
-            <div class="successLogin" *ngIf="isShown">
-                <p>Inicio de sesión exitoso.</p>
-            </div>
+            <app-success-message class="success-message" (successMessage)="isShown($event)" *ngIf="show">Inicio de sesión exitoso!
+            </app-success-message>
             <app-button text="Ingresar" classList="w-100 text-black h4" (click)="toggleShow()"></app-button>
         </form>
         <p class="link" routerLink="/registrarse">¿Olvidaste tu contraseña?</p>

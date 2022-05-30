@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserRegister } from "src/app/interfaces/user-register";
 import { SessionService } from "src/app/services/session.service";
@@ -10,7 +10,8 @@ import { SessionService } from "src/app/services/session.service";
 export class RegisterComponent implements OnInit {
  user: UserRegister;
  confirmPassword: string = "";
- isShown: boolean = false; // hidden by default
+	@Output() messageShow = new EventEmitter<boolean>();
+	show: boolean = false;
  constructor(
   private router: Router,
   private sessionService: SessionService
@@ -36,7 +37,13 @@ export class RegisterComponent implements OnInit {
   
   } else console.log("TODO: inform errors");
  }
- toggleShow(): void {
-   this.isShown = !this.isShown;
- }
+
+	toggleShow(): void {
+  this.show = true;
+		this.messageShow.emit(this.show);
+}
+
+isShown(show: any): void {
+	this.show = show;
+}
 }

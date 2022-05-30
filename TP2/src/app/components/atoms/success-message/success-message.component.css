@@ -3,6 +3,8 @@ p {
 }
 
 .successMessage {
-    background-color: var(--secondary-dark-1);
+    background-color: var(--secondary-dark-2);
     width: fit-content;
+    padding: 2%;
+    border-radius: 2px;
 }

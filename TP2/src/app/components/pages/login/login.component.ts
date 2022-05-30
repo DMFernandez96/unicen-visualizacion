@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserLogin } from "src/app/interfaces/user-login";
 import { SessionService } from "src/app/services/session.service";
@@ -11,7 +11,9 @@ export class LoginComponent implements OnInit {
  user: UserLogin;
  password: string = "";
  successLoginOverlayVisible: boolean = false;
- isShown: boolean = false; // hidden by default
+	@Output() messageShow = new EventEmitter<boolean>();
+	show: boolean = false;
+
  constructor(
   private router: Router,
   private sessionService: SessionService
@@ -32,11 +34,19 @@ export class LoginComponent implements OnInit {
    setTimeout(() => {
     this.sessionService.sigIn(this.user);
     this.router.navigate(["/"]);
-   }, 2000);
+   }, 1000);
    
   } else console.log("TODO: inform errors");
  }
+
  toggleShow(): void {
-  this.isShown = !this.isShown;
+  this.show = true;
+		this.messageShow.emit(this.show);
 }
+
+isShown(show: any): void {
+	this.show = show;
+}
+
+
 }
