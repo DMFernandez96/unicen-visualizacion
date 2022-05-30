@@ -35,6 +35,7 @@ import { BackgroundAnimatedComponent } from "./components/atoms/background-anima
 import { DropdownComponent } from "./components/atoms/dropdown/dropdown.component";
 import { SpinnerOverlayComponent } from "./components/atoms/spinner-overlay/spinner-overlay.component";
 import { HowToPlayComponent } from './components/atoms/how-to-play/how-to-play.component';
+import { SuccessMessageComponent } from './components/atoms/success-message/success-message.component';
 
 @NgModule({
 	declarations: [
@@ -70,6 +71,7 @@ import { HowToPlayComponent } from './components/atoms/how-to-play/how-to-play.c
 		DropdownComponent,
 		SpinnerOverlayComponent,
   HowToPlayComponent,
+  SuccessMessageComponent,
 	],
 	imports: [BrowserModule, AppRoutingModule, FormsModule],
 	providers: [],
