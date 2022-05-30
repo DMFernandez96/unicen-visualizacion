@@ -8,11 +8,6 @@
 
 		<div class="checkout">
 			<p class="body center">$400 / mes</p>
-			<app-button
-				(click)="upgradeAccount()"
-				text="Mejorar cuenta"
-				classList="w-100 btn-submit text-black"
-			></app-button>
 			<div class="message">
 				<app-success-message
 					class="message-component"
@@ -21,6 +16,11 @@
 					>Mejora de cuenta exitosa!
 				</app-success-message>
 			</div>
+			<app-button
+				(click)="upgradeAccount()"
+				text="Mejorar cuenta"
+				classList="w-100 btn-submit text-black"
+			></app-button>
 		</div>
 	</div>
 	<div *ngIf="userIsPremium()">

@@ -1,18 +1,46 @@
 <section class="login-container">
-    <app-background-animated></app-background-animated>
-    <section class="login">
-        <div class="fondo"></div>
-        <div class="center">
-            <h1>Iniciar Sesión</h1>
-        </div>
-        <form (submit)="login($event)">
-            <app-input [(value)]="user.email" label="Correo electronico"></app-input>
-            <app-input [(value)]="user.password" label="Contraseña" type="password"></app-input>
-            <app-success-message class="success-message" (successMessage)="isShown($event)" *ngIf="show">Inicio de sesión exitoso!
-            </app-success-message>
-            <app-button text="Ingresar" classList="w-100 text-black h4" (click)="toggleShow()"></app-button>
-        </form>
-        <p class="link" routerLink="/registrarse">¿Olvidaste tu contraseña?</p>
-        <p class="link" routerLink="/">Volver a inicio</p>
-    </section>
+	<app-background-animated></app-background-animated>
+	<section class="login">
+		<div class="fondo"></div>
+		<div class="center">
+			<h1>Iniciar Sesión</h1>
+		</div>
+		<form (submit)="login()">
+			<app-input
+				[(value)]="user.email"
+				label="Correo electronico"
+			></app-input>
+			<app-error-message *ngIf="emailError">
+				El correo electronico debe incluir @ y tener al menos 5
+				caracteres.
+			</app-error-message>
+
+			<app-input
+				[(value)]="user.password"
+				label="Contraseña"
+				type="password"
+			></app-input>
+			<app-error-message *ngIf="passwordError">
+				La contraseña debe tener al menos 3 caracteres.
+			</app-error-message>
+
+			<app-success-message
+				class="success-message"
+				(successMessage)="isShown($event)"
+				*ngIf="showSuccess"
+				>Inicio de sesión exitoso!
+			</app-success-message>
+			<app-button
+				text="Ingresar"
+				classList="{{
+					showSuccess
+						? 'w-100 text-black h4 btn-submit'
+						: 'w-100 text-black h4'
+				}}
+				"
+			></app-button>
+		</form>
+		<p class="link" routerLink="/registrarse">¿Olvidaste tu contraseña?</p>
+		<p class="link" routerLink="/">Volver a inicio</p>
+	</section>
 </section>

@@ -1,0 +1,7 @@
+.error-message {
+	background-color: var(--danger);
+	color: var(--white);
+	padding: var(--space-small);
+	width: 300px;
+	border-radius: 10px;
+}
