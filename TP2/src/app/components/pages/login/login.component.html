@@ -24,12 +24,10 @@
 				La contraseña debe tener al menos 3 caracteres.
 			</app-error-message>
 
-			<app-success-message
-				class="success-message"
-				(successMessage)="isShown($event)"
-				*ngIf="showSuccess"
+			<app-success-message class="success-message" *ngIf="showSuccess"
 				>Inicio de sesión exitoso!
 			</app-success-message>
+
 			<app-button
 				text="Ingresar"
 				classList="{{
