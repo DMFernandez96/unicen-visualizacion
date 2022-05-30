@@ -7,7 +7,7 @@ import { SessionService } from "src/app/services/session.service";
 	styleUrls: ["./upgrade-account.component.css"],
 })
 export class UpgradeAccountComponent implements OnInit {
-	show: boolean = false;
+	showSuccess: boolean = false;
 
 	constructor(private sessionService: SessionService) {}
 
@@ -18,13 +18,9 @@ export class UpgradeAccountComponent implements OnInit {
 	}
 
 	upgradeAccount(): void {
-		this.show = true;
+		this.showSuccess = true;
 		setTimeout(() => {
 			this.sessionService.setPremium();
 		}, 2000);
-	}
-
-	isShown(show: any): void {
-		this.show = show;
 	}
 }

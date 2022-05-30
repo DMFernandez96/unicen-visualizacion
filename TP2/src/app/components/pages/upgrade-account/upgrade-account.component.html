@@ -8,18 +8,23 @@
 
 		<div class="checkout">
 			<p class="body center">$400 / mes</p>
+
 			<div class="message">
 				<app-success-message
 					class="message-component"
-					(successMessage)="isShown($event)"
-					*ngIf="show"
+					*ngIf="showSuccess"
 					>Mejora de cuenta exitosa!
 				</app-success-message>
 			</div>
+
 			<app-button
 				(click)="upgradeAccount()"
 				text="Mejorar cuenta"
-				classList="w-100 btn-submit text-black"
+				classList="{{
+					showSuccess
+						? 'w-100 text-black h4 btn-submit'
+						: 'w-100 text-black h4'
+				}}"
 			></app-button>
 		</div>
 	</div>

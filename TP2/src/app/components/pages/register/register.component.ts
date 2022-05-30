@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
 		} else {
 			this.usernameError = false;
 		}
-		if (this.user.email.length < 5) {
+		if (this.user.email.length < 5 || !this.user.email.includes("@")) {
 			this.emailError = true;
 			state = false;
 		} else {

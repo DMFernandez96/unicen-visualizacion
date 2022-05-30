@@ -6,23 +6,27 @@
 			<h1>Iniciar Sesión</h1>
 		</div>
 		<form (submit)="login()">
-			<app-input
-				[(value)]="user.email"
-				label="Correo electronico"
-			></app-input>
-			<app-error-message *ngIf="emailError">
-				El correo electronico debe incluir @ y tener al menos 5
-				caracteres.
-			</app-error-message>
+			<div class="form-item">
+				<app-input
+					[(value)]="user.email"
+					label="Correo electronico"
+				></app-input>
+				<app-error-message *ngIf="emailError">
+					El correo electronico debe incluir @ y tener al menos 5
+					caracteres.
+				</app-error-message>
+			</div>
 
-			<app-input
-				[(value)]="user.password"
-				label="Contraseña"
-				type="password"
-			></app-input>
-			<app-error-message *ngIf="passwordError">
-				La contraseña debe tener al menos 3 caracteres.
-			</app-error-message>
+			<div class="form-item">
+				<app-input
+					[(value)]="user.password"
+					label="Contraseña"
+					type="password"
+				></app-input>
+				<app-error-message *ngIf="passwordError">
+					La contraseña debe tener al menos 3 caracteres.
+				</app-error-message>
+			</div>
 
 			<app-success-message class="success-message" *ngIf="showSuccess"
 				>Inicio de sesión exitoso!

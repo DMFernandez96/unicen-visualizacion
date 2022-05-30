@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
 	validateForm(): boolean {
 		let state: boolean = true;
-		if (this.user.email.length < 5) {
+		if (this.user.email.length < 5 || !this.user.email.includes("@")) {
 			this.emailError = true;
 			state = false;
 		} else {
