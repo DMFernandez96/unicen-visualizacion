@@ -29,4 +29,8 @@ export class HeaderOverlayProfileComponent implements OnInit {
 	getUsername(): string {
 		return this.sessionService.getUser()?.username || "Undefined";
 	}
+
+	userIsPremium(): boolean {
+		return this.sessionService.userIsPremium();
+	}
 }

@@ -5,6 +5,19 @@
 		<p class="h4 username">{{ getUsername() }}</p>
 	</div>
 	<div class="navigation">
+		<p class="h4">
+			Cuenta:
+			<span class="center" *ngIf="!userIsPremium()">
+				basica
+				<app-button
+					(click)="closeProfileOverlay()"
+					routerLink="/mejorar-cuenta"
+					size="small"
+					text="Mejorar"
+				></app-button>
+			</span>
+			<span class="golden" *ngIf="userIsPremium()"> especial </span>
+		</p>
 		<p class="h4 link" (click)="closeProfileOverlay()" routerLink="/perfil">
 			Editar perfil
 		</p>

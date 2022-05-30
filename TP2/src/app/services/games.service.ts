@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Game } from "../interfaces/game";
 import { GAMES } from "../mock-data/mock-games";
 import { FavoritesService } from "./favorites.service";
+import { SessionService } from "./session.service";
 
 @Injectable({
 	providedIn: "root",
@@ -9,7 +10,10 @@ import { FavoritesService } from "./favorites.service";
 export class GamesService {
 	games: Game[] = [];
 
-	constructor(private favoritesService: FavoritesService) {
+	constructor(
+		private favoritesService: FavoritesService,
+		private sessionService: SessionService
+	) {
 		this.games = GAMES;
 	}
 
@@ -26,14 +30,14 @@ export class GamesService {
 		this.games.forEach((game) => {
 			if (game.category == category) gamesResponse.push(game);
 		});
-		return gamesResponse;
+		return this.filterPremium(gamesResponse);
 	}
 
 	getContinuePlaying(): Game[] {
 		let continuePlaying: Game[] = [];
 		continuePlaying.push(this.getById(17));
 		continuePlaying.push(this.getById(2));
-		return continuePlaying;
+		return this.filterPremium(continuePlaying);
 	}
 
 	getFavorites(): Game[] {
@@ -41,7 +45,7 @@ export class GamesService {
 		this.favoritesService.getFavorites().forEach((id) => {
 			favorites.push(this.getById(id));
 		});
-		return favorites;
+		return this.filterPremium(favorites);
 	}
 
 	getRecommendedForYou(): Game[] {
@@ -53,7 +57,7 @@ export class GamesService {
 		recommended.push(this.getById(19));
 		recommended.push(this.getById(23));
 		recommended.push(this.getById(3));
-		return recommended;
+		return this.filterPremium(recommended);
 	}
 
 	getFiltered(name: string, category: string, ascendente: boolean): Game[] {
@@ -61,6 +65,13 @@ export class GamesService {
 			(g) => g.name.toLowerCase().includes(name) && g.category == category
 		);
 		if (!ascendente) gamesFiltered.reverse();
-		return gamesFiltered;
+		return this.filterPremium(gamesFiltered);
+	}
+
+	filterPremium(games: Game[]) {
+		if (this.sessionService.userIsPremium()) return games;
+		else {
+			return games.filter((g) => g.premium == false);
+		}
 	}
 }
