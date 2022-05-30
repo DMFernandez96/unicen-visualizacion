@@ -10,9 +10,8 @@
             <app-input [(value)]="user.email" label="Correo electronico"></app-input>
             <app-input [(value)]="user.password" label="Contraseña" type="password"></app-input>
             <app-input [(value)]="confirmPassword" label="Confirmar contraseña" type="password"></app-input>
-            <div class="successRegister" *ngIf="isShown">
-                <p>Registro exitoso!</p>
-            </div>
+            <app-success-message class="success-message" (successMessage)="isShown($event)" *ngIf="show">Registro exitoso!
+            </app-success-message>
             <app-button text="Registrarse" classList="w-100 text-black h4 btn-submit" (click)="toggleShow()"></app-button>
         </form>
         <p class="link" routerLink="/iniciar-sesion">¿Ya tienes una cuenta?</p>

@@ -36,7 +36,3 @@ form {
     margin-top: var(--space-medium);
     text-decoration: underline;
 }
-
-.successLogin p {
-    color: var(--secondary-dark-2);
-}
