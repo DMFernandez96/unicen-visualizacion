@@ -1,26 +1,19 @@
 <section class="login-container">
-	<app-background-animated></app-background-animated>
-	<section class="login">
-		<div class="fondo"></div>
-		<div class="center">
-			<h1>Iniciar Sesión</h1>
-		</div>
-		<form (submit)="login($event)">
-			<app-input
-				[(value)]="user.email"
-				label="Correo electronico"
-			></app-input>
-			<app-input
-				[(value)]="user.password"
-				label="Contraseña"
-				type="password"
-			></app-input>
-			<app-button
-				text="Ingresar"
-				classList="w-100 text-black h4"
-			></app-button>
-		</form>
-		<p class="link" routerLink="/registrarse">¿Olvidaste tu contraseña?</p>
-		<p class="link" routerLink="/">Volver a inicio</p>
-	</section>
+    <app-background-animated></app-background-animated>
+    <section class="login">
+        <div class="fondo"></div>
+        <div class="center">
+            <h1>Iniciar Sesión</h1>
+        </div>
+        <form (submit)="login($event)">
+            <app-input [(value)]="user.email" label="Correo electronico"></app-input>
+            <app-input [(value)]="user.password" label="Contraseña" type="password"></app-input>
+            <div class="successLogin" *ngIf="isShown">
+                <p>Inicio de sesión exitoso.</p>
+            </div>
+            <app-button text="Ingresar" classList="w-100 text-black h4" (click)="toggleShow()"></app-button>
+        </form>
+        <p class="link" routerLink="/registrarse">¿Olvidaste tu contraseña?</p>
+        <p class="link" routerLink="/">Volver a inicio</p>
+    </section>
 </section>

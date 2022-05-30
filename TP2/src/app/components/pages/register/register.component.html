@@ -1,39 +1,21 @@
 <section class="register-container">
-	<app-background-animated></app-background-animated>
-	<section class="register">
-		<div class="center">
-			<h1>Crear cuenta</h1>
-			<p class="body-small">Podrás añadir juegos a favoritos!</p>
-		</div>
-		<form (submit)="register($event)">
-			<app-input
-				[(value)]="user.username"
-				label="Nombre de usuario"
-			></app-input>
-
-			<app-input
-				[(value)]="user.email"
-				label="Correo electronico"
-			></app-input>
-
-			<app-input
-				[(value)]="user.password"
-				label="Contraseña"
-				type="password"
-			></app-input>
-
-			<app-input
-				[(value)]="confirmPassword"
-				label="Confirmar contraseña"
-				type="password"
-			></app-input>
-
-			<app-button
-				text="Registrarse"
-				classList="w-100 text-black h4 btn-submit"
-			></app-button>
-		</form>
-		<p class="link" routerLink="/iniciar-sesion">¿Ya tienes una cuenta?</p>
-		<p class="link" routerLink="/">Volver a inicio</p>
-	</section>
+    <app-background-animated></app-background-animated>
+    <section class="register">
+        <div class="center">
+            <h1>Crear cuenta</h1>
+            <p class="body-small">Podrás añadir juegos a favoritos!</p>
+        </div>
+        <form (submit)="register($event)">
+            <app-input [(value)]="user.username" label="Nombre de usuario"></app-input>
+            <app-input [(value)]="user.email" label="Correo electronico"></app-input>
+            <app-input [(value)]="user.password" label="Contraseña" type="password"></app-input>
+            <app-input [(value)]="confirmPassword" label="Confirmar contraseña" type="password"></app-input>
+            <div class="successRegister" *ngIf="isShown">
+                <p>Registro exitoso!</p>
+            </div>
+            <app-button text="Registrarse" classList="w-100 text-black h4 btn-submit" (click)="toggleShow()"></app-button>
+        </form>
+        <p class="link" routerLink="/iniciar-sesion">¿Ya tienes una cuenta?</p>
+        <p class="link" routerLink="/">Volver a inicio</p>
+    </section>
 </section>
