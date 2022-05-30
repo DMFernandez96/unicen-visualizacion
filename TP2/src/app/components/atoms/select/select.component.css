@@ -1,4 +1,4 @@
-.select-group {
+/* .select-group {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -23,4 +23,76 @@ select {
 	position: absolute;
 	right: 0;
 	pointer-events: none;
+} */
+
+* {
+	--width: 300px;
+	--height: 40px;
+}
+
+label {
+	display: block;
+	margin-bottom: var(--space-xx-small);
+}
+
+.select-container {
+	background-color: var(--white);
+	color: var(--black);
+	border-radius: 10px;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.select-container-open {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.select-value {
+	width: var(--width);
+	height: var(--height);
+	padding: var(--space-small);
+}
+
+.select-value:after {
+	position: absolute;
+	content: "";
+	top: calc((var(--height) - 6px) / 2);
+	right: 16px;
+	border: 6px solid transparent;
+	border-color: var(--black) transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open */
+.select-value.select-value-open:after {
+	border-color: transparent transparent var(--black) transparent;
+	top: calc(((var(--height) - 6px) / 2) - 6);
+}
+
+.select-options {
+	display: none;
+	position: absolute;
+	top: var(--height);
+	background-color: var(--primary-light-1);
+	width: var(--width);
+	z-index: 1;
+}
+
+.options-open {
+	display: block;
+}
+
+.select-item {
+	padding: var(--space-small) var(--space-small);
+	display: block;
+}
+
+.select-item-selected {
+	background-color: var(--primary-dark-2);
+	color: var(--white);
+}
+
+.select-item:hover {
+	background-color: var(--primary-dark-1);
 }

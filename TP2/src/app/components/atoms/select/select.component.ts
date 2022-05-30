@@ -12,11 +12,27 @@ export class SelectComponent implements OnInit {
 	@Input() label!: string;
 	@Input() options!: string[];
 
+	open: boolean = false;
+
 	constructor() {}
 
 	ngOnInit(): void {}
 
 	handleChange(): void {
 		this.valueChange.emit(this.value);
+	}
+
+	changeValue(value: string) {
+		this.value = value;
+		this.handleChange();
+		this.open = false;
+	}
+
+	toggleOpen() {
+		this.open = !this.open;
+	}
+
+	close() {
+		this.open = false;
 	}
 }

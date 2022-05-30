@@ -1,6 +1,5 @@
 .search {
 	margin-bottom: var(--space-xx-large);
-	padding-left: var(--space-medium);
 }
 
 .title {
@@ -22,6 +21,7 @@ form {
 
 .results {
 	margin-top: var(--space-x-large);
+	padding-left: var(--space-medium);
 }
 
 .container-quantity-filter .container-btn-filter {
