@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Game } from "src/app/interfaces/game";
+import {  Router } from "@angular/router";
+import { SessionService } from "src/app/services/session.service";
 
 @Component({
 	selector: "app-category-cards-group",
@@ -11,10 +13,12 @@ export class CategoryCardsGroupComponent implements OnInit {
 	@Input() games: Game[] = [];
 	@Input() viewMore: boolean = false;
 	@Input() search!: string;
+ 
+	constructor(private router: Router,	public sessionService: SessionService) {
+	}
 
-	constructor() {}
-
-	ngOnInit(): void {}
+	ngOnInit(): void {
+	}
 
 	scrollRight(el: HTMLElement): void {
 		// el.scrollIntoView({ behavior: "smooth" });
@@ -23,5 +27,21 @@ export class CategoryCardsGroupComponent implements OnInit {
 
 	scrollLeft(el: HTMLElement): void {
 		el.scrollLeft = el.scrollLeft - 250;
+	}
+
+	userIsLogged(): boolean {
+		return this.sessionService.isLoggedIn();
+	}
+
+	forPlaying(num : number, premium: boolean){
+		if(!this.userIsLogged() && premium){
+			this.router.navigate(["/crear-cuenta"]);
+		}else if (this.sessionService.userIsPremium() && premium ) {
+			this.router.navigate(["/juego/",num]);
+		}else if(!this.sessionService.userIsPremium() && premium){
+			this.router.navigate(["/mejorar-cuenta"]);
+		}else{
+			this.router.navigate(["/juego/",num]);
+		}
 	}
 }

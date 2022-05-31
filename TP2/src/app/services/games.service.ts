@@ -69,7 +69,7 @@ export class GamesService {
 	}
 
 	filterPremium(games: Game[]) {
-		if (this.sessionService.userIsPremium()) return games;
+		if (this.sessionService) return games;
 		else {
 			return games.filter((g) => g.premium == false);
 		}
