@@ -1,11 +1,10 @@
 <div class="container">
 	<app-spinner-overlay></app-spinner-overlay>
-	<app-header [class.hidden]="router.url == '/jugando'"></app-header>
-	<!-- <div class="scrollable"> -->
-	<div [class.scrollable]="router.url != '/jugando'">
+	<app-header [class.hidden]="isPlayingPage()"></app-header>
+	<div [class.scrollable]="!isPlayingPage()">
 		<section class="router-content">
 			<router-outlet></router-outlet>
 		</section>
-		<app-footer [class.hidden]="router.url == '/jugando'"></app-footer>
+		<app-footer [class.hidden]="isPlayingPage()"></app-footer>
 	</div>
 </div>
