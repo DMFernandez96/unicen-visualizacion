@@ -1,27 +1,27 @@
-<app-advertising></app-advertising>
-<section class="for-playing">
+<app-advertising *ngIf="game != undefined"></app-advertising>
+<section *ngIf="game != undefined" class="for-playing">
 	<div class="top">
 		<div>
 			<span class="link body" routerLink="/">Inicio/</span>
 			<span
 				class="link body"
-				routerLink="/categorias/{{ game.category }}"
+				routerLink="/categorias/{{ game!.category }}"
 			>
-				{{ game.category }}/
+				{{ game!.category }}/
 			</span>
 		</div>
 	</div>
 
-	<h1>{{ game.name }}</h1>
+	<h1>{{ game!.name }}</h1>
 	<div class="image-container">
 		<app-button
 			class="btn-play"
 			text="Jugar"
 			classList="background-success"
 			size="large"
-			routerLink="/jugando/{{ game.id }}"
+			routerLink="/jugando/{{ game!.id }}"
 		></app-button>
-		<app-card-game src="{{ game.image }}" [width]="328"></app-card-game>
+		<app-card-game src="{{ game!.image }}" [width]="328"></app-card-game>
 	</div>
 	<div class="icons-right">
 		<app-icon
@@ -49,7 +49,6 @@
 			class="scale-animation"
 			name="{{ isFavorite ? 'favorites-fill' : 'favorites-empty' }}"
 			[width]="36"
-			[routerLink]="!isLoggedIn() ? ['/crear-cuenta'] : []"
 			(click)="toggleFavorite()"
 		></app-icon>
 	</div>
@@ -58,7 +57,7 @@
 		<app-tabs-header [(tabSelected)]="tabSelected"></app-tabs-header>
 
 		<app-tab-content *ngIf="tabSelected == 1">
-			{{ game.description }}
+			{{ game!.description }}
 		</app-tab-content>
 
 		<app-tab-content *ngIf="tabSelected == 2">
@@ -128,4 +127,10 @@
 			<p>Agrega los juegos que más te gustaron a <b>favoritos</b>!</p>
 		</div>
 	</div>
+</section>
+<section *ngIf="game == undefined" class="for-playing">
+	<p>
+		No se encontro el juego! Prueba acceder con tu cuenta o adquirir una
+		cuenta especial!
+	</p>
 </section>

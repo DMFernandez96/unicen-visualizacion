@@ -15,10 +15,19 @@
 
 .center {
 	text-align: center;
+	width: 300px;
 }
 
 .center h1 {
 	margin-bottom: var(--space-x-small);
+}
+
+.register-msg {
+	margin-top: var(--space-x-small);
+	padding: var(--space-medium);
+	background-color: var(--accent);
+	color: var(--white);
+	border-radius: 10px;
 }
 
 form {

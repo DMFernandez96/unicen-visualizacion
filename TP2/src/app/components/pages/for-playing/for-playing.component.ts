@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Game } from "src/app/interfaces/game";
 import { FavoritesService } from "src/app/services/favorites.service";
 import { GamesService } from "src/app/services/games.service";
@@ -15,10 +15,11 @@ export class ForPlayingComponent implements OnInit {
 	id: number;
 	isFavorite: boolean = false;
 	like!: boolean | undefined;
-	game: Game;
+	game: Game | undefined;
 
 	constructor(
 		private route: ActivatedRoute,
+		private router: Router,
 		private favoritesService: FavoritesService,
 		private sessionService: SessionService,
 		private gamesService: GamesService
@@ -31,13 +32,23 @@ export class ForPlayingComponent implements OnInit {
 		this.route.paramMap.subscribe((p) => {
 			this.id = parseInt(p.get("ID")!);
 			this.game = this.gamesService.getById(this.id);
+			if (this.game.premium && !this.sessionService.userIsPremium())
+				this.game = undefined;
 			this.isFavorite = this.updateFavorite();
 		});
 	}
 
 	toggleFavorite() {
-		this.favoritesService.toggleFavorite(this.id);
-		this.isFavorite = this.updateFavorite();
+		if (!this.sessionService.isLoggedIn()) {
+			this.router.navigate(["/crear-cuenta"], {
+				queryParams: {
+					redirect: "favoritos",
+				},
+			});
+		} else {
+			this.favoritesService.toggleFavorite(this.id);
+			this.isFavorite = this.updateFavorite();
+		}
 	}
 
 	updateFavorite(): boolean {
