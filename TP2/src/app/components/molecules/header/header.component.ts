@@ -43,15 +43,19 @@ export class HeaderComponent implements OnInit {
 	}
 
 	search(): void {
-		let search = this.searchValue;
-		this.searchValue = "";
-		this.router.navigate(["/busqueda"], {
-			queryParams: {
-				name: search,
-				category: "Todas",
-				orden: "Masnuevosprimero",
-			},
-		});
+		if (this.searchValue == "" || this.searchValue == undefined) {
+			this.router.navigate(["/busqueda"]);
+		} else {
+			let search = this.searchValue;
+			this.searchValue = "";
+			this.router.navigate(["/busqueda"], {
+				queryParams: {
+					name: search,
+					category: "Todas",
+					orden: "Masnuevosprimero",
+				},
+			});
+		}
 	}
 
 	getCategories(): string[] {

@@ -48,18 +48,18 @@ export class LoginComponent implements OnInit {
 
 	validateForm(): boolean {
 		let state: boolean = true;
-		// if (this.user.email.length < 5 || !this.user.email.includes("@")) {
-		// 	this.emailError = true;
-		// 	state = false;
-		// } else {
-		// 	this.emailError = false;
-		// }
-		// if (this.user.password.length < 3) {
-		// 	this.passwordError = true;
-		// 	state = false;
-		// } else {
-		// 	this.passwordError = false;
-		// }
+		if (this.user.email.length < 5 || !this.user.email.includes("@")) {
+			this.emailError = true;
+			state = false;
+		} else {
+			this.emailError = false;
+		}
+		if (this.user.password.length < 3) {
+			this.passwordError = true;
+			state = false;
+		} else {
+			this.passwordError = false;
+		}
 		return state;
 	}
 }
