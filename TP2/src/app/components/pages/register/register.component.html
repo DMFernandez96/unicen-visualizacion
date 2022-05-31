@@ -4,6 +4,16 @@
 		<div class="center">
 			<h1>Crear cuenta</h1>
 			<p class="body-small">Podrás añadir juegos a favoritos!</p>
+			<p
+				*ngIf="redirect == 'mejorar-cuenta'"
+				class="body-small register-msg"
+			>
+				Para acceder a juegos especiales debes contar con una cuenta
+				especial!
+			</p>
+			<p *ngIf="redirect == 'favoritos'" class="body-small register-msg">
+				Para agregar juegos a favoritos debes contar con una cuenta!
+			</p>
 		</div>
 
 		<form (submit)="register()">
@@ -66,7 +76,13 @@
 			>
 			</app-button>
 		</form>
-		<p class="link" routerLink="/iniciar-sesion">¿Ya tienes una cuenta?</p>
+		<p
+			class="link"
+			[routerLink]="['/iniciar-sesion']"
+			[queryParams]="{ redirect: redirect }"
+		>
+			¿Ya tienes una cuenta?
+		</p>
 		<p class="link" routerLink="/">Volver a inicio</p>
 	</section>
 </section>

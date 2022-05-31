@@ -5,6 +5,7 @@
 
 .icon-premium {
 	position: absolute;
+	z-index: 1;
 	top: var(--space-x-small);
 	left: var(--space-xx-small);
 }
