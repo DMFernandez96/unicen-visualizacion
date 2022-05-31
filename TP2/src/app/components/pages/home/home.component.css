@@ -6,6 +6,7 @@
 }
 .title {
 	text-align: center;
+	margin-right: var(--space-medium);
 	margin-bottom: var(--space-xx-large);
 	color: white;
 }

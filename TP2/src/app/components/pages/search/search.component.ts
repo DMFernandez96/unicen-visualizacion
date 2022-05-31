@@ -30,7 +30,6 @@ export class SearchComponent implements OnInit {
 		private route: ActivatedRoute
 	) {
 		this.games = new Map();
-		this.fetchGames();
 	}
 
 	ngOnInit(): void {
@@ -52,6 +51,7 @@ export class SearchComponent implements OnInit {
 					this.orden = "Mas nuevos primero";
 				else this.orden = "Mas antiguos primero";
 			} else this.orden = "Mas nuevos primero";
+			this.fetchGames();
 		});
 	}
 
