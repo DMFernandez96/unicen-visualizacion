@@ -1,71 +1,126 @@
 <app-advertising></app-advertising>
 <section class="for-playing">
-    <div class="top">
-        <div>
-            <span class="link body" routerLink="/">Inicio/</span>
-            <span class="link body" routerLink="/categorias/infantiles">
-							infantiles/
-						</span>
-        </div>
-    </div>
-    <h1>3 pandas en Japón</h1>
-    <div class="image-container">
-        <app-button class="btn-play" text="Jugar" classList="background-success" size="large" routerLink="/jugando">
-        </app-button>
-        <app-card-game src="assets/images/infantiles/3pandasenjapon.jpg" [width]="328"></app-card-game>
-    </div>
-    <div class="icons-right">
-        <app-icon name="question" [width]="36" (click)="toggleInfoOverlay()"></app-icon>
-        <app-icon tabindex="0" class="scale-animation" (click)="toggleLike('like')" name="{{ like == true ? 'like-fill' : 'like' }}" [width]="36"></app-icon>
-        <app-icon tabindex="0" class="scale-animation" (click)="toggleLike('dislike')" name="{{ like == false ? 'dislike-fill' : 'dislike' }}" [width]="36"></app-icon>
-        <app-icon name="share" [width]="36"></app-icon>
-        <app-icon tabindex="0" class="scale-animation" name="{{ isFavorite ? 'favorites-fill' : 'favorites-empty' }}" [width]="36" [routerLink]="!isLoggedIn() ? ['/crear-cuenta'] : []" (click)="toggleFavorite()"></app-icon>
-    </div>
-    <div class="tabs-container">
-        <app-tabs-header [(tabSelected)]="tabSelected"></app-tabs-header>
-        <app-tab-content *ngIf="tabSelected == 1">
-            ¡Los 3 pandas están de vuelta y esta vez han aterrizado en Japón! Nunca han estado allí, así que todo es nuevo y divertido para ellos. Ayúdales a superar todos los obstáculos que se presenten en su camino y consigue que disfruten de su viaje.
-        </app-tab-content>
-        <app-tab-content *ngIf="tabSelected == 2">
-            <app-how-to-play></app-how-to-play>
-        </app-tab-content>
-        <app-tab-content *ngIf="tabSelected == 3">
-            <div class="multimedia">
-                <p>Video</p>
-                <div class="video">
-                    <img src="assets/images/infantiles/3pandasenjaponvideo.jpg" alt="video" />
-                    <app-icon class="video-play" name="play" [width]="48"></app-icon>
-                </div>
-            </div>
-            <div class="multimedia">
-                <p>Imágenes</p>
-                <div #scrollTarget class="multimedia-flex">
-                    <div class="image_one">
-                        <img src="assets/images/infantiles/3pandasenjaponmultimedia3.jpg" alt="image3" />
-                    </div>
-                    <div class="image two">
-                        <img src="assets/images/infantiles/3pandasenjaponmultimedia4.jpg" alt="image4" />
-                    </div>
-                    <div class="image three">
-                        <img src="assets/images/infantiles/3pandasenjaponmultimedia5.jpg" alt="image5" />
-                    </div>
-                    <div class="image four">
-                        <img src="assets/images/infantiles/3pandasenjaponmultimedia6.jpeg" alt="image6" />
-                    </div>
-                    <div class="image five">
-                        <img src="assets/images/infantiles/3pandasenjaponmultimedia7.jpg" alt="image7" />
-                    </div>
-                </div>
-            </div>
-        </app-tab-content>
-    </div>
-    <div *ngIf="infoOverlayVisible" class="container-overlay-info">
-        <div (click)="closeInfoOverlay()" class="opacity-overlay">
-        </div>
-        <div class="overlay-info">
-            <span (click)="closeInfoOverlay()" class="close">&times;</span>
-            <p>Tus <b>me gusta</b> nos ayudan a recomendarte más juegos de acuerdo a tus gustos!</p>
-            <p>Agrega los juegos que más te gustaron a <b>favoritos</b>! </p>
-        </div>
-    </div>
+	<div class="top">
+		<div>
+			<span class="link body" routerLink="/">Inicio/</span>
+			<span
+				class="link body"
+				routerLink="/categorias/{{ game.category }}"
+			>
+				{{ game.category }}/
+			</span>
+		</div>
+	</div>
+
+	<h1>{{ game.name }}</h1>
+	<div class="image-container">
+		<app-button
+			class="btn-play"
+			text="Jugar"
+			classList="background-success"
+			size="large"
+			routerLink="/jugando/{{ game.id }}"
+		></app-button>
+		<app-card-game src="{{ game.image }}" [width]="328"></app-card-game>
+	</div>
+	<div class="icons-right">
+		<app-icon
+			tabindex="0"
+			class="scale-animation"
+			(click)="toggleLike('like')"
+			name="{{ like == true ? 'like-fill' : 'like' }}"
+			[width]="36"
+		></app-icon>
+		<app-icon
+			tabindex="0"
+			class="scale-animation"
+			(click)="toggleLike('dislike')"
+			name="{{ like == false ? 'dislike-fill' : 'dislike' }}"
+			[width]="36"
+		></app-icon>
+		<app-icon name="share" [width]="36"></app-icon>
+		<app-icon
+			tabindex="0"
+			class="scale-animation"
+			name="{{ isFavorite ? 'favorites-fill' : 'favorites-empty' }}"
+			[width]="36"
+			[routerLink]="!isLoggedIn() ? ['/crear-cuenta'] : []"
+			(click)="toggleFavorite()"
+		></app-icon>
+	</div>
+
+	<div class="tabs-container">
+		<app-tabs-header [(tabSelected)]="tabSelected"></app-tabs-header>
+
+		<app-tab-content *ngIf="tabSelected == 1">
+			{{ game.description }}
+		</app-tab-content>
+
+		<app-tab-content *ngIf="tabSelected == 2">
+			<app-how-to-play></app-how-to-play>
+		</app-tab-content>
+
+		<app-tab-content *ngIf="tabSelected == 3">
+			<div class="multimedia">
+				<p>Video</p>
+				<div class="video">
+					<img
+						src="assets/images/infantiles/3pandasenjaponvideo.jpg"
+						alt="video"
+					/>
+					<app-icon
+						class="video-play"
+						name="play"
+						[width]="48"
+					></app-icon>
+				</div>
+			</div>
+			<div class="multimedia">
+				<p>Imágenes</p>
+				<div #scrollTarget class="multimedia-flex">
+					<div class="image_one">
+						<img
+							src="assets/images/infantiles/3pandasenjaponmultimedia3.jpg"
+							alt="image3"
+						/>
+					</div>
+					<div class="image two">
+						<img
+							src="assets/images/infantiles/3pandasenjaponmultimedia4.jpg"
+							alt="image4"
+						/>
+					</div>
+					<div class="image three">
+						<img
+							src="assets/images/infantiles/3pandasenjaponmultimedia5.jpg"
+							alt="image5"
+						/>
+					</div>
+					<div class="image four">
+						<img
+							src="assets/images/infantiles/3pandasenjaponmultimedia6.jpeg"
+							alt="image6"
+						/>
+					</div>
+					<div class="image five">
+						<img
+							src="assets/images/infantiles/3pandasenjaponmultimedia7.jpg"
+							alt="image7"
+						/>
+					</div>
+				</div>
+			</div>
+		</app-tab-content>
+	</div>
+	<div *ngIf="infoOverlayVisible" class="container-overlay-info">
+		<div (click)="closeInfoOverlay()" class="opacity-overlay"></div>
+		<div class="overlay-info">
+			<span (click)="closeInfoOverlay()" class="close">&times;</span>
+			<p>
+				Tus <b>me gusta</b> nos ayudan a recomendarte más juegos de
+				acuerdo a tus gustos!
+			</p>
+			<p>Agrega los juegos que más te gustaron a <b>favoritos</b>!</p>
+		</div>
+	</div>
 </section>

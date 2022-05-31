@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
 	selector: "app-playing",
@@ -8,15 +9,19 @@ import { Component, Input, OnInit } from "@angular/core";
 export class PlayingComponent implements OnInit {
 	helpOverlayVisible: boolean = false;
 	orientation: string;
+	id: number;
 
-	constructor() {
+	constructor(private route: ActivatedRoute) {
 		this.orientation = window.screen.orientation.type;
+		this.id = 17;
 	}
 
 	ngOnInit(): void {
 		window.addEventListener("orientationchange", () => {
-			console.log(window.screen.orientation.type);
 			this.orientation = window.screen.orientation.type;
+		});
+		this.route.paramMap.subscribe((p) => {
+			this.id = parseInt(p.get("ID")!);
 		});
 	}
 

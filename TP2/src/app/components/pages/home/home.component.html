@@ -16,7 +16,11 @@
 		name="Mis favoritos"
 		[games]="gamesService.getFavorites()"
 	>
-		<app-icon name="favorites-empty" [width]="29"></app-icon>
+		<app-icon
+			routerLink="/favoritos"
+			name="favorites-empty"
+			[width]="29"
+		></app-icon>
 	</app-category-cards-group>
 
 	<app-category-cards-group
