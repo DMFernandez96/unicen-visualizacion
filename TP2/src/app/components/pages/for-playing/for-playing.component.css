@@ -25,6 +25,7 @@
     position: absolute;
     z-index: 1;
     bottom: 20%;
+    animation: wiggle 3s infinite linear;
 }
 
 .icons-right {
@@ -183,23 +184,19 @@ div.image_one img {
     }
 }
 
-.btn-play {
-    animation: wiggle 2s infinite linear;
-}
-
 @keyframes wiggle {
     0%,
     7% {
         transform: rotateZ(0);
     }
     15% {
-        transform: rotateZ(-15deg);
+        transform: rotateZ(-10deg);
     }
     20% {
         transform: rotateZ(10deg);
     }
     25% {
-        transform: rotateZ(-10deg);
+        transform: rotateZ(-8deg);
     }
     30% {
         transform: rotateZ(6deg);
