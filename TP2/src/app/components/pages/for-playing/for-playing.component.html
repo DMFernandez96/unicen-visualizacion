@@ -25,6 +25,11 @@
 	</div>
 	<div class="icons-right">
 		<app-icon
+			name="question"
+			[width]="36"
+			(click)="toggleInfoOverlay()"
+		></app-icon>
+		<app-icon
 			tabindex="0"
 			class="scale-animation"
 			(click)="toggleLike('like')"
