@@ -1,34 +1,14 @@
 <section *ngIf="games.length > 0" class="category">
-	<div class="name">
-		<h3 class="name">{{ name }}</h3>
-		<ng-content></ng-content>
-		<app-button
-			*ngIf="viewMore"
-			routerLink="/categorias/{{ name | lowercase }}"
-			text="Ver mas"
-			size="small"
-		></app-button>
-	</div>
-	<div class="container-cards-group">
-		<app-icon
-			(click)="scrollLeft(scrollTarget)"
-			class="arrow-scroll arrow-scroll-left"
-			name="arrow-left"
-		></app-icon>
-		<div #scrollTarget class="cards-group">
-			<app-card-game
-				*ngFor="let game of games"
-				routerLink="/juego/{{ game.id }}"
-				src="{{ game.image }}"
-				name="{{ game.name }}"
-				[premium]="game.premium"
-				search="{{ search }}"
-			></app-card-game>
-		</div>
-		<app-icon
-			(click)="scrollRight(scrollTarget)"
-			class="arrow-scroll arrow-scroll-right"
-			name="arrow-right"
-		></app-icon>
-	</div>
+    <div class="name">
+        <h3 class="name">{{ name }}</h3>
+        <ng-content></ng-content>
+        <app-button *ngIf="viewMore" routerLink="/categorias/{{ name | lowercase }}" text="Ver mas" size="small"></app-button>
+    </div>
+    <div class="container-cards-group">
+        <app-icon (click)="scrollLeft(scrollTarget)" class="arrow-scroll arrow-scroll-left" name="arrow-left"></app-icon>
+        <div #scrollTarget class="cards-group">
+            <app-card-game *ngFor="let game of games" (click)="forPlaying(game.id, game.premium)" src="{{ game.image }}" name="{{ game.name }}" [premium]="game.premium" search="{{ search }}"></app-card-game>
+        </div>
+        <app-icon (click)="scrollRight(scrollTarget)" class="arrow-scroll arrow-scroll-right" name="arrow-right"></app-icon>
+    </div>
 </section>
