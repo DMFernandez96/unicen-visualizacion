@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from "@angular/core";
 	styleUrls: ["./playing.component.css"],
 })
 export class PlayingComponent implements OnInit {
-	helpOverlayVisible: boolean = true;
+	helpOverlayVisible: boolean = false;
 	orientation: string;
 
 	constructor() {

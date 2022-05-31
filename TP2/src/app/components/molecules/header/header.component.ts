@@ -42,9 +42,16 @@ export class HeaderComponent implements OnInit {
 		return this.sessionService.isLoggedIn();
 	}
 
-	onKeyDownEvent(): void {
-		this.searchValue = " ";
-		this.router.navigate(["/busqueda"]);
+	search(): void {
+		let search = this.searchValue;
+		this.searchValue = "";
+		this.router.navigate(["/busqueda"], {
+			queryParams: {
+				name: search,
+				category: "Todas",
+				orden: "Masnuevosprimero",
+			},
+		});
 	}
 
 	getCategories(): string[] {
