@@ -112,6 +112,34 @@ div.container-all {
     animation-delay: -18s;
 }
 
+.x11 {
+    animation: animateCube 20s linear infinite, sideWays 7s ease-in-out infinite alternate, toTurn 5s linear infinite;
+    left: 80%;
+    top: 80%;
+    animation-delay: -20s;
+}
+
+.x12 {
+    animation: animateCube 25s linear infinite, sideWays 2s ease-in-out infinite alternate, toTurn 5s linear infinite;
+    left: 80%;
+    top: 80%;
+    animation-delay: -22s;
+}
+
+.x13 {
+    animation: animateCube 22s linear infinite, sideWays 7s ease-in-out infinite alternate, toTurn 5s linear infinite;
+    left: 80%;
+    top: 80%;
+    animation-delay: -24s;
+}
+
+.x14 {
+    animation: animateCube 25s linear infinite, sideWays 3s ease-in-out infinite alternate, toTurn 5s linear infinite;
+    left: 80%;
+    top: 80%;
+    animation-delay: -26s;
+}
+
 .face {
     position: absolute;
     width: 25px;
