@@ -19,6 +19,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 0;
+}
+
+.opacity {
+    position: absolute;
+    background-color: var(--black);
+    opacity: 0.4;
+    width: 328px;
+    height: 328px;
+    border-radius: 10px;
+}
+
+.opacity-img {
+    top: 0;
+    left: 0;
+}
+
+.opacity.opacity-img {
+    z-index: 56;
 }
 
 .btn-play {
@@ -26,6 +45,7 @@
     z-index: 1;
     bottom: 20%;
     animation: wiggle 3s infinite linear;
+    z-index: 99;
 }
 
 .icons-right {
