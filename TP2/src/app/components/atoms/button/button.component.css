@@ -26,6 +26,29 @@
 	background-color: var(--secondary);
 }
 
+.btn-primary-dark-2 {
+	background-color: var(--primary-dark-2);
+}
+
+.btn-primary-dark-2:focus {
+	animation: change-color 2s linear;
+}
+
+@keyframes change-color {
+	0% {
+		background-color: var(--primary-dark-2);
+		scale: 1;
+	}
+	50% {
+		background-color: var(--primary-dark-1);
+		scale: 1.1;
+	}
+	100% {
+		background-color: var(--primary-dark-2);
+		scale: 1;
+	}
+}
+
 .btn-normal:hover,
 .btn-large:hover {
 	background-color: var(--secondary-dark-2);
