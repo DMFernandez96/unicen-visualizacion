@@ -12,7 +12,7 @@ import { SessionService } from "src/app/services/session.service";
 export class ForPlayingComponent implements OnInit {
 	tabSelected: number = 1;
 	infoOverlayVisible: boolean = false;
-	shareOverlayVisible: boolean = true;
+	shareOverlayVisible: boolean = false;
 	id: number;
 	isFavorite: boolean = false;
 	like!: boolean | undefined;
