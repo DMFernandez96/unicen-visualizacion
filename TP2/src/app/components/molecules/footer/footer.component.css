@@ -1,10 +1,11 @@
 .footer {
 	background-color: var(--gray-dark);
-	height: 90px;
+	/* height: 90px; */
 	width: 100%;
 	display: flex;
 	align-items: center;
 	flex-flow: row wrap-reverse;
+	padding: var(--space-medium);
 }
 
 .center {
@@ -19,6 +20,11 @@
 	justify-content: center;
 }
 
+.right {
+	gap: var(--space-medium);
+	margin-bottom: var(--space-small);
+}
+
 @media (min-width: 1024px) {
 	.footer {
 		justify-content: space-around;
@@ -26,6 +32,7 @@
 	}
 	.right {
 		gap: var(--space-x-small);
+		margin-bottom: 0px;
 	}
 	.center {
 		display: block;

@@ -12,6 +12,7 @@ import { SessionService } from "src/app/services/session.service";
 export class ForPlayingComponent implements OnInit {
 	tabSelected: number = 1;
 	infoOverlayVisible: boolean = false;
+	shareOverlayVisible: boolean = true;
 	id: number;
 	isFavorite: boolean = false;
 	like!: boolean | undefined;
@@ -80,7 +81,21 @@ export class ForPlayingComponent implements OnInit {
 	toggleInfoOverlay(): void {
 		this.infoOverlayVisible = !this.infoOverlayVisible;
 	}
+
 	closeInfoOverlay(): void {
 		this.infoOverlayVisible = false;
+	}
+
+	toggleShareOverlay(): void {
+		//scroll to show btn share on top
+		// if (!this.shareOverlayVisible) {
+		// 	let parent: any = document.getElementsByClassName("scrollable")[0];
+		// 	parent.scrollTo(0, 3000);
+		// }
+		this.shareOverlayVisible = !this.infoOverlayVisible;
+	}
+
+	closeShareOverlay(): void {
+		this.shareOverlayVisible = false;
 	}
 }
