@@ -1,36 +1,36 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-import { SessionService } from "src/app/services/session.service";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core'
+import { SessionService } from 'src/app/services/session.service'
 
 @Component({
-	selector: "app-header-overlay-profile",
-	templateUrl: "./header-overlay-profile.component.html",
-	styleUrls: ["./header-overlay-profile.component.css"],
+  selector: 'app-header-overlay-profile',
+  templateUrl: './header-overlay-profile.component.html',
+  styleUrls: ['./header-overlay-profile.component.css']
 })
 export class HeaderOverlayProfileComponent implements OnInit {
-	@Output() close = new EventEmitter<any>();
+  @Output() close = new EventEmitter<any>()
 
-	constructor(public sessionService: SessionService) {}
+  constructor(public sessionService: SessionService) {}
 
-	ngOnInit(): void {}
+  ngOnInit(): void {}
 
-	closeProfileOverlay(): void {
-		this.close.emit();
-	}
+  closeProfileOverlay(): void {
+    this.close.emit()
+  }
 
-	userIsLogged(): boolean {
-		return this.sessionService.isLoggedIn();
-	}
+  userIsLogged(): boolean {
+    return this.sessionService.isLoggedIn()
+  }
 
-	closeSession(): void {
-		this.sessionService.logOut();
-		this.closeProfileOverlay();
-	}
+  closeSession(): void {
+    this.sessionService.logOut()
+    this.closeProfileOverlay()
+  }
 
-	getUsername(): string {
-		return this.sessionService.getUser()?.username || "Undefined";
-	}
+  getUsername(): string {
+    return this.sessionService.getUser()?.username || 'Undefined'
+  }
 
-	userIsPremium(): boolean {
-		return this.sessionService.userIsPremium();
-	}
+  userIsPremium(): boolean {
+    return this.sessionService.userIsPremium()
+  }
 }

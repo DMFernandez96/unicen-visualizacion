@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Game } from "src/app/interfaces/game";
+import { Component, Input, OnInit } from '@angular/core'
+import { Game } from 'src/app/interfaces/game'
 
 @Component({
   selector: 'app-favorites-cards-group',
@@ -7,11 +7,9 @@ import { Game } from "src/app/interfaces/game";
   styleUrls: ['./favorites-cards-group.component.css']
 })
 export class FavoritesCardsGroupComponent implements OnInit {
-	@Input() name!: string;
-	@Input() games: Game[] = [];
-  constructor() { }
+  @Input() name!: string
+  @Input() games: Game[] = []
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

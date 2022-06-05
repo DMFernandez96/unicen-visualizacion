@@ -1,19 +1,12 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core'
 
 @Injectable({
-	providedIn: "root",
+  providedIn: 'root'
 })
 export class CategoriesService {
-	constructor() {}
+  constructor() {}
 
-	getCategories(): string[] {
-		return [
-			"Accion",
-			"Belleza",
-			"Carreras",
-			"Gestion",
-			"Infantiles",
-			"Puzzle",
-		];
-	}
+  getCategories(): string[] {
+    return ['Accion', 'Belleza', 'Carreras', 'Gestion', 'Infantiles', 'Puzzle']
+  }
 }

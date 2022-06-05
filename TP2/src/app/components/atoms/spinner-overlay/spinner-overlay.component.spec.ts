@@ -1,25 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { SpinnerOverlayComponent } from './spinner-overlay.component';
+import { SpinnerOverlayComponent } from './spinner-overlay.component'
 
 describe('SpinnerOverlayComponent', () => {
-  let component: SpinnerOverlayComponent;
-  let fixture: ComponentFixture<SpinnerOverlayComponent>;
+  let component: SpinnerOverlayComponent
+  let fixture: ComponentFixture<SpinnerOverlayComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SpinnerOverlayComponent ]
-    })
-    .compileComponents();
-  });
+      declarations: [SpinnerOverlayComponent]
+    }).compileComponents()
+  })
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpinnerOverlayComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(SpinnerOverlayComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

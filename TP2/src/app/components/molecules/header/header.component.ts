@@ -1,64 +1,64 @@
-import { Component, OnInit } from "@angular/core";
-import { SessionService } from "src/app/services/session.service";
-import { Router } from "@angular/router";
-import { Observable } from "rxjs";
-import { CategoriesService } from "src/app/services/categories.service";
+import { Component, OnInit } from '@angular/core'
+import { SessionService } from 'src/app/services/session.service'
+import { Router } from '@angular/router'
+import { Observable } from 'rxjs'
+import { CategoriesService } from 'src/app/services/categories.service'
 
 @Component({
-	selector: "app-header",
-	templateUrl: "./header.component.html",
-	styleUrls: ["./header.component.css"],
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-	menuOverlayVisible: boolean = false;
-	profileOverlayVisible: boolean = false;
-	searchValue!: String;
+  menuOverlayVisible = false
+  profileOverlayVisible = false
+  searchValue!: string
 
-	constructor(
-		public sessionService: SessionService,
-		private router: Router,
-		private categoriesService: CategoriesService
-	) {}
+  constructor(
+    public sessionService: SessionService,
+    private router: Router,
+    private categoriesService: CategoriesService
+  ) {}
 
-	ngOnInit(): void {}
+  ngOnInit(): void {}
 
-	toggleMenuOverlay(): void {
-		this.menuOverlayVisible = !this.menuOverlayVisible;
-	}
+  toggleMenuOverlay(): void {
+    this.menuOverlayVisible = !this.menuOverlayVisible
+  }
 
-	closeMenuOverlay(): void {
-		this.menuOverlayVisible = false;
-	}
+  closeMenuOverlay(): void {
+    this.menuOverlayVisible = false
+  }
 
-	toggleProfileOverlay(): void {
-		this.profileOverlayVisible = !this.profileOverlayVisible;
-	}
+  toggleProfileOverlay(): void {
+    this.profileOverlayVisible = !this.profileOverlayVisible
+  }
 
-	closeProfileOverlay(): void {
-		this.profileOverlayVisible = false;
-	}
+  closeProfileOverlay(): void {
+    this.profileOverlayVisible = false
+  }
 
-	userIsLogged(): boolean {
-		return this.sessionService.isLoggedIn();
-	}
+  userIsLogged(): boolean {
+    return this.sessionService.isLoggedIn()
+  }
 
-	search(): void {
-		if (this.searchValue == "" || this.searchValue == undefined) {
-			this.router.navigate(["/busqueda"]);
-		} else {
-			let search = this.searchValue;
-			this.searchValue = "";
-			this.router.navigate(["/busqueda"], {
-				queryParams: {
-					name: search,
-					category: "Todas",
-					orden: "Masnuevosprimero",
-				},
-			});
-		}
-	}
+  search(): void {
+    if (this.searchValue == '' || this.searchValue == undefined) {
+      this.router.navigate(['/busqueda'])
+    } else {
+      const search = this.searchValue
+      this.searchValue = ''
+      this.router.navigate(['/busqueda'], {
+        queryParams: {
+          name: search,
+          category: 'Todas',
+          orden: 'Masnuevosprimero'
+        }
+      })
+    }
+  }
 
-	getCategories(): string[] {
-		return this.categoriesService.getCategories();
-	}
+  getCategories(): string[] {
+    return this.categoriesService.getCategories()
+  }
 }

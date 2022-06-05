@@ -1,24 +1,24 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 
 @Component({
-	selector: "app-overlay",
-	templateUrl: "./overlay.component.html",
-	styleUrls: ["./overlay.component.css"],
+  selector: 'app-overlay',
+  templateUrl: './overlay.component.html',
+  styleUrls: ['./overlay.component.css']
 })
 export class OverlayComponent implements OnInit {
-	//use two-way data binding for allow close overlay from parent or from closing 'X'
-	@Input() visible: boolean = true;
-	@Input() help: boolean = false;
-	@Output() visibleChange = new EventEmitter<boolean>();
+  //use two-way data binding for allow close overlay from parent or from closing 'X'
+  @Input() visible = true
+  @Input() help = false
+  @Output() visibleChange = new EventEmitter<boolean>()
 
-	@Input() right: boolean = false;
+  @Input() right = false
 
-	constructor() {}
+  constructor() {}
 
-	ngOnInit(): void {}
+  ngOnInit(): void {}
 
-	toggleVisible(): void {
-		this.visible = !this.visible;
-		this.visibleChange.emit(this.visible);
-	}
+  toggleVisible(): void {
+    this.visible = !this.visible
+    this.visibleChange.emit(this.visible)
+  }
 }

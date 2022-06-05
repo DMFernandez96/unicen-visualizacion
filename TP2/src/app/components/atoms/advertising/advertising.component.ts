@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-advertising',
@@ -6,14 +6,12 @@ import { Component, EventEmitter, Input, OnInit } from '@angular/core';
   styleUrls: ['./advertising.component.css']
 })
 export class AdvertisingComponent implements OnInit {
-	@Input() visible: boolean = true;
-  constructor() { }
+  @Input() visible = true
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   close(): void {
-		this.visible = !this.visible;
-	}
-
+    this.visible = !this.visible
+  }
 }
