@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-card-game',
@@ -9,7 +9,7 @@ export class CardGameComponent implements OnInit {
   @Input() src!: string
   @Input() name!: string
   @Input() premium!: boolean
-  @Input() width = 250
+  @Input() width = 200
   @Input() search!: string
 
   constructor() {}
