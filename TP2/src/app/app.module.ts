@@ -37,7 +37,8 @@ import { SpinnerOverlayComponent } from './components/atoms/spinner-overlay/spin
 import { HowToPlayComponent } from './components/atoms/how-to-play/how-to-play.component'
 import { SuccessMessageComponent } from './components/atoms/success-message/success-message.component'
 import { UpgradeAccountComponent } from './components/pages/upgrade-account/upgrade-account.component'
-import { ErrorMessageComponent } from './components/atoms/error-message/error-message.component'
+import { ErrorMessageComponent } from './components/atoms/error-message/error-message.component';
+import { PopoverComponent } from './components/atoms/popover/popover.component'
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { ErrorMessageComponent } from './components/atoms/error-message/error-me
     HowToPlayComponent,
     SuccessMessageComponent,
     UpgradeAccountComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    PopoverComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
