@@ -1,13 +1,13 @@
 <article *ngIf="userIsLogged()" class="profile-overlay">
-	<p class="h1 title">Mi perfil</p>
-	<div class="avatar">
-		<app-avatar [size]="208"></app-avatar>
-		<p class="h4 username">{{ getUsername() }}</p>
-	</div>
-	<div class="navigation">
-		<p class="h4">
-			Cuenta:
-			<span class="center" *ngIf="!userIsPremium()">
+    <p class="h1 title">Mi perfil</p>
+    <div class="avatar">
+        <app-avatar [size]="208"></app-avatar>
+        <p class="h4 username">{{ getUsername() }}</p>
+    </div>
+    <div class="navigation">
+        <p class="h4">
+            Cuenta:
+            <span class="center" *ngIf="!userIsPremium()">
 				basica
 				<app-button
 					(click)="closeProfileOverlay()"
@@ -16,38 +16,15 @@
 					text="Mejorar"
 				></app-button>
 			</span>
-			<span class="golden" *ngIf="userIsPremium()"> especial </span>
-		</p>
-		<p class="h4 link" (click)="closeProfileOverlay()" routerLink="/perfil">
-			Editar perfil
-		</p>
-		<p
-			class="h4 link"
-			(click)="closeProfileOverlay()"
-			routerLink="/favoritos"
-		>
-			Mis favoritos
-		</p>
-		<div class="divider"></div>
-		<p class="h4 link" (click)="closeSession()">Cerrar sesión</p>
-	</div>
-</article>
-
-<article *ngIf="!userIsLogged()" class="profile-overlay">
-	<div class="profile-no-logged">
-		<p
-			class="h4 link"
-			(click)="closeProfileOverlay()"
-			routerLink="/crear-cuenta"
-		>
-			Crear cuenta
-		</p>
-		<p
-			class="h4 link"
-			(click)="closeProfileOverlay()"
-			routerLink="/iniciar-sesion"
-		>
-			Ingresar
-		</p>
-	</div>
+            <span class="golden" *ngIf="userIsPremium()"> especial </span>
+        </p>
+        <p class="h4 link" (click)="closeProfileOverlay()" routerLink="/perfil">
+            Editar perfil
+        </p>
+        <p class="h4 link" (click)="closeProfileOverlay()" routerLink="/favoritos">
+            Mis favoritos
+        </p>
+        <div class="divider"></div>
+        <p class="h4 link" (click)="closeSession()">Cerrar sesión</p>
+    </div>
 </article>
