@@ -1,0 +1,20 @@
+<label for="select-{{ label | lowercase }}">{{ label }}</label>
+<div class="select-container" [class.select-container-open]="open == true">
+	<p
+		(click)="toggleOpen()"
+		class="select-value"
+		[class.select-value-open]="open == true"
+	>
+		{{ value }}
+	</p>
+	<div class="select-options" [class.options-open]="open == true">
+		<p
+			(click)="changeValue(option)"
+			*ngFor="let option of options"
+			class="select-item"
+			[class.select-item-selected]="value == option"
+		>
+			{{ option }}
+		</p>
+	</div>
+</div>

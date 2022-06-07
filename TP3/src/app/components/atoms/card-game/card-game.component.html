@@ -1,0 +1,16 @@
+<div class="card-game">
+  <div [class.img-premium]="premium">
+    <app-icon *ngIf="premium" class="icon-premium" name="premium"></app-icon>
+    <img
+      [class.width-200]="width == 200"
+      [class.width-328]="width == 328"
+      [src]="src"
+      alt="game"
+    />
+  </div>
+  <p
+    [class.name-premium]="premium"
+    [innerHTML]="getNameText()"
+    class="name body"
+  ></p>
+</div>

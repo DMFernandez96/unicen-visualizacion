@@ -1,0 +1,21 @@
+<section class="tabs-header">
+	<app-tab
+		(click)="setTabSelected(1)"
+		text="Descripcion"
+		[selected]="tabSelected == 1"
+		[first]="true"
+	></app-tab>
+
+	<app-tab
+		(click)="setTabSelected(2)"
+		text="Como jugar"
+		[selected]="tabSelected == 2"
+	></app-tab>
+
+	<app-tab
+		(click)="setTabSelected(3)"
+		text="Multimedia"
+		[selected]="tabSelected == 3"
+		[last]="true"
+	></app-tab>
+</section>

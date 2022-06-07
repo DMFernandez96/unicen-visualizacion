@@ -1,0 +1,10 @@
+<div class="container">
+	<app-spinner-overlay></app-spinner-overlay>
+	<app-header [class.hidden]="isPlayingPage()"></app-header>
+	<div [class.scrollable]="!isPlayingPage()">
+		<section class="router-content">
+			<router-outlet></router-outlet>
+		</section>
+		<app-footer [class.hidden]="isPlayingPage()"></app-footer>
+	</div>
+</div>

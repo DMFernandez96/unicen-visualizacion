@@ -1,0 +1,67 @@
+.category {
+	margin-bottom: var(--space-x-large);
+}
+
+.container-cards-group {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.cards-group {
+	display: flex;
+	overflow-x: scroll;
+	gap: var(--space-medium);
+	/* Hide scrollbar for IE, Edge and Firefox */
+	-ms-overflow-style: none;
+	/* IE and Edge */
+	scrollbar-width: none;
+	/* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+.cards-group::-webkit-scrollbar {
+	display: none;
+}
+
+.arrow-scroll {
+	display: none;
+}
+
+.name {
+	display: flex;
+	gap: var(--space-medium);
+	align-items: center;
+	margin-bottom: var(--space-xx-small);
+}
+
+app-card-game:last-child {
+	margin-right: var(--space-x-large);
+}
+
+@media (min-width: 1024px) {
+	.cards-group {
+		gap: var(--space-large);
+		margin-left: calc(var(--space-x-large) + 36px + var(--space-x-large));
+		margin-right: calc(var(--space-x-large) + 36px + var(--space-x-large));
+	}
+	.arrow-scroll {
+		display: block;
+		position: absolute;
+		opacity: 0.8;
+	}
+	.arrow-scroll:hover {
+		opacity: 1;
+	}
+	.arrow-scroll-left {
+		left: var(--space-x-large);
+	}
+	.arrow-scroll-right {
+		right: var(--space-x-large);
+	}
+	.name {
+		padding-left: var(--space-medium);
+		margin-left: 36px; /*Width of icon arrow scroll*/
+	}
+}

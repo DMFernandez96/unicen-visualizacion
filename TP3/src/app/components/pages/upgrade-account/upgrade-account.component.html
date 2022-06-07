@@ -1,0 +1,36 @@
+<section class="upgrade-account">
+	<h1 class="title">Mejorar cuenta</h1>
+	<div *ngIf="!userIsPremium()">
+		<p class="body description">
+			Puedes mejorar la calidad de tu cuenta, obteniendo acceso al
+			catalogo de juegos especiales!
+		</p>
+
+		<div class="checkout">
+			<p class="body center">$400 / mes</p>
+
+			<div class="message">
+				<app-success-message
+					class="message-component"
+					*ngIf="showSuccess"
+					>Mejora de cuenta exitosa!
+				</app-success-message>
+			</div>
+
+			<app-button
+				(click)="upgradeAccount()"
+				text="Mejorar cuenta"
+				classList="{{
+					showSuccess
+						? 'w-100 text-black h4 btn-submit'
+						: 'w-100 text-black h4'
+				}}"
+			></app-button>
+		</div>
+	</div>
+	<div *ngIf="userIsPremium()">
+		<p class="body description">
+			Ya dispones una cuenta de calidad especial!
+		</p>
+	</div>
+</section>
