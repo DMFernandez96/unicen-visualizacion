@@ -1,0 +1,13 @@
+<section class="category">
+	<h1>{{ category | titlecase }}</h1>
+
+	<div class="games">
+		<app-card-game
+			*ngFor="let game of games"
+			routerLink="/juego/{{ game.id }}"
+			src="{{ game.image }}"
+			name="{{ game.name }}"
+			[width]="328"
+		></app-card-game>
+	</div>
+</section>

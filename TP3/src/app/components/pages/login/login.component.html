@@ -1,0 +1,54 @@
+<section class="login-container">
+  <app-background-animated></app-background-animated>
+  <section class="login">
+    <div class="fondo"></div>
+    <div class="center">
+      <h1>Iniciar Sesión</h1>
+      <p *ngIf="redirect == 'mejorar-cuenta'" class="body-small login-msg">
+        Para acceder a juegos especiales debes acceder con una cuenta especial!
+      </p>
+      <p *ngIf="redirect == 'favoritos'" class="body-small login-msg">
+        Para agregar juegos a favoritos debes acceder con una cuenta!
+      </p>
+    </div>
+    <form (submit)="login()">
+      <div class="form-item">
+        <app-input
+          [(value)]="user.email"
+          label="Correo electronico"
+        ></app-input>
+        <app-error-message *ngIf="emailError">
+          El correo electronico debe incluir @ y tener al menos 5 caracteres.
+        </app-error-message>
+      </div>
+
+      <div class="form-item">
+        <app-input
+          [(value)]="user.password"
+          label="Contraseña"
+          type="password"
+        ></app-input>
+        <app-error-message *ngIf="passwordError">
+          La contraseña debe tener al menos 3 caracteres.
+        </app-error-message>
+      </div>
+
+      <app-success-message class="success-message" *ngIf="showSuccess"
+        >Inicio de sesión exitoso!
+      </app-success-message>
+
+      <app-button
+        text="Ingresar"
+        classList="{{
+          showSuccess ? 'w-100 text-black h4 btn-submit' : 'w-100 text-black h4'
+        }}
+				"
+      ></app-button>
+    </form>
+    <p class="link" routerLink="/resetear-contraseña">
+      ¿Olvidaste tu contraseña?
+    </p>
+    <p class="link" routerLink="/crear-cuenta">¿Aun no tienes una cuenta?</p>
+    <p class="link" routerLink="/">Volver a inicio</p>
+  </section>
+</section>
