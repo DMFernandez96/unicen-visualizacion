@@ -105,51 +105,6 @@ div.image_one img {
   max-height: 100%;
 }
 
-/* .container-overlay-info {
-	display: flex;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-	z-index: 200;
-} */
-
-/* .opacity-overlay {
-  background-color: var(--black);
-  opacity: 0.9;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 201;
-} */
-
-/* .overlay-info {
-  background-color: var(--primary-light-2);
-  color: var(--primary-dark-2);
-  padding: var(--space-x-large) var(--space-medium);
-  position: relative;
-  z-index: 202;
-} */
-
-/* .container-overlay-share {
-  text-align: center;
-  z-index: 200;
-} */
-
-.overlay-share {
-  margin-top: var(--space-medium);
-  background-color: var(--primary-light-2);
-  color: var(--primary-dark-2);
-  padding: var(--space-x-large) var(--space-medium);
-  position: relative;
-  z-index: 202;
-}
-
 .container-icons {
   margin-top: var(--space-medium);
   display: flex;
@@ -160,6 +115,8 @@ div.image_one img {
 .container-url {
   display: flex;
   margin-top: var(--space-medium);
+  align-items: center;
+  position: relative;
 }
 
 .url {
@@ -171,6 +128,12 @@ div.image_one img {
   border-radius: 5px;
   line-height: 51px;
   padding-left: var(--space-x-small);
+}
+
+.url-icon-copy {
+  height: 30px;
+  right: 0;
+  top: 4px;
 }
 
 .overlay-info > p {
