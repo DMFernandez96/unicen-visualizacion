@@ -11,8 +11,6 @@ import { SessionService } from 'src/app/services/session.service'
 })
 export class ForPlayingComponent implements OnInit {
   tabSelected = 1
-  infoOverlayVisible = false
-  shareOverlayVisible = false
   id: number
   isFavorite = false
   like!: boolean | undefined
@@ -73,26 +71,5 @@ export class ForPlayingComponent implements OnInit {
         this.like = undefined
       else this.like = !this.like
     }
-  }
-
-  toggleInfoOverlay(): void {
-    this.infoOverlayVisible = !this.infoOverlayVisible
-  }
-
-  closeInfoOverlay(): void {
-    this.infoOverlayVisible = false
-  }
-
-  toggleShareOverlay(): void {
-    //scroll to show btn share on top
-    // if (!this.shareOverlayVisible) {
-    // 	let parent: any = document.getElementsByClassName("scrollable")[0];
-    // 	parent.scrollTo(0, 3000);
-    // }
-    this.shareOverlayVisible = !this.infoOverlayVisible
-  }
-
-  closeShareOverlay(): void {
-    this.shareOverlayVisible = false
   }
 }

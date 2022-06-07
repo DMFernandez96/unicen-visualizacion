@@ -1,0 +1,6 @@
+<div (click)="toggleHidden()" class="popover">
+  <app-icon [name]="name" [width]="width"></app-icon>
+  <div class="popover-text" [class.visible]="!hidden">
+    <ng-content></ng-content>
+  </div>
+</div>
