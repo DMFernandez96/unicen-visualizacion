@@ -1,33 +1,26 @@
-<section *ngIf="id != 0" class="playing">
-	<img src="assets/images/playing.jpg" alt="playing" />
-	<div class="icons-container">
-		<div class="opacity opacity-back"></div>
-		<div class="opacity opacity-question"></div>
-		<app-icon
-			class="back"
-			name="back"
-			[width]="30"
-			routerLink="/juego/{{ id }}"
-		></app-icon>
-		<app-icon
-			class="question"
-			name="question"
-			[width]="30"
-			(click)="toggleHelpOverlay()"
-		></app-icon>
-	</div>
-	<app-overlay [(visible)]="helpOverlayVisible" [help]="true">
-		<div class="overlay-content">
-			<app-how-to-play></app-how-to-play>
-		</div>
-	</app-overlay>
+<section class="icons-container">
+  <div class="opacity opacity-back"></div>
+  <div class="opacity opacity-question"></div>
+  <app-icon
+    class="back"
+    name="back"
+    [width]="30"
+    routerLink="/juego/17"
+  ></app-icon>
+  <app-icon
+    class="question"
+    name="question"
+    [width]="30"
+    (click)="toggleHelpOverlay()"
+  ></app-icon>
+  <app-overlay [(visible)]="helpOverlayVisible" [help]="true">
+    <div class="overlay-content">
+      <app-how-to-play></app-how-to-play>
+    </div>
+  </app-overlay>
 </section>
-<section *ngIf="id == 0" class="playing">
-	<div class="error-msg">
-		<p>
-			No se encontro el juego! Prueba acceder con tu cuenta o adquirir una
-			cuenta especial!
-		</p>
-		<app-button routerLink="/" text="Volver a inicio"></app-button>
-	</div>
+
+<section class="game">
+  <h1>4 en linea</h1>
+  <canvas width="680" height="590" #canvas class="canvas"></canvas>
 </section>
