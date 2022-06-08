@@ -38,7 +38,8 @@ import { HowToPlayComponent } from './components/atoms/how-to-play/how-to-play.c
 import { SuccessMessageComponent } from './components/atoms/success-message/success-message.component'
 import { UpgradeAccountComponent } from './components/pages/upgrade-account/upgrade-account.component'
 import { ErrorMessageComponent } from './components/atoms/error-message/error-message.component';
-import { PopoverComponent } from './components/atoms/popover/popover.component'
+import { PopoverComponent } from './components/atoms/popover/popover.component';
+import { GameComponent } from './components/molecules/game/game.component'
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { PopoverComponent } from './components/atoms/popover/popover.component'
     SuccessMessageComponent,
     UpgradeAccountComponent,
     ErrorMessageComponent,
-    PopoverComponent
+    PopoverComponent,
+    GameComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
