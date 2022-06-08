@@ -21,7 +21,7 @@ jobs:
             ${{ runner.os }}-node-
       - name: Build
         run: |
-          cd TP2
+          cd TP3
           npm install
           npm run-script deploy
           cd EntregaFinal
