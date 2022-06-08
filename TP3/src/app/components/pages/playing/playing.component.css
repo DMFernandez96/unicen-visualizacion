@@ -47,14 +47,7 @@
   max-width: 400px;
 }
 
-/* start game styles */
 .game {
   text-align: center;
   margin-top: var(--space-x-large);
-}
-
-.canvas {
-  border: 1px solid white;
-  margin-top: var(--space-medium);
-  background-color: #2d4671;
 }
