@@ -22,5 +22,11 @@
 
 <section class="game">
   <h1>4 en linea</h1>
-  <canvas width="680" height="590" #canvas class="canvas"></canvas>
+  <canvas
+    (click)="canvasRepaint($event)"
+    width="680"
+    height="590"
+    #canvas
+    class="canvas"
+  ></canvas>
 </section>
