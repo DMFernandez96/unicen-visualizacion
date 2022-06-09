@@ -17,6 +17,9 @@ export class GameComponent implements AfterViewInit {
   gapBorder = 30
   radius = 40
 
+  //para prueba
+  chipsPerPlayer = 5
+
   chips: Chip[]
   colorPlayer1: string
   colorPlayer2: string
@@ -33,6 +36,7 @@ export class GameComponent implements AfterViewInit {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     this.context = this.canvas.nativeElement.getContext('2d')!
     this.initializeBoard()
+    this.addPlayer1Chips()
   }
 
   initializeBoard(): void {
@@ -71,6 +75,18 @@ export class GameComponent implements AfterViewInit {
         this.chips[11].draw()
       }
       this.turnOfPlayer1 = !this.turnOfPlayer1
+    }
+  }
+
+  addPlayer1Chips() {
+    for (let i = 0; i < this.chipsPerPlayer; i++) {
+      const chip: Chip = new Chip(
+        this.context,
+        800,
+        2 * this.radius * i + this.radius + this.gapBorder + this.gap * i,
+        this.radius
+      )
+      chip.draw()
     }
   }
 }
