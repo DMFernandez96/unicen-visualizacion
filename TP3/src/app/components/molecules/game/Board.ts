@@ -1,4 +1,4 @@
-import { Chip } from '../../pages/playing/Chip'
+import { Chip } from './Chip'
 
 export class Board {
   context: CanvasRenderingContext2D
