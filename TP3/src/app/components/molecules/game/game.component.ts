@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core'
-import { Chip } from '../../pages/playing/Chip'
+import { Chip } from './Chip'
 
 @Component({
   selector: 'app-game',
