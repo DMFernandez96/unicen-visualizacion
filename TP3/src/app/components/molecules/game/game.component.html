@@ -1,6 +1,8 @@
 <canvas
-  (click)="canvasRepaint($event)"
-  width="880"
+  (mousedown)="canvasMouseDown($event)"
+  (mouseup)="canvasMouseUp($event)"
+  (mousemove)="canvasMouseMove($event)"
+  width="1100"
   height="640"
   #canvas
   class="canvas"
