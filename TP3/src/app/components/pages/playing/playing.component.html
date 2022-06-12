@@ -22,5 +22,32 @@
 
 <section class="game">
   <h1>4 en linea</h1>
-  <app-game></app-game>
+
+  <section class="container-canvas">
+    <canvas
+      (mousedown)="game.canvasMouseDown($event)"
+      (mouseup)="game.canvasMouseUp($event)"
+      (mousemove)="game.canvasMouseMove($event)"
+      width="1100"
+      height="640"
+      #canvas
+      class="canvas"
+    ></canvas>
+
+    <section class="info">
+      <div class="turn-info">
+        <!-- <p>Turno del jugador: {{ turnOfPlayer1 ? '1' : '2' }}</p> -->
+        <p>Turno del jugador: 1</p>
+        <img *ngIf="true" src="assets/images/chip-yellow.webp" alt="Ficha" />
+        <img *ngIf="true" src="assets/images/chip-red.webp" alt="Ficha" />
+      </div>
+      <div class="time-info">
+        <p>
+          Tiempo total:
+          <b> {{ minutes | number: '2.0' }}:{{ seconds | number: '2.0' }} </b>
+        </p>
+        <app-button (click)="reset()" text="Reiniciar"></app-button>
+      </div>
+    </section>
+  </section>
 </section>

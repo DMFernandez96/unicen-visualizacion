@@ -51,3 +51,33 @@
   text-align: center;
   margin-top: var(--space-x-large);
 }
+
+.container-canvas {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-x-large);
+  margin-top: var(--space-x-large);
+}
+
+.canvas {
+  border: 1px solid white;
+  background-color: #2d4671;
+}
+
+.info {
+  background-color: #2d4671;
+  border: 1px solid white;
+  padding: var(--space-large);
+}
+
+.turn-info {
+  margin-bottom: var(--space-large);
+}
+
+.turn-info p {
+  margin-bottom: var(--space-small);
+}
+
+.time-info p {
+  margin-bottom: var(--space-small);
+}
