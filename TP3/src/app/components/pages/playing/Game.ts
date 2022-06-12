@@ -1,25 +1,14 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core'
 import { Chip } from './Chip'
 
-@Component({
-  selector: 'app-game',
-  templateUrl: './game.component.html',
-  styleUrls: ['./game.component.css']
-})
-export class GameComponent implements AfterViewInit {
-  @ViewChild('canvas')
-  canvas!: ElementRef<HTMLCanvasElement>
-  public context!: CanvasRenderingContext2D
+export class Game {
+  // canvas!: ElementRef<HTMLCanvasElement>
+  context: CanvasRenderingContext2D
 
   boardWidth = 7
   boardHeigth = 6
   gap = 10
   gapBorder = 30
   radius = 40
-
-  chronometer: any
-  seconds = 0
-  minutes = 0
 
   chipsPerPlayer: number
 
@@ -31,7 +20,8 @@ export class GameComponent implements AfterViewInit {
   mouseDown: boolean
   chipSelected: Chip | undefined
 
-  constructor() {
+  constructor(context: CanvasRenderingContext2D) {
+    this.context = context
     this.chips = new Array<Array<Chip>>()
     this.dropsContainers = []
     this.chipsDeck = []
@@ -39,24 +29,19 @@ export class GameComponent implements AfterViewInit {
     this.mouseDown = false
     this.chipSelected = undefined
     this.chipsPerPlayer = (this.boardHeigth * this.boardWidth) / 2
-  }
 
-  ngAfterViewInit(): void {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    this.context = this.canvas.nativeElement.getContext('2d')!
     this.context.strokeStyle = '#fff'
     this.initializeDropsContainers()
     this.initializeBoard()
     this.addPlayerChips()
-    this.startChronometer()
   }
 
   repaint(): void {
     this.context.clearRect(
       0,
       0,
-      this.canvas.nativeElement.width,
-      this.canvas.nativeElement.height
+      this.context.canvas.width,
+      this.context.canvas.height
     )
     this.chips.forEach((column) => {
       column.forEach((chip) => {
@@ -110,8 +95,8 @@ export class GameComponent implements AfterViewInit {
   }
 
   getMouseEventCoordinates(event: MouseEvent): { x: number; y: number } {
-    const canvasX = this.canvas.nativeElement.getBoundingClientRect().x
-    const canvasY = this.canvas.nativeElement.getBoundingClientRect().y
+    const canvasX = this.context.canvas.getBoundingClientRect().x
+    const canvasY = this.context.canvas.getBoundingClientRect().y
     return { x: event.clientX - canvasX, y: event.clientY - canvasY }
   }
 
@@ -187,11 +172,11 @@ export class GameComponent implements AfterViewInit {
           this.radius +
           2 * this.gapBorder +
           this.gap * this.boardWidth,
-        this.canvas.nativeElement.width - this.radius - this.gapBorder
+        this.context.canvas.width - this.radius - this.gapBorder
       ),
       this.generateIntRandom(
         this.gapBorder + this.radius,
-        this.canvas.nativeElement.height - this.radius - this.gapBorder
+        this.context.canvas.height - this.radius - this.gapBorder
       ),
       this.radius,
       id
@@ -215,21 +200,6 @@ export class GameComponent implements AfterViewInit {
     }
   }
 
-  startChronometer(): void {
-    if (this.chronometer != undefined) {
-      clearInterval(this.chronometer)
-      this.minutes = 0
-      this.seconds = 0
-    }
-    this.chronometer = setInterval(() => {
-      this.seconds++
-      if (this.seconds == 60) {
-        this.seconds = 0
-        this.minutes++
-      }
-    }, 1000)
-  }
-
   reset(): void {
     this.chips = []
     this.chipsDeck = []
@@ -237,6 +207,5 @@ export class GameComponent implements AfterViewInit {
     this.initializeBoard()
     this.addPlayerChips()
     this.repaint()
-    this.startChronometer()
   }
 }
