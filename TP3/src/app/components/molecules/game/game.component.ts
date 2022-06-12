@@ -17,6 +17,10 @@ export class GameComponent implements AfterViewInit {
   gapBorder = 30
   radius = 40
 
+  chronometer: any
+  seconds = 0
+  minutes = 0
+
   chipsPerPlayer: number
 
   chips: Array<Array<Chip>>
@@ -44,6 +48,7 @@ export class GameComponent implements AfterViewInit {
     this.initializeDropsContainers()
     this.initializeBoard()
     this.addPlayerChips()
+    this.startChronometer()
   }
 
   repaint(): void {
@@ -208,5 +213,30 @@ export class GameComponent implements AfterViewInit {
       chip2.draw()
       this.chipsDeck.push(chip2)
     }
+  }
+
+  startChronometer(): void {
+    if (this.chronometer != undefined) {
+      clearInterval(this.chronometer)
+      this.minutes = 0
+      this.seconds = 0
+    }
+    this.chronometer = setInterval(() => {
+      this.seconds++
+      if (this.seconds == 60) {
+        this.seconds = 0
+        this.minutes++
+      }
+    }, 1000)
+  }
+
+  reset(): void {
+    this.chips = []
+    this.chipsDeck = []
+    this.turnOfPlayer1 = true
+    this.initializeBoard()
+    this.addPlayerChips()
+    this.repaint()
+    this.startChronometer()
   }
 }
