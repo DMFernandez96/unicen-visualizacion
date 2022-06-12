@@ -17,16 +17,15 @@ export class GameComponent implements AfterViewInit {
   gapBorder = 30
   radius = 40
 
-  //para prueba
-  chipsPerPlayer = 5
+  chipsPerPlayer = 3
 
-  chips: Chip[]
+  chips: Array<Array<Chip>>
   colorPlayer1: string
   colorPlayer2: string
   turnOfPlayer1: boolean
 
   constructor() {
-    this.chips = []
+    this.chips = new Array<Array<Chip>>()
     this.colorPlayer1 = 'red'
     this.colorPlayer2 = 'yellow'
     this.turnOfPlayer1 = true
@@ -36,22 +35,27 @@ export class GameComponent implements AfterViewInit {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     this.context = this.canvas.nativeElement.getContext('2d')!
     this.initializeBoard()
-    this.addPlayer1Chips()
+    this.addPlayerChips()
   }
 
   initializeBoard(): void {
+    let idCounter = 0
     for (let i = 0; i < this.boardWidth; i++) {
       for (let j = 0; j < this.boardHeigth; j++) {
         const chip: Chip = new Chip(
           this.context,
           2 * this.radius * i + this.radius + this.gapBorder + this.gap * i,
           2 * this.radius * j + this.radius + this.gapBorder + this.gap * j,
-          this.radius
+          this.radius,
+          idCounter
         )
         chip.draw()
-        this.chips.push(chip)
+        if (this.chips[i] == undefined) this.chips[i] = new Array<Chip>()
+        this.chips[i].push(chip)
+        idCounter++
       }
     }
+    console.log(this.chips)
   }
 
   canvasRepaint(event: MouseEvent): void {
@@ -68,25 +72,44 @@ export class GameComponent implements AfterViewInit {
     ) {
       console.log('arrow from column "x" clicked, TODO: insert in column "x"')
       if (this.turnOfPlayer1) {
-        this.chips[5].setFillStyle(this.colorPlayer1)
-        this.chips[5].draw()
+        this.chips[5][0].setFillStyle(this.colorPlayer1)
+        this.chips[5][0].draw()
       } else {
-        this.chips[11].setFillStyle(this.colorPlayer2)
-        this.chips[11].draw()
+        this.chips[11][0].setFillStyle(this.colorPlayer2)
+        this.chips[11][0].draw()
       }
       this.turnOfPlayer1 = !this.turnOfPlayer1
     }
   }
 
-  addPlayer1Chips() {
+  addPlayerChips() {
+    let idCounter = 200
     for (let i = 0; i < this.chipsPerPlayer; i++) {
       const chip: Chip = new Chip(
         this.context,
         800,
-        2 * this.radius * i + this.radius + this.gapBorder + this.gap * i,
-        this.radius
+        4 * this.radius * i + this.radius + this.gapBorder + this.gap * i * 2,
+        this.radius,
+        idCounter
       )
+      chip.setFillStyle(this.colorPlayer1)
       chip.draw()
+
+      const chip2: Chip = new Chip(
+        this.context,
+        800,
+        2 * this.radius +
+          this.gap +
+          4 * this.radius * i +
+          this.radius +
+          this.gapBorder +
+          this.gap * i * 2,
+        this.radius,
+        idCounter
+      )
+      chip2.setFillStyle(this.colorPlayer2)
+      chip2.draw()
+      idCounter++
     }
   }
 }
