@@ -17,32 +17,56 @@ export class GameComponent implements AfterViewInit {
   gapBorder = 30
   radius = 40
 
-  chipsPerPlayer = 3
+  chipsPerPlayer: number
 
   chips: Array<Array<Chip>>
   dropsContainers: Path2D[]
-  colorPlayer1: string
-  colorPlayer2: string
+  chipsDeck: Chip[]
   turnOfPlayer1: boolean
+
+  mouseDown: boolean
+  chipSelected: Chip | undefined
 
   constructor() {
     this.chips = new Array<Array<Chip>>()
     this.dropsContainers = []
-    this.colorPlayer1 = 'red'
-    this.colorPlayer2 = 'yellow'
+    this.chipsDeck = []
     this.turnOfPlayer1 = true
+    this.mouseDown = false
+    this.chipSelected = undefined
+    this.chipsPerPlayer = (this.boardHeigth * this.boardWidth) / 2
   }
 
   ngAfterViewInit(): void {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     this.context = this.canvas.nativeElement.getContext('2d')!
+    this.context.strokeStyle = '#fff'
     this.initializeDropsContainers()
     this.initializeBoard()
     this.addPlayerChips()
   }
 
+  repaint(): void {
+    this.context.clearRect(
+      0,
+      0,
+      this.canvas.nativeElement.width,
+      this.canvas.nativeElement.height
+    )
+    this.chips.forEach((column) => {
+      column.forEach((chip) => {
+        chip.draw()
+      })
+    })
+    this.chipsDeck.forEach((chip) => {
+      chip.draw()
+    })
+    this.dropsContainers.forEach((container) => {
+      this.context.stroke(container)
+    })
+  }
+
   initializeDropsContainers(): void {
-    this.context.strokeStyle = '#fff'
     for (let i = 0; i < this.boardWidth; i++) {
       const container = new Path2D()
       container.rect(
@@ -80,11 +104,44 @@ export class GameComponent implements AfterViewInit {
     }
   }
 
-  canvasRepaint(event: MouseEvent): void {
+  getMouseEventCoordinates(event: MouseEvent): { x: number; y: number } {
     const canvasX = this.canvas.nativeElement.getBoundingClientRect().x
     const canvasY = this.canvas.nativeElement.getBoundingClientRect().y
-    const x = event.clientX - canvasX
-    const y = event.clientY - canvasY
+    return { x: event.clientX - canvasX, y: event.clientY - canvasY }
+  }
+
+  canvasMouseDown(event: MouseEvent): void {
+    const { x, y } = this.getMouseEventCoordinates(event)
+    for (let i = 0; i < this.chipsDeck.length; i++) {
+      if (this.chipsDeck[i].isClicked(x, y)) {
+        this.chipSelected = this.chipsDeck[i]
+        this.mouseDown = true
+        break
+      }
+    }
+  }
+
+  canvasMouseUp(event: MouseEvent): void {
+    if (this.chipSelected != undefined) {
+      const { x, y } = this.getMouseEventCoordinates(event)
+      const inserted = this.insertInColumn(x, y)
+      if (inserted)
+        this.chipsDeck.splice(this.chipsDeck.indexOf(this.chipSelected), 1)
+      this.repaint()
+    }
+    this.mouseDown = false
+    this.chipSelected = undefined
+  }
+
+  canvasMouseMove(event: MouseEvent): void {
+    const { x, y } = this.getMouseEventCoordinates(event)
+    if (this.mouseDown == true) {
+      this.chipSelected?.setPosition(x, y)
+      this.repaint()
+    }
+  }
+
+  insertInColumn(x: number, y: number): boolean {
     let column = -1
     for (let i = 0; i < this.dropsContainers.length; i++) {
       if (this.context.isPointInPath(this.dropsContainers[i], x, y)) {
@@ -92,25 +149,20 @@ export class GameComponent implements AfterViewInit {
         break //break the for is the best practice :D ToDo:improve this
       }
     }
-    if (column > -1) this.insertInColumn(column)
-  }
+    if (column <= -1) return false
 
-  insertInColumn(column: number): boolean {
     let position = 0
     let positionEmpty = false
 
     while (!positionEmpty && position < this.boardHeigth) {
-      console.log(this.chips[column][position].state)
       if (this.chips[column][position].state != 0) position++
       else positionEmpty = true
     }
     if (position + 1 > this.boardHeigth) return false
 
     if (this.turnOfPlayer1) {
-      this.chips[column][position].setFillStyle(this.colorPlayer1)
       this.chips[column][position].state = 1
     } else {
-      this.chips[column][position].setFillStyle(this.colorPlayer2)
       this.chips[column][position].state = 2
     }
     this.chips[column][position].draw()
@@ -118,34 +170,43 @@ export class GameComponent implements AfterViewInit {
     return true
   }
 
+  generateIntRandom(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min) + min)
+  }
+
+  generateRandomChip(id: number): Chip {
+    return new Chip(
+      this.context,
+      this.generateIntRandom(
+        2 * this.radius * this.boardWidth +
+          this.radius +
+          2 * this.gapBorder +
+          this.gap * this.boardWidth,
+        this.canvas.nativeElement.width - this.radius - this.gapBorder
+      ),
+      this.generateIntRandom(
+        this.gapBorder + this.radius,
+        this.canvas.nativeElement.height - this.radius - this.gapBorder
+      ),
+      this.radius,
+      id
+    )
+  }
+
   addPlayerChips() {
     let idCounter = 200
     for (let i = 0; i < this.chipsPerPlayer; i++) {
-      const chip: Chip = new Chip(
-        this.context,
-        800,
-        4 * this.radius * i + this.radius + this.gapBorder + this.gap * i * 2,
-        this.radius,
-        idCounter
-      )
-      chip.setFillStyle(this.colorPlayer1)
-      chip.draw()
-
-      const chip2: Chip = new Chip(
-        this.context,
-        800,
-        2 * this.radius +
-          this.gap +
-          4 * this.radius * i +
-          this.radius +
-          this.gapBorder +
-          this.gap * i * 2,
-        this.radius,
-        idCounter
-      )
-      chip2.setFillStyle(this.colorPlayer2)
-      chip2.draw()
+      const chip = this.generateRandomChip(idCounter)
       idCounter++
+      chip.state = 1
+      chip.draw()
+      this.chipsDeck.push(chip)
+
+      const chip2 = this.generateRandomChip(idCounter)
+      idCounter++
+      chip2.state = 2
+      chip2.draw()
+      this.chipsDeck.push(chip2)
     }
   }
 }
