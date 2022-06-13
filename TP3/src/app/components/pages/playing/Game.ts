@@ -9,6 +9,7 @@ export class Game {
   gap = 10
   gapBorder = 30
   radius = 40
+  columnDeck = 270
 
   chipsPerPlayer: number
 
@@ -54,13 +55,17 @@ export class Game {
     this.dropsContainers.forEach((container) => {
       this.context.stroke(container)
     })
+    this.drawBorderDeck()
   }
 
   initializeDropsContainers(): void {
     for (let i = 0; i < this.boardWidth; i++) {
       const container = new Path2D()
       container.rect(
-        this.gapBorder + this.radius * 2 * i + this.gap * i,
+        this.columnDeck +
+          2 * this.gapBorder +
+          this.radius * 2 * i +
+          this.gap * i,
         this.gapBorder,
         this.radius * 2,
         this.radius
@@ -76,7 +81,12 @@ export class Game {
       for (let j = 0; j < this.boardHeigth; j++) {
         const chip: Chip = new Chip(
           this.context,
-          2 * this.radius * i + this.radius + this.gapBorder + this.gap * i,
+
+          this.columnDeck +
+            2 * this.radius * i +
+            2 * this.radius +
+            this.gapBorder +
+            this.gap * (i - 1),
           2 * this.radius * j +
             this.radius +
             this.gapBorder +
@@ -104,9 +114,15 @@ export class Game {
     const { x, y } = this.getMouseEventCoordinates(event)
     for (let i = 0; i < this.chipsDeck.length; i++) {
       if (this.chipsDeck[i].isClicked(x, y)) {
-        this.chipSelected = this.chipsDeck[i]
-        this.mouseDown = true
-        break
+        if (this.turnOfPlayer1 && this.chipsDeck[i].state == 1) {
+          this.chipSelected = this.chipsDeck[i]
+          this.mouseDown = true
+          break
+        } else if (!this.turnOfPlayer1 && this.chipsDeck[i].state == 2) {
+          this.chipSelected = this.chipsDeck[i]
+          this.mouseDown = true
+          break
+        }
       }
     }
   }
@@ -141,14 +157,14 @@ export class Game {
     }
     if (column <= -1) return false
 
-    let position = 0
+    let position = this.boardHeigth - 1
     let positionEmpty = false
 
-    while (!positionEmpty && position < this.boardHeigth) {
-      if (this.chips[column][position].state != 0) position++
+    while (!positionEmpty && position >= 0) {
+      if (this.chips[column][position].state != 0) position--
       else positionEmpty = true
     }
-    if (position + 1 > this.boardHeigth) return false
+    if (position < 0) return false
 
     if (this.turnOfPlayer1) {
       this.chips[column][position].state = 1
@@ -164,18 +180,15 @@ export class Game {
     return Math.floor(Math.random() * (max - min) + min)
   }
 
-  generateRandomChip(id: number): Chip {
+  generateRandomChipLeft(id: number): Chip {
     return new Chip(
       this.context,
       this.generateIntRandom(
-        2 * this.radius * this.boardWidth +
-          this.radius +
-          2 * this.gapBorder +
-          this.gap * this.boardWidth,
-        this.context.canvas.width - this.radius - this.gapBorder
+        this.gapBorder + this.radius,
+        this.columnDeck - this.radius + this.gapBorder
       ),
       this.generateIntRandom(
-        this.gapBorder + this.radius,
+        this.gapBorder + 2 * this.radius + this.gap,
         this.context.canvas.height - this.radius - this.gapBorder
       ),
       this.radius,
@@ -183,16 +196,62 @@ export class Game {
     )
   }
 
+  generateRandomChipRight(id: number): Chip {
+    return new Chip(
+      this.context,
+      this.generateIntRandom(
+        this.columnDeck +
+          2 * this.radius * this.boardWidth +
+          3 * this.gapBorder +
+          this.gap * (this.boardWidth - 1) +
+          this.radius,
+        2 * this.columnDeck +
+          2 * this.radius * this.boardWidth +
+          this.gapBorder +
+          this.gap * this.boardWidth
+      ),
+      this.generateIntRandom(
+        this.gapBorder + 2 * this.radius + this.gap,
+        this.context.canvas.height - this.radius - this.gapBorder
+      ),
+      this.radius,
+      id
+    )
+  }
+
+  drawBorderDeck() {
+    const container = new Path2D()
+    container.rect(
+      this.gapBorder,
+      this.gapBorder,
+      this.columnDeck,
+      this.context.canvas.height - 2 * this.gapBorder
+    )
+    const containerRight = new Path2D()
+    containerRight.rect(
+      this.columnDeck +
+        2 * this.radius * this.boardWidth +
+        3 * this.gapBorder +
+        this.gap * (this.boardWidth - 1),
+      this.gapBorder,
+      this.columnDeck,
+      this.context.canvas.height - 2 * this.gapBorder
+    )
+    this.context.stroke(container)
+    this.context.stroke(containerRight)
+  }
+
   addPlayerChips() {
     let idCounter = 200
+    this.drawBorderDeck()
     for (let i = 0; i < this.chipsPerPlayer; i++) {
-      const chip = this.generateRandomChip(idCounter)
+      const chip = this.generateRandomChipLeft(idCounter)
       idCounter++
       chip.state = 1
       chip.draw()
       this.chipsDeck.push(chip)
 
-      const chip2 = this.generateRandomChip(idCounter)
+      const chip2 = this.generateRandomChipRight(idCounter)
       idCounter++
       chip2.state = 2
       chip2.draw()
