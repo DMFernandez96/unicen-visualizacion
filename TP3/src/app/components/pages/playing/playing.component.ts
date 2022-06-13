@@ -16,11 +16,30 @@ export class PlayingComponent implements AfterViewInit {
   seconds = 0
   minutes = 0
 
+  boardWidth = 7
+  boardHeigth = 6
+  gap = 10
+  gapBorder = 30
+  radius = 40
+  columnDeck = 270
+
   constructor() {
     this.helpOverlayVisible = false
   }
 
   ngAfterViewInit(): void {
+    this.canvas.nativeElement.width =
+      2 * this.columnDeck +
+      2 * this.radius * this.boardWidth +
+      2 * this.radius +
+      2 * this.gapBorder +
+      this.gap * this.boardWidth
+    this.canvas.nativeElement.height =
+      2 * this.gapBorder +
+      this.radius +
+      this.gap +
+      2 * this.radius * this.boardHeigth +
+      this.gap * (this.boardHeigth - 1)
     this.game = new Game(this.canvas.nativeElement.getContext('2d')!)
   }
 

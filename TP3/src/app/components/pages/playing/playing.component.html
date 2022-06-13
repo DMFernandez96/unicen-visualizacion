@@ -28,15 +28,13 @@
       (mousedown)="game.canvasMouseDown($event)"
       (mouseup)="game.canvasMouseUp($event)"
       (mousemove)="game.canvasMouseMove($event)"
-      width="1100"
-      height="640"
       #canvas
       class="canvas"
     ></canvas>
 
-    <section class="info">
+    <!--<section class="info">
       <div class="turn-info">
-        <!-- <p>Turno del jugador: {{ turnOfPlayer1 ? '1' : '2' }}</p> -->
+         <p>Turno del jugador: {{ turnOfPlayer1 ? '1' : '2' }}</p> 
         <p>Turno del jugador: 1</p>
         <img *ngIf="true" src="assets/images/chip-yellow.webp" alt="Ficha" />
         <img *ngIf="true" src="assets/images/chip-red.webp" alt="Ficha" />
@@ -49,5 +47,6 @@
         <app-button (click)="reset()" text="Reiniciar"></app-button>
       </div>
     </section>
+  </section>-->
   </section>
 </section>
