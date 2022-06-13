@@ -1,52 +1,81 @@
-<section class="icons-container">
-  <div class="opacity opacity-back"></div>
-  <div class="opacity opacity-question"></div>
-  <app-icon
-    class="back"
-    name="back"
-    [width]="30"
-    routerLink="/juego/17"
-  ></app-icon>
-  <app-icon
-    class="question"
-    name="question"
-    [width]="30"
-    (click)="toggleHelpOverlay()"
-  ></app-icon>
-  <app-overlay [(visible)]="helpOverlayVisible" [help]="true">
-    <div class="overlay-content">
-      <app-how-to-play></app-how-to-play>
-    </div>
-  </app-overlay>
-</section>
-
-<section class="game">
-  <h1>4 en linea</h1>
-
-  <section class="container-canvas">
-    <canvas
-      (mousedown)="game.canvasMouseDown($event)"
-      (mouseup)="game.canvasMouseUp($event)"
-      (mousemove)="game.canvasMouseMove($event)"
-      #canvas
-      class="canvas"
-    ></canvas>
-
-    <!--<section class="info">
-      <div class="turn-info">
-         <p>Turno del jugador: {{ turnOfPlayer1 ? '1' : '2' }}</p> 
-        <p>Turno del jugador: 1</p>
-        <img *ngIf="true" src="assets/images/chip-yellow.webp" alt="Ficha" />
-        <img *ngIf="true" src="assets/images/chip-red.webp" alt="Ficha" />
-      </div>
-      <div class="time-info">
-        <p>
-          Tiempo total:
-          <b> {{ minutes | number: '2.0' }}:{{ seconds | number: '2.0' }} </b>
-        </p>
-        <app-button (click)="reset()" text="Reiniciar"></app-button>
+<section class="container">
+  <section class="game">
+    <section class="info">
+      <section class="icons-container">
+        <app-icon
+          class="back"
+          name="back"
+          [width]="30"
+          routerLink="/juego/17"
+        ></app-icon>
+        <app-icon
+          class="question"
+          name="question"
+          [width]="30"
+          (click)="toggleHelpOverlay()"
+        ></app-icon>
+        <app-overlay [(visible)]="helpOverlayVisible" [help]="true">
+          <div class="overlay-content">
+            <app-how-to-play></app-how-to-play>
+          </div>
+        </app-overlay>
+      </section>
+      <div class="row">
+        <div class="time-info" [style.width.px]="measures.columnDeck">
+          <p>
+            Tiempo:<b>
+              {{ timer.p1minutes | number: '2.0' }}:{{
+                timer.p1seconds | number: '2.0'
+              }}
+            </b>
+          </p>
+        </div>
+        <div class="center">
+          <h1>4 en linea</h1>
+          <div class="turn-info">
+            <p>Turno del jugador: {{ game?.turnOfPlayer1 ? '1' : '2' }}</p>
+            <img
+              *ngIf="game?.turnOfPlayer1"
+              src="assets/images/chip-red.webp"
+              [class.img-winner]="game?.winner != undefined"
+              alt="Ficha"
+            />
+            <img
+              *ngIf="!game?.turnOfPlayer1"
+              src="assets/images/chip-yellow.webp"
+              [class.img-winner]="game?.winner != undefined"
+              alt="Ficha"
+            />
+          </div>
+          <app-button (click)="reset()" text="Reiniciar"></app-button>
+        </div>
+        <div class="time-info" [style.width.px]="measures.columnDeck">
+          <p>
+            Tiempo:<b>
+              {{ timer.p2minutes | number: '2.0' }}:{{
+                timer.p2seconds | number: '2.0'
+              }}
+            </b>
+          </p>
+        </div>
       </div>
     </section>
-  </section>-->
+    <div class="winner" [class.show]="game?.winner != undefined">
+      El jugador {{ game?.winner }} gano el juego!
+    </div>
+
+    <div class="canvas-container">
+      <div
+        class="opacity-overlay"
+        [class.visible]="game?.winner != undefined"
+      ></div>
+      <canvas
+        (mousedown)="game.canvasMouseDown($event)"
+        (mouseup)="game.canvasMouseUp($event)"
+        (mousemove)="game.canvasMouseMove($event)"
+        #canvas
+        class="canvas"
+      ></canvas>
+    </div>
   </section>
 </section>
