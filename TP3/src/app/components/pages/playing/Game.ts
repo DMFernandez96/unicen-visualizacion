@@ -1,17 +1,9 @@
 import { Chip } from './Chip'
+import { MeasuresService } from './measures.service'
+import { TimerService } from './timer.service'
 
 export class Game {
-  // canvas!: ElementRef<HTMLCanvasElement>
   context: CanvasRenderingContext2D
-
-  boardWidth = 7
-  boardHeigth = 6
-  gap = 10
-  gapBorder = 30
-  radius = 40
-  columnDeck = 270
-
-  chipsPerPlayer: number
 
   chips: Array<Array<Chip>>
   dropsContainers: Path2D[]
@@ -21,7 +13,13 @@ export class Game {
   mouseDown: boolean
   chipSelected: Chip | undefined
 
-  constructor(context: CanvasRenderingContext2D) {
+  winner: number | undefined
+
+  constructor(
+    context: CanvasRenderingContext2D,
+    private measures: MeasuresService,
+    private timer: TimerService
+  ) {
     this.context = context
     this.chips = new Array<Array<Chip>>()
     this.dropsContainers = []
@@ -29,8 +27,6 @@ export class Game {
     this.turnOfPlayer1 = true
     this.mouseDown = false
     this.chipSelected = undefined
-    this.chipsPerPlayer = (this.boardHeigth * this.boardWidth) / 2
-
     this.context.strokeStyle = '#fff'
     this.initializeDropsContainers()
     this.initializeBoard()
@@ -59,16 +55,16 @@ export class Game {
   }
 
   initializeDropsContainers(): void {
-    for (let i = 0; i < this.boardWidth; i++) {
+    for (let i = 0; i < this.measures.boardWidth; i++) {
       const container = new Path2D()
       container.rect(
-        this.columnDeck +
-          2 * this.gapBorder +
-          this.radius * 2 * i +
-          this.gap * i,
-        this.gapBorder,
-        this.radius * 2,
-        this.radius
+        this.measures.columnDeck +
+          2 * this.measures.gapBorder +
+          this.measures.radius * 2 * i +
+          this.measures.gap * i,
+        this.measures.gapBorder,
+        this.measures.radius * 2,
+        this.measures.radius
       )
       this.context.stroke(container)
       this.dropsContainers.push(container)
@@ -77,23 +73,23 @@ export class Game {
 
   initializeBoard(): void {
     let idCounter = 0
-    for (let i = 0; i < this.boardWidth; i++) {
-      for (let j = 0; j < this.boardHeigth; j++) {
+    for (let i = 0; i < this.measures.boardWidth; i++) {
+      for (let j = 0; j < this.measures.boardHeigth; j++) {
         const chip: Chip = new Chip(
           this.context,
 
-          this.columnDeck +
-            2 * this.radius * i +
-            2 * this.radius +
-            this.gapBorder +
-            this.gap * (i - 1),
-          2 * this.radius * j +
-            this.radius +
-            this.gapBorder +
-            this.gap * j +
-            this.gap +
-            this.radius,
-          this.radius,
+          this.measures.columnDeck +
+            2 * this.measures.radius * i +
+            2 * this.measures.radius +
+            this.measures.gapBorder +
+            this.measures.gap * (i - 1),
+          2 * this.measures.radius * j +
+            this.measures.radius +
+            this.measures.gapBorder +
+            this.measures.gap * j +
+            this.measures.gap +
+            this.measures.radius,
+          this.measures.radius,
           idCounter
         )
         chip.draw()
@@ -131,8 +127,16 @@ export class Game {
     if (this.chipSelected != undefined) {
       const { x, y } = this.getMouseEventCoordinates(event)
       const inserted = this.insertInColumn(x, y)
-      if (inserted)
+      if (inserted) {
+        this.timer.checkStart()
         this.chipsDeck.splice(this.chipsDeck.indexOf(this.chipSelected), 1)
+        if (this.checkWinner()) {
+          this.timer.stop()
+          this.turnOfPlayer1 = !this.turnOfPlayer1
+        } else {
+          this.timer.changeTimers()
+        }
+      }
       this.repaint()
     }
     this.mouseDown = false
@@ -157,7 +161,7 @@ export class Game {
     }
     if (column <= -1) return false
 
-    let position = this.boardHeigth - 1
+    let position = this.measures.boardHeigth - 1
     let positionEmpty = false
 
     while (!positionEmpty && position >= 0) {
@@ -184,14 +188,18 @@ export class Game {
     return new Chip(
       this.context,
       this.generateIntRandom(
-        this.gapBorder + this.radius,
-        this.columnDeck - this.radius + this.gapBorder
+        this.measures.gapBorder + this.measures.radius,
+        this.measures.columnDeck -
+          this.measures.radius +
+          this.measures.gapBorder
       ),
       this.generateIntRandom(
-        this.gapBorder + 2 * this.radius + this.gap,
-        this.context.canvas.height - this.radius - this.gapBorder
+        this.measures.gapBorder + 2 * this.measures.radius + this.measures.gap,
+        this.context.canvas.height -
+          this.measures.radius -
+          this.measures.gapBorder
       ),
-      this.radius,
+      this.measures.radius,
       id
     )
   }
@@ -200,21 +208,23 @@ export class Game {
     return new Chip(
       this.context,
       this.generateIntRandom(
-        this.columnDeck +
-          2 * this.radius * this.boardWidth +
-          3 * this.gapBorder +
-          this.gap * (this.boardWidth - 1) +
-          this.radius,
-        2 * this.columnDeck +
-          2 * this.radius * this.boardWidth +
-          this.gapBorder +
-          this.gap * this.boardWidth
+        this.measures.columnDeck +
+          2 * this.measures.radius * this.measures.boardWidth +
+          3 * this.measures.gapBorder +
+          this.measures.gap * (this.measures.boardWidth - 1) +
+          this.measures.radius,
+        2 * this.measures.columnDeck +
+          2 * this.measures.radius * this.measures.boardWidth +
+          this.measures.gapBorder +
+          this.measures.gap * this.measures.boardWidth
       ),
       this.generateIntRandom(
-        this.gapBorder + 2 * this.radius + this.gap,
-        this.context.canvas.height - this.radius - this.gapBorder
+        this.measures.gapBorder + 2 * this.measures.radius + this.measures.gap,
+        this.context.canvas.height -
+          this.measures.radius -
+          this.measures.gapBorder
       ),
-      this.radius,
+      this.measures.radius,
       id
     )
   }
@@ -222,20 +232,20 @@ export class Game {
   drawBorderDeck() {
     const container = new Path2D()
     container.rect(
-      this.gapBorder,
-      this.gapBorder,
-      this.columnDeck,
-      this.context.canvas.height - 2 * this.gapBorder
+      this.measures.gapBorder,
+      this.measures.gapBorder,
+      this.measures.columnDeck,
+      this.context.canvas.height - 2 * this.measures.gapBorder
     )
     const containerRight = new Path2D()
     containerRight.rect(
-      this.columnDeck +
-        2 * this.radius * this.boardWidth +
-        3 * this.gapBorder +
-        this.gap * (this.boardWidth - 1),
-      this.gapBorder,
-      this.columnDeck,
-      this.context.canvas.height - 2 * this.gapBorder
+      this.measures.columnDeck +
+        2 * this.measures.radius * this.measures.boardWidth +
+        3 * this.measures.gapBorder +
+        this.measures.gap * (this.measures.boardWidth - 1),
+      this.measures.gapBorder,
+      this.measures.columnDeck,
+      this.context.canvas.height - 2 * this.measures.gapBorder
     )
     this.context.stroke(container)
     this.context.stroke(containerRight)
@@ -244,7 +254,7 @@ export class Game {
   addPlayerChips() {
     let idCounter = 200
     this.drawBorderDeck()
-    for (let i = 0; i < this.chipsPerPlayer; i++) {
+    for (let i = 0; i < this.measures.chipsPerPlayer; i++) {
       const chip = this.generateRandomChipLeft(idCounter)
       idCounter++
       chip.state = 1
@@ -259,12 +269,13 @@ export class Game {
     }
   }
 
-  reset(): void {
-    this.chips = []
-    this.chipsDeck = []
-    this.turnOfPlayer1 = true
-    this.initializeBoard()
-    this.addPlayerChips()
-    this.repaint()
+  checkWinner(): boolean {
+    if (Math.random() > 0.5) {
+      this.winner = !this.turnOfPlayer1 ? 1 : 2
+      return true
+    }
+    return false
   }
+
+  static setWinner(): void {}
 }
