@@ -129,3 +129,19 @@
     /* outline: 8px solid var(--golden); */
   }
 }
+
+/* dropdown */
+.dropdown-content {
+  padding: var(--space-medium);
+  text-align: left;
+  display: none;
+  position: absolute;
+  background-color: var(--black);
+  z-index: 1;
+}
+
+.show {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-small);
+}

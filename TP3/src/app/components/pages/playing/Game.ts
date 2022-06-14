@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler'
 import { Board } from './Board'
 import { Chip } from './Chip'
 import { MeasuresService } from './measures.service'
@@ -7,6 +8,7 @@ export class Game {
   context: CanvasRenderingContext2D
   board: Board
 
+  playing: boolean
   turnOfPlayer1: boolean
 
   mouseDown: boolean
@@ -20,7 +22,11 @@ export class Game {
     private timer: TimerService
   ) {
     this.context = context
+    this.setCanvasHeight()
+    this.setCanvasWidth()
+    this.context.strokeStyle = '#fff'
     this.board = new Board(this.context, measures)
+    this.playing = false
     this.turnOfPlayer1 = true
     this.mouseDown = false
     this.chipSelected = undefined
@@ -33,6 +39,7 @@ export class Game {
   }
 
   canvasMouseDown(event: MouseEvent): void {
+    if (!this.playing) return
     const { x, y } = this.getMouseEventCoordinates(event)
     for (let i = 0; i < this.board.chipsDeck.length; i++) {
       if (
@@ -123,7 +130,17 @@ export class Game {
 
   static setWinner(): void {}
 
+  play(): void {
+    this.playing = true
+    this.setCanvasHeight()
+    this.setCanvasWidth()
+    this.context.strokeStyle = '#fff'
+    this.board.reset()
+  }
+
   reset(): void {
+    this.playing = false
+    this.timer.reset()
     this.board.chips = []
     this.board.chipsDeck = []
     this.turnOfPlayer1 = true
@@ -131,6 +148,22 @@ export class Game {
     this.board.initializeDecksChips()
     this.board.repaint()
     this.winner = undefined
-    this.timer.start()
+  }
+
+  setCanvasWidth(): void {
+    this.context.canvas.width =
+      2 * this.measures.columnDeck +
+      2 * this.measures.radius * this.measures.boardWidth +
+      4 * this.measures.gapBorder +
+      this.measures.gap * (this.measures.boardWidth - 1)
+  }
+
+  setCanvasHeight(): void {
+    this.context.canvas.height =
+      2 * this.measures.gapBorder +
+      this.measures.radius +
+      this.measures.gap +
+      2 * this.measures.radius * this.measures.boardHeigth +
+      this.measures.gap * (this.measures.boardHeigth - 1)
   }
 }
