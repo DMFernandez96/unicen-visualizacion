@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core'
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 import { Game } from './Game'
 import { MeasuresService } from './measures.service'
 import { TimerService } from './timer.service'
@@ -8,8 +8,8 @@ import { TimerService } from './timer.service'
   templateUrl: './playing.component.html',
   styleUrls: ['./playing.component.css']
 })
-export class PlayingComponent implements AfterViewInit {
-  @ViewChild('canvas')
+export class PlayingComponent implements OnInit {
+  @ViewChild('canvas', { static: true })
   canvas!: ElementRef<HTMLCanvasElement>
   game!: Game
   helpOverlayVisible: boolean
@@ -18,7 +18,7 @@ export class PlayingComponent implements AfterViewInit {
     this.helpOverlayVisible = false
   }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.canvas.nativeElement.width =
       2 * this.measures.columnDeck +
       2 * this.measures.radius * this.measures.boardWidth +
@@ -30,6 +30,7 @@ export class PlayingComponent implements AfterViewInit {
       this.measures.gap +
       2 * this.measures.radius * this.measures.boardHeigth +
       this.measures.gap * (this.measures.boardHeigth - 1)
+
     this.game = new Game(
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       this.canvas.nativeElement.getContext('2d')!,

@@ -1,4 +1,5 @@
 import { Chip } from './Chip'
+import { DropContainer } from './DropContainer'
 import { MeasuresService } from './measures.service'
 import { TimerService } from './timer.service'
 
@@ -6,7 +7,7 @@ export class Game {
   context: CanvasRenderingContext2D
 
   chips: Array<Array<Chip>>
-  dropsContainers: Path2D[]
+  dropsContainers: DropContainer[]
   chipsDeck: Chip[]
   turnOfPlayer1: boolean
 
@@ -31,6 +32,7 @@ export class Game {
     this.initializeDropsContainers()
     this.initializeBoard()
     this.addPlayerChips()
+    this.repaint()
   }
 
   repaint(): void {
@@ -49,15 +51,15 @@ export class Game {
       chip.draw()
     })
     this.dropsContainers.forEach((container) => {
-      this.context.stroke(container)
+      container.draw()
     })
     this.drawBorderDeck()
   }
 
   initializeDropsContainers(): void {
     for (let i = 0; i < this.measures.boardWidth; i++) {
-      const container = new Path2D()
-      container.rect(
+      const container = new DropContainer(
+        this.context,
         this.measures.columnDeck +
           2 * this.measures.gapBorder +
           this.measures.radius * 2 * i +
@@ -66,7 +68,6 @@ export class Game {
         this.measures.radius * 2,
         this.measures.radius
       )
-      this.context.stroke(container)
       this.dropsContainers.push(container)
     }
   }
@@ -77,7 +78,6 @@ export class Game {
       for (let j = 0; j < this.measures.boardHeigth; j++) {
         const chip: Chip = new Chip(
           this.context,
-
           this.measures.columnDeck +
             2 * this.measures.radius * i +
             2 * this.measures.radius +
@@ -92,7 +92,6 @@ export class Game {
           this.measures.radius,
           idCounter
         )
-        chip.draw()
         if (this.chips[i] == undefined) this.chips[i] = new Array<Chip>()
         this.chips[i].push(chip)
         idCounter++
@@ -154,7 +153,7 @@ export class Game {
   insertInColumn(x: number, y: number): boolean {
     let column = -1
     for (let i = 0; i < this.dropsContainers.length; i++) {
-      if (this.context.isPointInPath(this.dropsContainers[i], x, y)) {
+      if (this.dropsContainers[i].isPointInPath(x, y)) {
         column = i
         break //break the for is the best practice :D ToDo:improve this
       }
@@ -258,13 +257,11 @@ export class Game {
       const chip = this.generateRandomChipLeft(idCounter)
       idCounter++
       chip.state = 1
-      chip.draw()
       this.chipsDeck.push(chip)
 
       const chip2 = this.generateRandomChipRight(idCounter)
       idCounter++
       chip2.state = 2
-      chip2.draw()
       this.chipsDeck.push(chip2)
     }
   }
