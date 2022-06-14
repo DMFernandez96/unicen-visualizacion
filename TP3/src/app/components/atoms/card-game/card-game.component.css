@@ -61,15 +61,18 @@
 
 .width-200 {
   width: 200px;
+  height: 200px;
 }
 
 .width-328 {
   width: 328px;
+  height: 328px;
   border-radius: 10px;
 }
 
 @media (min-width: 1024px) {
   .width-200 {
     width: 250px;
+    height: 250px;
   }
 }

@@ -1,8 +1,9 @@
 .instructions {
-	list-style: inside;
+  list-style: inside;
+  text-align: left;
 }
 
 .how-to-play {
-	margin-top: var(--space-large);
-	width: 100%;
+  margin-top: var(--space-large);
+  width: 100%;
 }
