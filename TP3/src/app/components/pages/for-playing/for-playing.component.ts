@@ -16,6 +16,8 @@ export class ForPlayingComponent implements OnInit {
   like!: boolean | undefined
   game: Game | undefined
 
+  infoVisible: boolean
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -25,6 +27,7 @@ export class ForPlayingComponent implements OnInit {
   ) {
     this.id = 17
     this.game = this.gamesService.getById(this.id)
+    this.infoVisible = false
   }
 
   ngOnInit(): void {
@@ -71,5 +74,9 @@ export class ForPlayingComponent implements OnInit {
         this.like = undefined
       else this.like = !this.like
     }
+  }
+
+  showHelpInfo() {
+    this.infoVisible = !this.infoVisible
   }
 }

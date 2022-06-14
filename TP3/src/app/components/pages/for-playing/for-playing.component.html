@@ -28,13 +28,14 @@
   </div>
 
   <div class="icons-right">
-    <app-popover name="question" [width]="30">
+    <!--<app-popover name="question" [width]="30">
       <p>
         Tus <b>me gusta</b> nos ayudan a recomendarte más juegos de acuerdo a
         tus gustos!
       </p>
       <p>Agrega los juegos que más te gustaron a <b>favoritos</b>!</p>
-    </app-popover>
+    </app-popover>-->
+    <app-icon (click)="showHelpInfo()" [width]="30" name="question"></app-icon>
     <app-icon
       tabindex="0"
       class="scale-animation"
@@ -77,6 +78,14 @@
       [width]="30"
       (click)="toggleFavorite()"
     ></app-icon>
+  </div>
+
+  <div class="help-info" *ngIf="infoVisible">
+    <p>
+      Tus <b>me gusta</b> nos ayudan a recomendarte más juegos de acuerdo a tus
+      gustos!
+    </p>
+    <p>Agrega los juegos que más te gustaron a <b>favoritos</b>!</p>
   </div>
 
   <div class="tabs-container">
