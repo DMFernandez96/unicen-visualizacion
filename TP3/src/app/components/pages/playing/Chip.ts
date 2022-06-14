@@ -1,26 +1,15 @@
 export class Chip {
-  context: CanvasRenderingContext2D
-  posX: number
-  posY: number
-  radius: number
-  id: number
-  private state!: number
-  circle: Path2D
-  img: HTMLImageElement
+  private circle: Path2D
+  private img: HTMLImageElement
 
   constructor(
-    context: CanvasRenderingContext2D,
-    posX: number,
-    posY: number,
-    radius: number,
-    id: number,
-    state: number
+    private context: CanvasRenderingContext2D,
+    public posX: number,
+    public posY: number,
+    public radius: number,
+    public id: number,
+    private state: number
   ) {
-    this.context = context
-    this.posX = posX
-    this.posY = posY
-    this.radius = radius
-    this.id = id
     this.circle = new Path2D()
     this.img = new Image()
     this.img.onload = () => {
