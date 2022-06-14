@@ -15,4 +15,14 @@ export class MeasuresService {
   constructor() {
     this.chipsPerPlayer = (this.boardWidth * this.boardHeigth) / 2
   }
+
+  setBoardWidth(width: number): void {
+    this.boardWidth = width
+    this.chipsPerPlayer = (this.boardWidth * this.boardHeigth) / 2
+  }
+
+  setBoardHeight(height: number): void {
+    this.boardHeigth = height
+    this.chipsPerPlayer = (this.boardWidth * this.boardHeigth) / 2
+  }
 }

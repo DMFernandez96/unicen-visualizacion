@@ -47,7 +47,35 @@
               alt="Ficha"
             />
           </div>
-          <app-button (click)="reset()" text="Reiniciar"></app-button>
+          <div *ngIf="!game.playing">
+            <app-button
+              (click)="showDropdown = !showDropdown"
+              text="Configurar juego"
+            ></app-button>
+            <div class="dropdown-content" [class.show]="showDropdown">
+              <app-select
+                [(value)]="gameMode"
+                label="Modo de juego"
+                [options]="[
+                  '4 en linea',
+                  '5 en linea',
+                  '6 en linea',
+                  '7 en linea',
+                  '8 en linea'
+                ]"
+              ></app-select>
+              <app-button
+                classList="w-100"
+                (click)="play()"
+                text="Comenzar juego"
+              ></app-button>
+            </div>
+          </div>
+          <app-button
+            *ngIf="game.playing"
+            (click)="reset()"
+            text="Reiniciar"
+          ></app-button>
         </div>
         <div class="time-info" [style.width.px]="measures.columnDeck">
           <p>

@@ -11,7 +11,13 @@ export class Board {
     private context: CanvasRenderingContext2D,
     private measures: MeasuresService
   ) {
-    this.context.strokeStyle = '#fff'
+    this.chips = new Array<Array<Chip>>()
+    this.dropsContainers = []
+    this.chipsDeck = []
+    this.reset()
+  }
+
+  reset(): void {
     this.chips = new Array<Array<Chip>>()
     this.dropsContainers = []
     this.chipsDeck = []

@@ -78,4 +78,12 @@ export class TimerService {
       this.p2chronometer = undefined
     }
   }
+
+  reset(): void {
+    this.stop()
+    this.p1minutes = 10
+    this.p1seconds = 0
+    this.p2minutes = 10
+    this.p2seconds = 0
+  }
 }
