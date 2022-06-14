@@ -90,7 +90,8 @@ export class Game {
             this.measures.gap +
             this.measures.radius,
           this.measures.radius,
-          idCounter
+          idCounter,
+          0
         )
         if (this.chips[i] == undefined) this.chips[i] = new Array<Chip>()
         this.chips[i].push(chip)
@@ -108,12 +109,15 @@ export class Game {
   canvasMouseDown(event: MouseEvent): void {
     const { x, y } = this.getMouseEventCoordinates(event)
     for (let i = 0; i < this.chipsDeck.length; i++) {
-      if (this.chipsDeck[i].isClicked(x, y)) {
-        if (this.turnOfPlayer1 && this.chipsDeck[i].state == 1) {
+      if (
+        this.chipsDeck[i].getState() > 0 &&
+        this.chipsDeck[i].isClicked(x, y)
+      ) {
+        if (this.turnOfPlayer1 && this.chipsDeck[i].getState() == 1) {
           this.chipSelected = this.chipsDeck[i]
           this.mouseDown = true
           break
-        } else if (!this.turnOfPlayer1 && this.chipsDeck[i].state == 2) {
+        } else if (!this.turnOfPlayer1 && this.chipsDeck[i].getState() == 2) {
           this.chipSelected = this.chipsDeck[i]
           this.mouseDown = true
           break
@@ -164,15 +168,15 @@ export class Game {
     let positionEmpty = false
 
     while (!positionEmpty && position >= 0) {
-      if (this.chips[column][position].state != 0) position--
+      if (this.chips[column][position].getState() != 0) position--
       else positionEmpty = true
     }
     if (position < 0) return false
 
     if (this.turnOfPlayer1) {
-      this.chips[column][position].state = 1
+      this.chips[column][position].setState(1)
     } else {
-      this.chips[column][position].state = 2
+      this.chips[column][position].setState(2)
     }
     this.chips[column][position].draw()
     this.turnOfPlayer1 = !this.turnOfPlayer1
@@ -199,7 +203,8 @@ export class Game {
           this.measures.gapBorder
       ),
       this.measures.radius,
-      id
+      id,
+      1
     )
   }
 
@@ -224,7 +229,8 @@ export class Game {
           this.measures.gapBorder
       ),
       this.measures.radius,
-      id
+      id,
+      2
     )
   }
 
@@ -256,12 +262,10 @@ export class Game {
     for (let i = 0; i < this.measures.chipsPerPlayer; i++) {
       const chip = this.generateRandomChipLeft(idCounter)
       idCounter++
-      chip.state = 1
       this.chipsDeck.push(chip)
 
       const chip2 = this.generateRandomChipRight(idCounter)
       idCounter++
-      chip2.state = 2
       this.chipsDeck.push(chip2)
     }
   }
