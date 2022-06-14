@@ -6,8 +6,8 @@ export class Chip {
   id: number
   state: number
   circle: Path2D
-  colorPlayer1: string
-  colorPlayer2: string
+  img1: any
+  img2: any
 
   constructor(
     context: CanvasRenderingContext2D,
@@ -25,8 +25,8 @@ export class Chip {
     this.id = id
     this.state = 0
     this.circle = new Path2D()
-    this.colorPlayer1 = 'red'
-    this.colorPlayer2 = 'yellow'
+    this.img1 = new Image()
+    this.img2 = new Image()
   }
 
   draw(): void {
@@ -39,9 +39,27 @@ export class Chip {
   }
 
   setFillStyle(): void {
-    if (this.state == 1) this.context.fillStyle = this.colorPlayer1
-    else if (this.state == 2) this.context.fillStyle = this.colorPlayer2
-    else this.context.fillStyle = 'transparent'
+    if (this.state == 1) {
+      //const img1 = new Image()
+      this.img1.src = 'assets/images/chip-red.webp'
+      this.img1.onload = () => {
+        this.context.drawImage(
+          this.img1,
+          this.posX - this.radius,
+          this.posY - this.radius
+        )
+      }
+    } else if (this.state == 2) {
+      //const img2 = new Image()
+      this.img2.src = 'assets/images/chip-yellow.webp'
+      this.img2.onload = () => {
+        this.context.drawImage(
+          this.img2,
+          this.posX - this.radius,
+          this.posY - this.radius
+        )
+      }
+    } else this.context.fillStyle = 'transparent'
   }
 
   setPosition(x: number, y: number) {

@@ -8,7 +8,7 @@ export class MeasuresService {
   boardHeigth = 6
   gap = 10
   gapBorder = 30
-  radius = 40
+  radius = 39
   columnDeck = 270
   chipsPerPlayer: number
 
