@@ -105,6 +105,18 @@ div.image_one img {
   max-height: 100%;
 }
 
+.help-info {
+  /* background-color: var(--primary);
+  color: black;
+  border-radius: 5px;*/
+  padding: var(--space-small);
+  margin-top: 2%;
+}
+
+.help-info p {
+  margin-bottom: 5px;
+}
+
 .container-icons {
   margin-top: var(--space-medium);
   display: flex;
