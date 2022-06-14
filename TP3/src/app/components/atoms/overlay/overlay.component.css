@@ -1,70 +1,82 @@
 .container-overlay {
-	display: flex;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-	z-index: 2;
+  display: flex;
+  position: absolute;
+  top: 90px;
+  left: 0;
+  width: 80%;
+  height: 100%;
+  z-index: 1;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.modal {
+  background-color: var(--black);
+  opacity: 0.9;
+  position: fixed;
+  top: 90px;
+  right: 0;
+  width: 100%;
+  height: 100%;
+
+  z-index: 3;
 }
 
-.opacity-overlay {
-	background-color: var(--black);
-	opacity: 0.9;
-	position: absolute;
-	top: 90px;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 3;
-}
+/*.opacity-overlay {
+  background-color: var(--black);
+  opacity: 0.9;
+  position: absolute;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}*/
 
 .opacity-overlay-help {
-	top: 0;
+  top: 0;
 }
 
 .content {
-	background-color: var(--primary-light-2);
-	color: var(--primary-dark-2);
-	border-radius: 0 0 20px 20px;
-	border: 1px solid var(--black);
-	box-shadow: var(--elevation-4dp);
-	position: absolute;
-	width: 100%;
-	top: 90px;
-	z-index: 4;
+  background-color: var(--primary-light-2);
+  color: var(--primary-dark-2);
+  border-radius: 0 0 20px 20px;
+  border: 1px solid var(--black);
+  box-shadow: var(--elevation-4dp);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 4;
+  height: 100%;
 }
 
 .overlay-right {
-	right: 0;
+  right: 0;
 }
 
 .overlay-help {
-	top: calc(var(--space-x-small) + 30px + var(--space-medium));
-	left: calc(var(--space-medium));
-	width: calc(100% - 2 * var(--space-medium));
+  top: calc(var(--space-x-small) + 30px + var(--space-medium));
+  left: calc(var(--space-medium));
+  width: calc(100% - 2 * var(--space-medium));
 }
 
 .close {
-	font-size: 2.5rem;
-	position: absolute;
-	right: 16px;
-	top: 0;
-	cursor: pointer;
+  font-size: 2.5rem;
+  position: absolute;
+  right: 16px;
+  top: 0;
+  cursor: pointer;
 }
 
 @media (min-width: 600px) {
-	.overlay-help {
-		top: calc(var(--space-x-small) + 30px + var(--space-medium));
-		left: calc(var(--space-medium));
-		width: 300px;
-	}
+  .overlay-help {
+    top: calc(var(--space-x-small) + 30px + var(--space-medium));
+    left: calc(var(--space-medium));
+    width: 300px;
+  }
 }
 
 @media (min-width: 1024px) {
-	.content {
-		width: 300px;
-	}
+  .content {
+    width: 300px;
+  }
 }
