@@ -32,6 +32,7 @@ export class GamesService {
 
   getContinuePlaying(): Game[] {
     const continuePlaying: Game[] = []
+    continuePlaying.push(this.getById(21))
     continuePlaying.push(this.getById(17))
     continuePlaying.push(this.getById(2))
     return continuePlaying

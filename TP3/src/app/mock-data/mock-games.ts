@@ -183,6 +183,15 @@ export const GAMES: Game[] = [
   },
   {
     id: 21,
+    name: 'Conecta 4',
+    description:
+      'Prueba esta versión virtual del clásico juego. Desafía a un amigo mientras intentas hacer que tus piezas se conecten en líneas de cuatro o más.',
+    image: 'assets/images/puzzle/connect4.png',
+    category: 'puzzle',
+    premium: false
+  },
+  {
+    id: 22,
     name: 'Templo del rompecabezas',
     description:
       '¡Con Temple Puzzle, prepárate para entrar en un templo misterioso lleno de rompecabezas! Como puedes entender por el nombre del juego, la única salida es aferrarte a tu sublime paciencia y resolver los rompecabezas de imágenes deslizantes. Si tienes el coraje de entrar en este templo ahora, ¡que comience ya esta aventura!',
@@ -191,7 +200,7 @@ export const GAMES: Game[] = [
     premium: true
   },
   {
-    id: 22,
+    id: 23,
     name: 'Rompecabezas de explosión de juguetes',
     description:
       'Es un juego de rompecabezas de combinación de iconos creado por Avix Games. Con imágenes impresionantes y animaciones satisfactorias ofrece una visión diferente del género de rompecabezas a juego. Desde animales hasta frutas y objetos cotidianos, puede explorar una gran cantidad de elegantes gráficos para admirar. Haga clic en el icono duplicado para deshacerse de él antes de que se acabe el tiempo, ya que se le puntuará en función de su agilidad. ¡Solo vives una vez, pero puedes jugar dos veces! Tanto como quieras.',
@@ -200,7 +209,7 @@ export const GAMES: Game[] = [
     premium: false
   },
   {
-    id: 23,
+    id: 24,
     name: 'Jigsaw 3',
     description:
       'Jigsaw 3 es un juego de rompecabezas creado por Avix Games en el que arrastra las piezas del rompecabezas y las coloca en el lugar correcto para revelar una imagen impresionante. Si tienes todas las piezas en el lugar correcto, ¡completas el nivel! Hay 3 niveles de dificultad para elegir: fácil, normal y difícil, cada uno de los cuales agrega más y más piezas al rompecabezas. ¡El juego tiene un total de 500 niveles! ¿Puedes completarlos todos?',
@@ -209,7 +218,7 @@ export const GAMES: Game[] = [
     premium: false
   },
   {
-    id: 24,
+    id: 25,
     name: 'Acertijos de velas 3',
     description:
       'Este es un juego de plataformas de rompecabezas estilo escape room en el que debes usar el poder del fuego y el agua para ayudar a una vela a llegar al final del nivel y prender fuego a la meta.',
