@@ -6,8 +6,8 @@
 .popover-text {
   width: 200px;
   visibility: hidden;
-  background-color: black;
-  color: #fff;
+  background-color: var(--primary);
+  color: black;
   text-align: center;
   border-radius: 6px;
   padding: 4px 8px;
@@ -16,6 +16,7 @@
   left: 50%;
   z-index: 1;
   transform: translateX(-50%);
+  margin-left: 5px;
 }
 
 .popover-text::after {
@@ -26,7 +27,7 @@
   margin-left: -8px;
   border-width: 8px;
   border-style: solid;
-  border-color: black transparent transparent transparent;
+  border-color: var(--primary) transparent transparent transparent;
 }
 
 .visible {
