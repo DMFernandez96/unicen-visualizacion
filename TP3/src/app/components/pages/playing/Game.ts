@@ -117,22 +117,10 @@ export class Game {
     return { column: column, row: position }
   }
 
-  // checkWinner(column: number, row: number): boolean {
-  // if (
-  //   column == this.measures.boardWidth - 1 &&
-  //   row == this.measures.boardHeigth - 1
-  // ) {
-  //   this.winner = !this.turnOfPlayer1 ? 1 : 2
-  //   return true
-  // }
-  // return false
-  // }
-
-  // checkWinner(char [][] this.board.chips, int row, int column, char fichaJugada):boolean{
   checkWinner(column: number, row: number): boolean {
     const numberToWin = this.measures.boardWidth - 3
     const state = this.board.chips[column][row].getState()
-    let chipsSum = 0 //la posición de inicio (donde cayó la ficha) se cuenta en cada función
+    let chipsSum = 0
 
     //count to left
     chipsSum += this.countLeft(column, row, state)
@@ -141,11 +129,10 @@ export class Game {
     }
     //count to right
     chipsSum += this.countRight(column, row, state)
-    chipsSum-- //Resto 1 porque la column la sumo yendo a izquieda y a derecha
+    chipsSum-- //remainder 1 because the chip played was added in count left and right
     if (chipsSum >= numberToWin) {
       return true
     }
-
     //there is no winner horizontally
     chipsSum = 0
 
@@ -154,23 +141,19 @@ export class Game {
     if (chipsSum >= numberToWin) {
       return true
     }
-
     //there is no winner vertically
     chipsSum = 0
 
     //count down right diagonal
     chipsSum += this.countDownRight(column, row, state)
-    // chipsSum-- //Resto 1 porque la celda jugada se cuenta en ambas direcciones de diagonal
     if (chipsSum >= numberToWin) {
       return true
     }
-
     //there is no winner down right diagonal
     chipsSum = 0
 
     //count down left diagonal
     chipsSum += this.countDownLeft(column, row, state)
-    // chipsSum-- //Resto 1 porque la celda jugada se cuenta en ambas direcciones de diagonal
     if (chipsSum >= numberToWin) {
       return true
     }

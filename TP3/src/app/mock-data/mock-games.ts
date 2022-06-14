@@ -183,9 +183,9 @@ export const GAMES: Game[] = [
   },
   {
     id: 21,
-    name: 'Conecta 4',
+    name: '4 en linea',
     description:
-      'Prueba esta versión virtual del clásico juego. Desafía a un amigo mientras intentas hacer que tus piezas se conecten en líneas de cuatro o más.',
+      'Prueba esta versión virtual del clásico juego 4 en linea. Desafía a un amigo mientras intentas hacer que tus piezas se conecten en líneas de cuatro o más.',
     image: 'assets/images/puzzle/connect4.png',
     category: 'puzzle',
     premium: false
