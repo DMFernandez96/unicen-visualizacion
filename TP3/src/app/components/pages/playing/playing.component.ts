@@ -37,7 +37,6 @@ export class PlayingComponent implements OnInit {
 
   play(): void {
     this.showDropdown = false
-    this.setMeasures()
     this.game.play()
   }
 

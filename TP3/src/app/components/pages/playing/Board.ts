@@ -1,8 +1,10 @@
+import { Subscription } from 'rxjs'
 import { Chip } from './Chip'
 import { DropContainer } from './DropContainer'
 import { MeasuresService } from './measures.service'
 
 export class Board {
+  private changeBoardSubscription!: Subscription
   chips: Array<Array<Chip>>
   dropsContainers: DropContainer[]
   chipsDeck: Chip[]
@@ -15,9 +17,23 @@ export class Board {
     this.dropsContainers = []
     this.chipsDeck = []
     this.reset()
+    this.changeBoardSubscription = measures.subjectChangeBoard
+      .asObservable()
+      .subscribe(() => {
+        this.reset()
+      })
+    this.chipsDeck[measures.boardWidth * measures.boardHeigth - 1].img.onload =
+      () => {
+        this.chipsDeck.forEach((chip) => {
+          chip.draw()
+        })
+      }
   }
 
   reset(): void {
+    this.setCanvasHeight()
+    this.setCanvasWidth()
+    this.context.strokeStyle = '#fff'
     this.chips = new Array<Array<Chip>>()
     this.dropsContainers = []
     this.chipsDeck = []
@@ -201,5 +217,22 @@ export class Board {
 
   generateIntRandom(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min) + min)
+  }
+
+  setCanvasWidth(): void {
+    this.context.canvas.width =
+      2 * this.measures.columnDeck +
+      2 * this.measures.radius * this.measures.boardWidth +
+      4 * this.measures.gapBorder +
+      this.measures.gap * (this.measures.boardWidth - 1)
+  }
+
+  setCanvasHeight(): void {
+    this.context.canvas.height =
+      2 * this.measures.gapBorder +
+      this.measures.radius +
+      this.measures.gap +
+      2 * this.measures.radius * this.measures.boardHeigth +
+      this.measures.gap * (this.measures.boardHeigth - 1)
   }
 }

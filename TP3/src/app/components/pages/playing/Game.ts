@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs'
 import { Board } from './Board'
 import { Chip } from './Chip'
 import { MeasuresService } from './measures.service'
@@ -14,6 +15,7 @@ export class Game {
   chipSelected: Chip | undefined
 
   winner: number | undefined
+  private winnerSubscription!: Subscription
 
   constructor(
     context: CanvasRenderingContext2D,
@@ -21,14 +23,18 @@ export class Game {
     private timer: TimerService
   ) {
     this.context = context
-    this.setCanvasHeight()
-    this.setCanvasWidth()
     this.context.strokeStyle = '#fff'
     this.board = new Board(this.context, measures)
     this.playing = false
     this.turnOfPlayer1 = true
     this.mouseDown = false
     this.chipSelected = undefined
+    this.winnerSubscription = timer.subjectWinner
+      .asObservable()
+      .subscribe((player) => {
+        this.turnOfPlayer1 = !this.turnOfPlayer1
+        this.winner = player
+      })
   }
 
   getMouseEventCoordinates(event: MouseEvent): { x: number; y: number } {
@@ -58,7 +64,6 @@ export class Game {
       const { x, y } = this.getMouseEventCoordinates(event)
       const inserted = this.insertInColumn(x, y)
       if (inserted) {
-        this.timer.checkStart()
         this.board.chipsDeck.splice(
           this.board.chipsDeck.indexOf(this.chipSelected),
           1
@@ -222,42 +227,16 @@ export class Game {
     return equalsQuantity
   }
 
-  static setWinner(): void {}
-
   play(): void {
     this.playing = true
-    this.setCanvasHeight()
-    this.setCanvasWidth()
-    this.context.strokeStyle = '#fff'
-    this.board.reset()
+    this.timer.checkStart()
   }
 
   reset(): void {
     this.playing = false
     this.timer.reset()
-    this.board.chips = []
-    this.board.chipsDeck = []
     this.turnOfPlayer1 = true
-    this.board.initializeBoardChips()
-    this.board.initializeDecksChips()
-    this.board.repaint()
     this.winner = undefined
-  }
-
-  setCanvasWidth(): void {
-    this.context.canvas.width =
-      2 * this.measures.columnDeck +
-      2 * this.measures.radius * this.measures.boardWidth +
-      4 * this.measures.gapBorder +
-      this.measures.gap * (this.measures.boardWidth - 1)
-  }
-
-  setCanvasHeight(): void {
-    this.context.canvas.height =
-      2 * this.measures.gapBorder +
-      this.measures.radius +
-      this.measures.gap +
-      2 * this.measures.radius * this.measures.boardHeigth +
-      this.measures.gap * (this.measures.boardHeigth - 1)
+    this.board.reset()
   }
 }

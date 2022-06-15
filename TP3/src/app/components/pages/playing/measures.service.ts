@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core'
+import { Subject } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
 })
 export class MeasuresService {
+  public subjectChangeBoard: Subject<void> = new Subject<void>()
+
   boardWidth = 7
   boardHeigth = 6
   gap = 10
@@ -11,6 +14,7 @@ export class MeasuresService {
   radius = 39
   columnDeck = 270
   chipsPerPlayer: number
+  gameTimeInMinutes = 5
 
   constructor() {
     this.chipsPerPlayer = (this.boardWidth * this.boardHeigth) / 2
@@ -19,10 +23,16 @@ export class MeasuresService {
   setBoardWidth(width: number): void {
     this.boardWidth = width
     this.chipsPerPlayer = (this.boardWidth * this.boardHeigth) / 2
+    this.emitchangeBoard()
   }
 
   setBoardHeight(height: number): void {
     this.boardHeigth = height
     this.chipsPerPlayer = (this.boardWidth * this.boardHeigth) / 2
+    this.emitchangeBoard()
+  }
+
+  emitchangeBoard(): void {
+    this.subjectChangeBoard.next()
   }
 }

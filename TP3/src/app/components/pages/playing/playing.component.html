@@ -36,6 +36,7 @@
             <div class="dropdown-content" [class.show]="showDropdown">
               <app-select
                 [(value)]="gameMode"
+                (valueChange)="setMeasures()"
                 label="Modo de juego"
                 [options]="[
                   '4 en linea',

@@ -23,8 +23,10 @@ export class SelectComponent implements OnInit {
   }
 
   changeValue(value: string) {
-    this.value = value
-    this.handleChange()
+    if (value != this.value) {
+      this.value = value
+      this.handleChange()
+    }
     this.open = false
   }
 

@@ -1,26 +1,30 @@
 import { Injectable } from '@angular/core'
-import { Game } from './Game'
+import { Subject } from 'rxjs'
+import { MeasuresService } from './measures.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class TimerService {
+  public subjectWinner: Subject<number> = new Subject<number>()
+
   p1chronometer: ReturnType<typeof setInterval> | undefined
-  p1minutes = 10
-  p1seconds = 0
+  p1minutes: number
+  p1seconds: number
 
   p2chronometer: ReturnType<typeof setInterval> | undefined
-  p2minutes = 10
-  p2seconds = 0
+  p2minutes: number
+  p2seconds: number
 
-  constructor() {}
+  constructor(private measures: MeasuresService) {
+    this.p1minutes = this.measures.gameTimeInMinutes
+    this.p1seconds = 0
+    this.p2minutes = this.measures.gameTimeInMinutes
+    this.p2seconds = 0
+  }
 
   start(): void {
-    this.p1minutes = 10
-    this.p1seconds = 0
-    this.p2minutes = 10
-    this.p2seconds = 0
-    this.stop()
+    this.reset()
     this.startChronometer(1)
   }
 
@@ -34,7 +38,7 @@ export class TimerService {
         }
         if (this.p1seconds == 0 && this.p1minutes == 0) {
           this.stop()
-          Game.setWinner()
+          this.emitPlayerWinner(2)
         }
       }, 1000)
     } else {
@@ -46,6 +50,7 @@ export class TimerService {
         }
         if (this.p2seconds == 0 && this.p2minutes == 0) {
           this.stop()
+          this.emitPlayerWinner(1)
         }
       }, 1000)
     }
@@ -81,9 +86,13 @@ export class TimerService {
 
   reset(): void {
     this.stop()
-    this.p1minutes = 10
+    this.p1minutes = this.measures.gameTimeInMinutes
     this.p1seconds = 0
-    this.p2minutes = 10
+    this.p2minutes = this.measures.gameTimeInMinutes
     this.p2seconds = 0
+  }
+
+  emitPlayerWinner(player: number): void {
+    this.subjectWinner.next(player)
   }
 }
