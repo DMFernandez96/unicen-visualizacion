@@ -18,13 +18,13 @@
             <img
               *ngIf="game?.turnOfPlayer1"
               src="assets/images/chip-red.webp"
-              [class.img-winner]="game?.winner != undefined"
+              [class.img-winner]="winner.winner != undefined"
               alt="Ficha"
             />
             <img
               *ngIf="!game?.turnOfPlayer1"
               src="assets/images/chip-yellow.webp"
-              [class.img-winner]="game?.winner != undefined"
+              [class.img-winner]="winner.winner != undefined"
               alt="Ficha"
             />
           </div>
@@ -75,14 +75,14 @@
         </div>
       </div>
     </section>
-    <div class="winner" [class.show]="game?.winner != undefined">
-      El jugador {{ game?.winner }} gano el juego!
+    <div class="winner" [class.show]="winner.winner != undefined">
+      {{ winner.msg }}
     </div>
 
     <div class="canvas-container">
       <div
         class="opacity-overlay"
-        [class.visible]="game?.winner != undefined"
+        [class.visible]="winner.winner != undefined"
       ></div>
       <canvas
         (mousedown)="game.canvasMouseDown($event)"

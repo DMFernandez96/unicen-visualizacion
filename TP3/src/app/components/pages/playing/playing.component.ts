@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 import { Game } from './Game'
 import { MeasuresService } from './measures.service'
 import { TimerService } from './timer.service'
+import { WinnerService } from './winner.service'
 
 @Component({
   selector: 'app-playing',
@@ -18,7 +19,11 @@ export class PlayingComponent implements OnInit {
   gameMode = '4 en linea'
   gameTime = '5 minutos'
 
-  constructor(public measures: MeasuresService, public timer: TimerService) {
+  constructor(
+    public measures: MeasuresService,
+    public timer: TimerService,
+    public winner: WinnerService
+  ) {
     this.helpOverlayVisible = false
     this.showDropdown = false
   }
@@ -28,7 +33,8 @@ export class PlayingComponent implements OnInit {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       this.canvas.nativeElement.getContext('2d')!,
       this.measures,
-      this.timer
+      this.timer,
+      this.winner
     )
   }
 
