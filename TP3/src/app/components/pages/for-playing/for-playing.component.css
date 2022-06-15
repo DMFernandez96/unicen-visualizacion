@@ -112,6 +112,13 @@ div.image_one img {
   padding: var(--space-small);
   margin-top: 2%;
 }
+.share-links-container {
+  display: block;
+  width: 100%;
+  padding: var(--space-small);
+  margin-top: 2%;
+  text-align: center;
+}
 
 .help-info p {
   margin-bottom: 5px;

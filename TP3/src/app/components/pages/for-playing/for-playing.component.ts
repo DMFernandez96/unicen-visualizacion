@@ -17,6 +17,7 @@ export class ForPlayingComponent implements OnInit {
   game: Game | undefined
 
   infoVisible: boolean
+  shareLinksVisible: boolean
 
   constructor(
     private route: ActivatedRoute,
@@ -28,6 +29,7 @@ export class ForPlayingComponent implements OnInit {
     this.id = 17
     this.game = this.gamesService.getById(this.id)
     this.infoVisible = false
+    this.shareLinksVisible = false
   }
 
   ngOnInit(): void {
@@ -78,5 +80,9 @@ export class ForPlayingComponent implements OnInit {
 
   showHelpInfo() {
     this.infoVisible = !this.infoVisible
+  }
+
+  showShareLinks() {
+    this.shareLinksVisible = !this.shareLinksVisible
   }
 }
