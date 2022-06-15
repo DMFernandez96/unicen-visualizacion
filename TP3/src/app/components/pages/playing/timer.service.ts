@@ -7,6 +7,7 @@ import { MeasuresService } from './measures.service'
 })
 export class TimerService {
   public subjectWinner: Subject<number> = new Subject<number>()
+  private gameTimeInMinutes = 5
 
   p1chronometer: ReturnType<typeof setInterval> | undefined
   p1minutes: number
@@ -17,10 +18,16 @@ export class TimerService {
   p2seconds: number
 
   constructor(private measures: MeasuresService) {
-    this.p1minutes = this.measures.gameTimeInMinutes
+    this.p1minutes = this.gameTimeInMinutes
     this.p1seconds = 0
-    this.p2minutes = this.measures.gameTimeInMinutes
+    this.p2minutes = this.gameTimeInMinutes
     this.p2seconds = 0
+  }
+
+  setGameTimeInMinutes(minutes: number): void {
+    this.gameTimeInMinutes = minutes
+    this.p1minutes = this.gameTimeInMinutes
+    this.p2minutes = this.gameTimeInMinutes
   }
 
   start(): void {
@@ -86,9 +93,9 @@ export class TimerService {
 
   reset(): void {
     this.stop()
-    this.p1minutes = this.measures.gameTimeInMinutes
+    this.p1minutes = this.gameTimeInMinutes
     this.p1seconds = 0
-    this.p2minutes = this.measures.gameTimeInMinutes
+    this.p2minutes = this.gameTimeInMinutes
     this.p2seconds = 0
   }
 

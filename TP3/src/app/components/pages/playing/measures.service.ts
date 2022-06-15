@@ -14,7 +14,6 @@ export class MeasuresService {
   radius = 39
   columnDeck = 270
   chipsPerPlayer: number
-  gameTimeInMinutes = 5
 
   constructor() {
     this.chipsPerPlayer = (this.boardWidth * this.boardHeigth) / 2
