@@ -1,21 +1,28 @@
 p.tab {
-	padding: var(--space-xx-small) var(--space-x-small);
-	cursor: pointer;
-	border: 1px solid var(--primary-dark-2);
+  padding: var(--space-xx-small) var(--space-x-small);
+  cursor: pointer;
+  border: 1px solid var(--primary-dark-2);
 }
 
 .selected {
-	background-color: var(--primary-dark-2);
+  background-color: var(--primary-dark-2);
 }
 
 .no-selected {
-	background-color: var(--primary);
+  background-color: var(--primary);
 }
 
 .first {
-	border-top-left-radius: 5px;
+  border-top-left-radius: 5px;
 }
 
 .last {
-	border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+@media (min-width: 1024px) {
+  p.tab {
+    padding: var(--space-small) var(--space-small);
+    cursor: pointer;
+    border: 1px solid var(--primary-dark-2);
+  }
 }

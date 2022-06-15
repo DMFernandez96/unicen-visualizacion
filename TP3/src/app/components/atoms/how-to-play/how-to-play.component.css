@@ -7,3 +7,10 @@
   margin-top: var(--space-large);
   width: 100%;
 }
+
+@media (min-width: 1024px) {
+  .how-to-play {
+    margin-top: var(--space-large);
+    width: 40%;
+  }
+}
