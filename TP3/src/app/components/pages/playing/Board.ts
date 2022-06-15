@@ -24,6 +24,7 @@ export class Board {
     this.initializeDropsContainers()
     this.initializeBoardChips()
     this.initializeDecksChips()
+
     this.repaint()
   }
 
@@ -34,6 +35,7 @@ export class Board {
       this.context.canvas.width,
       this.context.canvas.height
     )
+    this.drawRectangleBoard()
     this.chips.forEach((column) => {
       column.forEach((chip) => {
         chip.draw()
@@ -45,7 +47,7 @@ export class Board {
     this.dropsContainers.forEach((container) => {
       container.draw()
     })
-    this.drawBorderDeck()
+    //this.drawBorderDeck()
   }
 
   initializeDropsContainers(): void {
@@ -62,6 +64,25 @@ export class Board {
       )
       this.dropsContainers.push(container)
     }
+  }
+
+  drawRectangleBoard(): void {
+    this.context.fillStyle = '#2d4671'
+    const container = new Path2D()
+    container.rect(
+      this.measures.gapBorder + this.measures.gap + this.measures.columnDeck,
+      this.measures.gap,
+      2 * this.measures.radius * this.measures.boardWidth +
+        this.measures.gapBorder +
+        this.measures.gap +
+        this.measures.gap * (this.measures.boardWidth - 1),
+      2 * this.measures.radius * this.measures.boardHeigth +
+        3 * this.measures.gapBorder +
+        this.measures.gap * (this.measures.boardHeigth - 1)
+    )
+
+    this.context.fill(container)
+    this.context.stroke(container)
   }
 
   initializeBoardChips(): void {

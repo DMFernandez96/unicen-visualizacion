@@ -36,7 +36,6 @@
 }
 
 .canvas {
-  background-color: var(--blue-board);
   border: 1px solid white;
 }
 
