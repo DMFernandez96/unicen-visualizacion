@@ -1,6 +1,6 @@
 export class Chip {
   private circle: Path2D
-  private img: HTMLImageElement
+  public img: HTMLImageElement
 
   constructor(
     private context: CanvasRenderingContext2D,
@@ -12,9 +12,10 @@ export class Chip {
   ) {
     this.circle = new Path2D()
     this.img = new Image()
-    this.img.onload = () => {
-      this.draw()
-    }
+    // this.img.onload = () => {
+    //   console.log('load: ' + this.id)
+    //   this.draw()
+    // }
     this.setState(state)
   }
 
