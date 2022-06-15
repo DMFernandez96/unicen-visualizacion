@@ -12,6 +12,9 @@
 .link {
   color: var(--link-light);
 }
+.game-container {
+  display: none;
+}
 
 .image-container {
   margin-top: var(--space-medium);
@@ -106,9 +109,6 @@ div.image_one img {
 }
 
 .help-info {
-  /* background-color: var(--primary);
-  color: black;
-  border-radius: 5px;*/
   padding: var(--space-small);
   margin-top: 2%;
 }
@@ -246,5 +246,59 @@ div.image_one img {
   40%,
   100% {
     transform: rotateZ(0);
+  }
+}
+
+@media (min-width: 1024px) {
+  .for-playing {
+    padding: var(--space-x-large);
+    margin-bottom: var(--space-x-large);
+  }
+  .advertising {
+    display: none;
+  }
+  .title {
+    display: flex;
+    justify-content: center;
+  }
+  .game-container {
+    display: block;
+  }
+
+  .image-container {
+    display: none;
+  }
+  .help-info {
+    padding: var(--space-small);
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+  }
+  .help-info > p {
+    text-align: center;
+    justify-self: center;
+  }
+
+  .share-links-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-small);
+  }
+
+  .container-icons {
+    margin-top: 0;
+    gap: var(--space-medium);
+  }
+
+  .icons-right {
+    margin-right: var(--space-large);
+    gap: var(--space-large);
+  }
+  .container-url {
+    margin-top: 0;
   }
 }

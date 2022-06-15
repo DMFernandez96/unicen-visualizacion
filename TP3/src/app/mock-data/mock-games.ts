@@ -185,7 +185,7 @@ export const GAMES: Game[] = [
     id: 21,
     name: '4 en linea',
     description:
-      'Prueba esta versión virtual del clásico juego 4 en linea. Desafía a un amigo mientras intentas hacer que tus piezas se conecten en líneas de cuatro o más.',
+      'Prueba esta versión virtual del clásico juego 4 en linea! Las reglas son simples: pon una ficha por turno e intenta formar filas verticales, horizontales o diagonales de 4 fichas consecutivos de tu color. El primero en hacerlo es el ganador. Mira atentamente la cuadrícula antes de cada jugada y no permitas que tu oponente te engañe.',
     image: 'assets/images/puzzle/connect4.png',
     category: 'puzzle',
     premium: false

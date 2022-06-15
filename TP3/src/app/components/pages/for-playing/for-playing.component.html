@@ -1,4 +1,7 @@
-<app-advertising *ngIf="game != undefined"></app-advertising>
+<app-advertising
+  class="advertising"
+  *ngIf="game != undefined"
+></app-advertising>
 
 <section *ngIf="game != undefined" class="for-playing">
   <div class="top">
@@ -9,7 +12,13 @@
       </span>
     </div>
   </div>
-  <h1>{{ game!.name }}</h1>
+  <div class="title">
+    <h1>{{ game!.name }}</h1>
+  </div>
+
+  <div *ngIf="game!.id == 21" class="game-container">
+    <app-playing> </app-playing>
+  </div>
 
   <div class="image-container">
     <app-button
