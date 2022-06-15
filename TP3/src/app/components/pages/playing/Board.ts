@@ -69,6 +69,7 @@ export class Board {
   drawRectangleBoard(): void {
     this.context.fillStyle = '#2d4671'
     const container = new Path2D()
+
     container.rect(
       this.measures.gapBorder + this.measures.gap + this.measures.columnDeck,
       this.measures.gap,
@@ -80,7 +81,10 @@ export class Board {
         3 * this.measures.gapBorder +
         this.measures.gap * (this.measures.boardHeigth - 1)
     )
-
+    this.context.shadowColor = 'black'
+    this.context.shadowBlur = 15
+    this.context.shadowOffsetX = -5
+    this.context.shadowOffsetY = 3
     this.context.fill(container)
     this.context.stroke(container)
   }
