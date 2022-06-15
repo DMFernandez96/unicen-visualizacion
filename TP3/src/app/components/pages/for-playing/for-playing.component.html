@@ -28,13 +28,6 @@
   </div>
 
   <div class="icons-right">
-    <!--<app-popover name="question" [width]="30">
-      <p>
-        Tus <b>me gusta</b> nos ayudan a recomendarte más juegos de acuerdo a
-        tus gustos!
-      </p>
-      <p>Agrega los juegos que más te gustaron a <b>favoritos</b>!</p>
-    </app-popover>-->
     <app-icon (click)="showHelpInfo()" [width]="30" name="question"></app-icon>
     <app-icon
       tabindex="0"
@@ -50,27 +43,7 @@
       name="{{ like == false ? 'dislike-fill' : 'dislike' }}"
       [width]="30"
     ></app-icon>
-    <app-popover name="share" [width]="30">
-      <div>
-        <p>
-          Compartir <b>{{ game!.name }}</b>
-        </p>
-        <div class="container-icons">
-          <app-icon name="facebook-color" [width]="36"></app-icon>
-          <app-icon name="twitter-color" [width]="36"></app-icon>
-          <app-icon name="whatsapp" [width]="36"></app-icon>
-        </div>
-        <div class="container-url">
-          <p class="url">
-            https://dmfernandez96.github.io/unicen-visualizacion/TP2/EntregaFinal/juego/{{
-              game.id
-            }}
-          </p>
-          <app-icon class="url-icon-copy" name="copy" [width]="30"></app-icon>
-        </div>
-      </div>
-    </app-popover>
-
+    <app-icon name="share" [width]="30" (click)="showShareLinks()"></app-icon>
     <app-icon
       tabindex="0"
       class="scale-animation"
@@ -86,6 +59,25 @@
       gustos!
     </p>
     <p>Agrega los juegos que más te gustaron a <b>favoritos</b>!</p>
+  </div>
+
+  <div *ngIf="shareLinksVisible" class="share-links-container">
+    <p>
+      Compartir <b> {{ game!.name }}</b>
+    </p>
+    <div class="container-icons">
+      <app-icon name="facebook-color" [width]="36"></app-icon>
+      <app-icon name="twitter-color" [width]="36"></app-icon>
+      <app-icon name="whatsapp" [width]="36"></app-icon>
+    </div>
+    <div class="container-url">
+      <p class="url">
+        https://dmfernandez96.github.io/unicen-visualizacion/TP2/EntregaFinal/juego/{{
+          game.id
+        }}
+      </p>
+      <app-icon class="url-icon-copy" name="copy" [width]="30"></app-icon>
+    </div>
   </div>
 
   <div class="tabs-container">
