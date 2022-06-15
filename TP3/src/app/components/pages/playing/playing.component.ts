@@ -16,6 +16,7 @@ export class PlayingComponent implements OnInit {
   helpOverlayVisible: boolean
   showDropdown: boolean
   gameMode = '4 en linea'
+  gameTime = '5 minutos'
 
   constructor(public measures: MeasuresService, public timer: TimerService) {
     this.helpOverlayVisible = false
@@ -57,6 +58,20 @@ export class PlayingComponent implements OnInit {
       case '7 en linea':
         this.measures.setBoardWidth(10)
         this.measures.setBoardHeight(9)
+        break
+    }
+  }
+
+  setTime(): void {
+    switch (this.gameTime) {
+      case '3 minutos':
+        this.timer.setGameTimeInMinutes(3)
+        break
+      case '5 minutos':
+        this.timer.setGameTimeInMinutes(5)
+        break
+      case '10 minutos':
+        this.timer.setGameTimeInMinutes(10)
         break
     }
   }

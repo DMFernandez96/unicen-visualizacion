@@ -45,6 +45,12 @@
                   '7 en linea'
                 ]"
               ></app-select>
+              <app-select
+                [(value)]="gameTime"
+                (valueChange)="setTime()"
+                label="Tiempo por jugador"
+                [options]="['3 minutos', '5 minutos', '10 minutos']"
+              ></app-select>
               <app-button
                 classList="w-100"
                 (click)="play()"
