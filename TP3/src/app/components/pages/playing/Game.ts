@@ -3,6 +3,7 @@ import { Board } from './Board'
 import { Chip } from './Chip'
 import { MeasuresService } from './measures.service'
 import { TimerService } from './timer.service'
+import { WinnerService } from './winner.service'
 
 export class Game {
   context: CanvasRenderingContext2D
@@ -14,13 +15,13 @@ export class Game {
   mouseDown: boolean
   chipSelected: Chip | undefined
 
-  winner: number | undefined
   private winnerSubscription!: Subscription
 
   constructor(
     context: CanvasRenderingContext2D,
     private measures: MeasuresService,
-    private timer: TimerService
+    private timer: TimerService,
+    private winner: WinnerService
   ) {
     this.context = context
     this.context.strokeStyle = '#fff'
@@ -33,7 +34,7 @@ export class Game {
       .asObservable()
       .subscribe((player) => {
         this.turnOfPlayer1 = !this.turnOfPlayer1
-        this.winner = player
+        this.winner.setWinnerTime(player)
       })
   }
 
@@ -71,7 +72,12 @@ export class Game {
         if (this.checkWinner(inserted.column, inserted.row)) {
           this.timer.stop()
           this.turnOfPlayer1 = !this.turnOfPlayer1
-          this.winner = this.turnOfPlayer1 ? 1 : 2
+          const movements = Math.ceil(
+            (this.measures.boardWidth * this.measures.boardHeigth -
+              this.board.chipsDeck.length) /
+              2
+          )
+          this.winner.setWinner(this.turnOfPlayer1 ? 1 : 2, movements)
         } else {
           this.timer.changeTimers()
         }
@@ -236,7 +242,7 @@ export class Game {
     this.playing = false
     this.timer.reset()
     this.turnOfPlayer1 = true
-    this.winner = undefined
+    this.winner.reset()
     this.board.reset()
   }
 }
