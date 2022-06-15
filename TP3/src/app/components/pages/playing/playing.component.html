@@ -1,25 +1,6 @@
 <section class="container">
   <section class="game">
     <section class="info">
-      <section class="icons-container">
-        <app-icon
-          class="back"
-          name="back"
-          [width]="30"
-          routerLink="/juego/21"
-        ></app-icon>
-        <app-icon
-          class="question"
-          name="question"
-          [width]="30"
-          (click)="toggleHelpOverlay()"
-        ></app-icon>
-        <app-overlay [(visible)]="helpOverlayVisible" [help]="true">
-          <div class="overlay-content">
-            <app-how-to-play></app-how-to-play>
-          </div>
-        </app-overlay>
-      </section>
       <div class="row">
         <div class="time-info" [style.width.px]="measures.columnDeck">
           <p>

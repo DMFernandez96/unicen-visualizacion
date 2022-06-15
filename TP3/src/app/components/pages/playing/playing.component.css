@@ -8,19 +8,6 @@
   align-items: center;
 }
 
-.icons-container {
-  display: flex;
-  gap: var(--space-medium);
-  position: absolute;
-  top: var(--space-small);
-  left: var(--space-medium);
-}
-
-.back,
-.question {
-  z-index: 5;
-}
-
 .overlay-content {
   padding: var(--space-medium) var(--space-large);
   max-width: 400px;

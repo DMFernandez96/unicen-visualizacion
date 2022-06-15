@@ -102,6 +102,12 @@
         <p>Video</p>
         <div class="video">
           <img
+            *ngIf="game!.id == 21"
+            src="assets/images/connect4video.jpg"
+            alt="video"
+          />
+          <img
+            *ngIf="game!.id != 21"
             src="assets/images/infantiles/3pandasenjaponvideo.jpg"
             alt="video"
           />
