@@ -76,6 +76,7 @@ export class Board {
           this.measures.gap * i,
         this.measures.gapBorder,
         this.measures.radius * 2,
+        this.measures.radius,
         this.measures.radius
       )
       this.dropsContainers.push(container)
