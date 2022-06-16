@@ -102,8 +102,9 @@
         <p>Video</p>
         <div class="video">
           <img
+            class="img-video"
             *ngIf="game!.id == 21"
-            src="assets/images/connect4video.jpg"
+            src="assets/images/puzzle/connect4video.jpg"
             alt="video"
           />
           <img
@@ -111,42 +112,81 @@
             src="assets/images/infantiles/3pandasenjaponvideo.jpg"
             alt="video"
           />
-          <app-icon class="video-play" name="play" [width]="48"></app-icon>
+          <!--<app-icon class="video-play" name="play" [width]="48"></app-icon>-->
         </div>
       </div>
       <div class="multimedia">
         <p>Imágenes</p>
-        <div #scrollTarget class="multimedia-flex">
-          <div class="image_one">
-            <img
-              src="assets/images/infantiles/3pandasenjaponmultimedia3.jpg"
-              alt="image3"
-            />
+        <div class="multimedia-container">
+          <app-icon
+            *ngIf="game!.id == 21"
+            (click)="scrollLeft(scrollTarget)"
+            class="arrow-scroll arrow-scroll-left"
+            name="arrow-left"
+          ></app-icon>
+          <div #scrollTarget class="multimedia-flex">
+            <div class="image_one">
+              <img
+                *ngIf="game!.id == 21"
+                src="assets/images/puzzle/connect4multimedia1.jpg"
+                alt="video"
+              />
+              <img
+                *ngIf="game!.id != 21"
+                src="assets/images/infantiles/3pandasenjaponmultimedia3.jpg"
+                alt="image3"
+              />
+            </div>
+            <div class="image two">
+              <img
+                *ngIf="game!.id == 21"
+                src="assets/images/puzzle/connect4multimedia2.jpg"
+                alt="video"
+              />
+              <img
+                *ngIf="game!.id != 21"
+                src="assets/images/infantiles/3pandasenjaponmultimedia4.jpg"
+                alt="image4"
+              />
+            </div>
+            <div class="image three">
+              <img
+                *ngIf="game!.id == 21"
+                src="assets/images/puzzle/connect4multimedia3.jpg"
+                alt="video"
+              />
+              <img
+                *ngIf="game!.id != 21"
+                src="assets/images/infantiles/3pandasenjaponmultimedia5.jpg"
+                alt="image5"
+              />
+            </div>
+            <div class="image four">
+              <img
+                *ngIf="game!.id == 21"
+                src="assets/images/puzzle/connect4multimedia4.jpg"
+                alt="video"
+              />
+              <img
+                *ngIf="game!.id != 21"
+                src="assets/images/infantiles/3pandasenjaponmultimedia6.jpeg"
+                alt="image6"
+              />
+            </div>
+            <div class="image five">
+              <img
+                *ngIf="game!.id != 21"
+                src="assets/images/infantiles/3pandasenjaponmultimedia7.jpg"
+                alt="image7"
+              />
+            </div>
           </div>
-          <div class="image two">
-            <img
-              src="assets/images/infantiles/3pandasenjaponmultimedia4.jpg"
-              alt="image4"
-            />
-          </div>
-          <div class="image three">
-            <img
-              src="assets/images/infantiles/3pandasenjaponmultimedia5.jpg"
-              alt="image5"
-            />
-          </div>
-          <div class="image four">
-            <img
-              src="assets/images/infantiles/3pandasenjaponmultimedia6.jpeg"
-              alt="image6"
-            />
-          </div>
-          <div class="image five">
-            <img
-              src="assets/images/infantiles/3pandasenjaponmultimedia7.jpg"
-              alt="image7"
-            />
-          </div>
+          <app-icon
+            *ngIf="game!.id == 21"
+            (click)="scrollRight(scrollTarget)"
+            class="arrow-scroll arrow-scroll-right"
+            name="arrow-right"
+          ></app-icon>
         </div>
       </div>
     </app-tab-content>
