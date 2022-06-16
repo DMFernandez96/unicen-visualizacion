@@ -7,3 +7,9 @@
   overflow: hidden;
   text-align: justify;
 }
+
+@media (min-width: 1024px) {
+  .tab-content {
+    padding-left: var(--space-large);
+  }
+}
