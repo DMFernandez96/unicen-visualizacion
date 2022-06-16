@@ -283,7 +283,6 @@ div.image_one img {
     overflow: hidden;
     animation-delay: 4s;
     display: flex;
-    /*justify-content: center;*/
     gap: 2%;
   }
   .multimedia .multimedia-flex {

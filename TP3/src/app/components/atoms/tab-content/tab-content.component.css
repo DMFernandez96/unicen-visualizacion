@@ -10,6 +10,6 @@
 
 @media (min-width: 1024px) {
   .tab-content {
-    padding-left: var(--space-large);
+    padding-left: var(--space-medium);
   }
 }

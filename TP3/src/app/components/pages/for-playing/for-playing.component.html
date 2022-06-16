@@ -22,7 +22,7 @@
       text="Jugar"
       classList="background-success"
       size="large"
-      (click)="hide()"
+      (click)="hideElement()"
       *ngIf="isVisible"
     ></app-button>
     <div class="opacity opacity-game" *ngIf="isVisible"></div>
@@ -121,7 +121,6 @@
             src="assets/images/infantiles/3pandasenjaponvideo.jpg"
             alt="video"
           />
-          <!--<app-icon class="video-play" name="play" [width]="48"></app-icon>-->
         </div>
       </div>
       <div class="multimedia">

@@ -97,7 +97,7 @@ export class ForPlayingComponent implements OnInit {
     el.scrollLeft = el.scrollLeft - 600
   }
 
-  hide() {
+  hideElement() {
     this.isVisible = !this.isVisible
   }
 }
