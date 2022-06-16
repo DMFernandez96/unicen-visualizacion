@@ -19,10 +19,12 @@ export class Chip {
     this.setState(state)
   }
 
+  /** return current chip state */
   getState(): number {
     return this.state
   }
 
+  /** Set the img src based on the state  */
   setState(state: number): void {
     this.state = state
     if (this.state == 1) {
@@ -32,6 +34,7 @@ export class Chip {
     }
   }
 
+  /** Draw the object in the canvas */
   draw(): void {
     if (this.state == 0) {
       this.context.fillStyle = 'transparent'
@@ -49,12 +52,14 @@ export class Chip {
     }
   }
 
+  /** Change the chip position and re draw it */
   setPosition(x: number, y: number) {
     this.posX = x
     this.posY = y
     this.draw()
   }
 
+  /** Return if the point(x,y) is inside the circle */
   isClicked(x: number, y: number): boolean {
     const _x = this.posX - x
     const _y = this.posY - y
