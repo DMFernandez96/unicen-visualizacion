@@ -11,11 +11,13 @@ export class WinnerService {
     this.msg = ''
   }
 
+  /** Restart winner */
   reset(): void {
     this.winner = undefined
     this.msg = ''
   }
 
+  /** Set player winner and msg based on quantity movements */
   setWinner(player: number, movimientos: number) {
     this.winner = player
     this.msg =
@@ -26,6 +28,7 @@ export class WinnerService {
       ' movimientos!'
   }
 
+  /** Set player winner based on player time out */
   setWinnerTime(player: number) {
     this.winner = player
     this.msg =
