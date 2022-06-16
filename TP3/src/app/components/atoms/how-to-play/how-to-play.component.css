@@ -10,9 +10,7 @@
 
 @media (min-width: 1024px) {
   .how-to-play {
-    margin-top: var(--space-large);
     width: 400px;
     height: 253px;
-    margin-left: 1%;
   }
 }
