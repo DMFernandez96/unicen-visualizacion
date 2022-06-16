@@ -38,12 +38,14 @@ export class Game {
       })
   }
 
+  /** Calculate the x and y, subtracting mouse position - canvas */
   getMouseEventCoordinates(event: MouseEvent): { x: number; y: number } {
     const canvasX = this.context.canvas.getBoundingClientRect().x
     const canvasY = this.context.canvas.getBoundingClientRect().y
     return { x: event.clientX - canvasX, y: event.clientY - canvasY }
   }
 
+  /** Assign event listener to canvas on mousedown  */
   canvasMouseDown(event: MouseEvent): void {
     if (!this.playing) return
     const { x, y } = this.getMouseEventCoordinates(event)
@@ -60,6 +62,7 @@ export class Game {
     }
   }
 
+  /** Assign event listener to canvas on mouseup  */
   canvasMouseUp(event: MouseEvent): void {
     if (this.chipSelected != undefined) {
       const { x, y } = this.getMouseEventCoordinates(event)
@@ -88,6 +91,7 @@ export class Game {
     this.chipSelected = undefined
   }
 
+  /** Assign event listener to canvas on mousemove  */
   canvasMouseMove(event: MouseEvent): void {
     const { x, y } = this.getMouseEventCoordinates(event)
     if (this.mouseDown == true) {
@@ -96,6 +100,8 @@ export class Game {
     }
   }
 
+  /** Insert chip in a column, calculate the number of column
+   * and set the board position based on player turn */
   insertInColumn(
     x: number,
     y: number
@@ -128,6 +134,7 @@ export class Game {
     return { column: column, row: position }
   }
 
+  /** Check if any player win the game based on the size of board */
   checkWinner(column: number, row: number): boolean {
     const numberToWin = this.measures.boardWidth - 3
     const state = this.board.chips[column][row].getState()
@@ -172,6 +179,7 @@ export class Game {
     return false
   }
 
+  /** Counts the number of consecutive chips of the same player */
   countRight(column: number, row: number, state: number): number {
     let equalsQuantity = 0
     while (
@@ -184,6 +192,7 @@ export class Game {
     return equalsQuantity
   }
 
+  /** Counts the number of consecutive chips of the same player */
   countLeft(column: number, row: number, state: number): number {
     let equalsQuantity = 0
     while (column >= 0 && this.board.chips[column][row].getState() == state) {
@@ -193,6 +202,7 @@ export class Game {
     return equalsQuantity
   }
 
+  /** Counts the number of consecutive chips of the same player */
   countDown(column: number, row: number, state: number): number {
     let equalsQuantity = 0
     while (
@@ -205,6 +215,7 @@ export class Game {
     return equalsQuantity
   }
 
+  /** Counts the number of consecutive chips of the same player */
   countDownLeft(column: number, row: number, state: number): number {
     let equalsQuantity = 0
     while (
@@ -219,6 +230,7 @@ export class Game {
     return equalsQuantity
   }
 
+  /** Counts the number of consecutive chips of the same player */
   countDownRight(column: number, row: number, state: number): number {
     let equalsQuantity = 0
     while (
@@ -233,11 +245,13 @@ export class Game {
     return equalsQuantity
   }
 
+  /** Start game, initializing the timer */
   play(): void {
     this.playing = true
     this.timer.checkStart()
   }
 
+  /** Reset game, cleaning the board and timers */
   reset(): void {
     this.playing = false
     this.timer.reset()
