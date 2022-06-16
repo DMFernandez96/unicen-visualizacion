@@ -93,13 +93,14 @@ export class Board {
 
     container.rect(
       this.measures.gapBorder + this.measures.gap + this.measures.columnDeck,
-      this.measures.gap,
+      0,
       2 * this.measures.radius * this.measures.boardWidth +
         this.measures.gapBorder +
         this.measures.gap +
         this.measures.gap * (this.measures.boardWidth - 1),
       2 * this.measures.radius * this.measures.boardHeigth +
         3 * this.measures.gapBorder +
+        this.measures.gap +
         this.measures.gap * (this.measures.boardHeigth - 1)
     )
     this.context.shadowColor = 'black'
@@ -244,7 +245,6 @@ export class Board {
     this.context.canvas.height =
       2 * this.measures.gapBorder +
       this.measures.radius +
-      this.measures.gap +
       2 * this.measures.radius * this.measures.boardHeigth +
       this.measures.gap * (this.measures.boardHeigth - 1)
   }
