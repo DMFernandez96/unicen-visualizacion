@@ -167,6 +167,9 @@ div.image_one img {
   cursor: pointer;
 }
 
+.arrow-scroll .arrow-scroll-left {
+  visibility: none;
+}
 @keyframes automation {
   0% {
     margin-left: 0;
@@ -300,5 +303,52 @@ div.image_one img {
   }
   .container-url {
     margin-top: 0;
+  }
+  .img-video {
+    width: 500px;
+  }
+
+  div.image img,
+  div.image_one img {
+    width: 400px;
+  }
+  .multimedia-container {
+    margin-bottom: var(--space-large);
+    overflow: hidden;
+    animation-delay: 4s;
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+  }
+  .multimedia .multimedia-flex {
+    overflow-x: hidden;
+    width: 600px;
+    width: 100%;
+    animation: none;
+    transition: none;
+    gap: 1%;
+    width: 57%;
+  }
+  .arrow-scroll {
+    visibility: visible;
+    opacity: 0.8;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 30px;
+  }
+  .arrow-scroll:hover {
+    opacity: 1;
+  }
+
+  .arrow-scroll .arrow-scroll-left {
+    margin-right: var(--space-large);
+  }
+  .arrow-scroll .arrow-scroll-right {
+    margin-left: var(--space-large);
+  }
+
+  .multimedia p {
+    margin-bottom: var(--space-medium);
+    text-align: center;
   }
 }

@@ -85,4 +85,13 @@ export class ForPlayingComponent implements OnInit {
   showShareLinks() {
     this.shareLinksVisible = !this.shareLinksVisible
   }
+
+  scrollRight(el: HTMLElement): void {
+    el.scrollIntoView({ behavior: 'smooth' })
+    el.scrollLeft = el.scrollLeft + 600
+  }
+
+  scrollLeft(el: HTMLElement): void {
+    el.scrollLeft = el.scrollLeft - 600
+  }
 }
