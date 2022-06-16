@@ -248,7 +248,7 @@ export class Game {
   /** Start game, initializing the timer */
   play(): void {
     this.playing = true
-    this.timer.checkStart()
+    this.timer.start()
   }
 
   /** Reset game, cleaning the board and timers */

@@ -19,18 +19,21 @@ export class MeasuresService {
     this.chipsPerPlayer = (this.boardWidth * this.boardHeigth) / 2
   }
 
+  /** Change the board width, calculate chips per player and emit observable */
   setBoardWidth(width: number): void {
     this.boardWidth = width
     this.chipsPerPlayer = (this.boardWidth * this.boardHeigth) / 2
     this.emitchangeBoard()
   }
 
+  /** Change the board height, calculate chips per player and emit observable */
   setBoardHeight(height: number): void {
     this.boardHeigth = height
     this.chipsPerPlayer = (this.boardWidth * this.boardHeigth) / 2
     this.emitchangeBoard()
   }
 
+  /** Emit observable event */
   emitchangeBoard(): void {
     this.subjectChangeBoard.next()
   }

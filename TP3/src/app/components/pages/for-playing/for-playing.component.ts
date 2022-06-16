@@ -18,6 +18,7 @@ export class ForPlayingComponent implements OnInit {
 
   infoVisible: boolean
   shareLinksVisible: boolean
+  isVisible: boolean
 
   constructor(
     private route: ActivatedRoute,
@@ -30,6 +31,7 @@ export class ForPlayingComponent implements OnInit {
     this.game = this.gamesService.getById(this.id)
     this.infoVisible = false
     this.shareLinksVisible = false
+    this.isVisible = true
   }
 
   ngOnInit(): void {
@@ -93,5 +95,9 @@ export class ForPlayingComponent implements OnInit {
 
   scrollLeft(el: HTMLElement): void {
     el.scrollLeft = el.scrollLeft - 600
+  }
+
+  hideElement() {
+    this.isVisible = !this.isVisible
   }
 }

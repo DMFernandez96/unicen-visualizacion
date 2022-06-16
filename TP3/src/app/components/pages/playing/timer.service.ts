@@ -24,17 +24,20 @@ export class TimerService {
     this.p2seconds = 0
   }
 
+  /** Set the game time per player */
   setGameTimeInMinutes(minutes: number): void {
     this.gameTimeInMinutes = minutes
     this.p1minutes = this.gameTimeInMinutes
     this.p2minutes = this.gameTimeInMinutes
   }
 
+  /** Start p1 chronometer */
   start(): void {
     this.reset()
     this.startChronometer(1)
   }
 
+  /** Start chronometer for player indicate in parameter */
   startChronometer(player: number): void {
     if (player == 1) {
       this.p1chronometer = setInterval(() => {
@@ -63,11 +66,7 @@ export class TimerService {
     }
   }
 
-  checkStart(): void {
-    if (this.p1chronometer == undefined && this.p2chronometer == undefined)
-      this.start()
-  }
-
+  /** On player turn change, stop the current timer and start the other */
   changeTimers() {
     if (this.p1chronometer != undefined) {
       clearInterval(this.p1chronometer)
@@ -80,6 +79,7 @@ export class TimerService {
     }
   }
 
+  /** Stop both timers */
   stop(): void {
     if (this.p1chronometer != undefined) {
       clearInterval(this.p1chronometer)
@@ -91,6 +91,7 @@ export class TimerService {
     }
   }
 
+  /** Stop both timers, and reset to initial time */
   reset(): void {
     this.stop()
     this.p1minutes = this.gameTimeInMinutes
@@ -99,6 +100,7 @@ export class TimerService {
     this.p2seconds = 0
   }
 
+  /** On player time out emit observable event */
   emitPlayerWinner(player: number): void {
     this.subjectWinner.next(player)
   }
