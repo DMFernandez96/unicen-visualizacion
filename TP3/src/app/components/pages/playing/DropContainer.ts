@@ -15,6 +15,7 @@ export class DropContainer {
     this.container.rect(this.x, this.y, this.w, this.h)
   }
 
+  /** Draw the object in the canvas */
   draw(): void {
     const arrowWidth = 5
     const fromx = this.x + this.radius
@@ -69,6 +70,7 @@ export class DropContainer {
     this.context.restore()
   }
 
+  /** Return if the point(x,y) is inside the transparent rectangle */
   isPointInPath(x: number, y: number): boolean {
     return this.context.isPointInPath(this.container, x, y)
   }

@@ -22,6 +22,7 @@ export class Board {
       .subscribe(() => {
         this.reset()
       })
+    // When the last chip is load, draw all the chipsDeck (bug if it is in chip constructor)
     this.chipsDeck[measures.boardWidth * measures.boardHeigth - 1].img.onload =
       () => {
         this.chipsDeck.forEach((chip) => {
@@ -30,6 +31,7 @@ export class Board {
       }
   }
 
+  /** Restart and clean the board */
   reset(): void {
     this.setCanvasHeight()
     this.setCanvasWidth()
@@ -44,6 +46,7 @@ export class Board {
     this.repaint()
   }
 
+  /** Repaint the board */
   repaint(): void {
     this.context.clearRect(
       0,
@@ -63,9 +66,9 @@ export class Board {
     this.dropsContainers.forEach((container) => {
       container.draw()
     })
-    //this.drawBorderDeck()
   }
 
+  /** Initialize drops containers */
   initializeDropsContainers(): void {
     for (let i = 0; i < this.measures.boardWidth; i++) {
       const container = new DropContainer(
@@ -83,6 +86,7 @@ export class Board {
     }
   }
 
+  /** Initialize board color blue */
   drawRectangleBoard(): void {
     this.context.fillStyle = '#2d4671'
     const container = new Path2D()
@@ -106,6 +110,7 @@ export class Board {
     this.context.stroke(container)
   }
 
+  /** Initialize board lockers*/
   initializeBoardChips(): void {
     let idCounter = 0
     for (let i = 0; i < this.measures.boardWidth; i++) {
@@ -134,6 +139,7 @@ export class Board {
     }
   }
 
+  /** Initialize chips for each player deck*/
   initializeDecksChips() {
     let idCounter = 200
     for (let i = 0; i < this.measures.chipsPerPlayer; i++) {
@@ -147,6 +153,7 @@ export class Board {
     }
   }
 
+  /** Initialize border for each player deck */
   drawBorderDeck() {
     const container = new Path2D()
     container.rect(
@@ -169,6 +176,7 @@ export class Board {
     this.context.stroke(containerRight)
   }
 
+  /** Generate random chip for player 2 deck */
   generateRandomChipRight(id: number): Chip {
     return new Chip(
       this.context,
@@ -195,6 +203,7 @@ export class Board {
     )
   }
 
+  /** Generate random chip for player 1 deck */
   generateRandomChipLeft(id: number): Chip {
     return new Chip(
       this.context,
@@ -216,10 +225,12 @@ export class Board {
     )
   }
 
+  /** Generante random int between min and max */
   generateIntRandom(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min) + min)
   }
 
+  /** Set the canvas width based on his content */
   setCanvasWidth(): void {
     this.context.canvas.width =
       2 * this.measures.columnDeck +
@@ -228,6 +239,7 @@ export class Board {
       this.measures.gap * (this.measures.boardWidth - 1)
   }
 
+  /** Set the canvas height based on his content */
   setCanvasHeight(): void {
     this.context.canvas.height =
       2 * this.measures.gapBorder +
