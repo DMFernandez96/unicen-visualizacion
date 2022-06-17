@@ -49,7 +49,7 @@ export class Game {
   canvasMouseDown(event: MouseEvent): void {
     if (!this.playing) return
     const { x, y } = this.getMouseEventCoordinates(event)
-    for (let i = 0; i < this.board.chipsDeck.length; i++) {
+    for (let i = this.board.chipsDeck.length - 1; i >= 0; i--) {
       if (
         ((this.turnOfPlayer1 && this.board.chipsDeck[i].getState() == 1) ||
           (!this.turnOfPlayer1 && this.board.chipsDeck[i].getState() == 2)) &&
