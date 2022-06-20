@@ -138,7 +138,7 @@ export class Game {
   checkWinner(column: number, row: number): boolean {
     const numberToWin = this.measures.boardWidth - 3
     const state = this.board.chips[column][row].getState()
-    let chipsSum = 0
+    let chipsSum = 1
 
     //count to left
     chipsSum += this.countLeft(column, row, state)
@@ -147,12 +147,11 @@ export class Game {
     }
     //count to right
     chipsSum += this.countRight(column, row, state)
-    chipsSum-- //remainder 1 because the chip played was added in count left and right
     if (chipsSum >= numberToWin) {
       return true
     }
     //there is no winner horizontally
-    chipsSum = 0
+    chipsSum = 1
 
     //count to down
     chipsSum += this.countDown(column, row, state)
@@ -160,18 +159,28 @@ export class Game {
       return true
     }
     //there is no winner vertically
-    chipsSum = 0
+    chipsSum = 1
 
     //count down right diagonal
     chipsSum += this.countDownRight(column, row, state)
     if (chipsSum >= numberToWin) {
       return true
     }
-    //there is no winner down right diagonal
-    chipsSum = 0
+    //count up left diagonal
+    chipsSum += this.countUpLeft(column, row, state)
+    if (chipsSum >= numberToWin) {
+      return true
+    }
+    //there is no winner down-right/up-left diagonals
+    chipsSum = 1
 
     //count down left diagonal
     chipsSum += this.countDownLeft(column, row, state)
+    if (chipsSum >= numberToWin) {
+      return true
+    }
+    //count up right diagonal
+    chipsSum += this.countUpRight(column, row, state)
     if (chipsSum >= numberToWin) {
       return true
     }
@@ -182,6 +191,7 @@ export class Game {
   /** Counts the number of consecutive chips of the same player */
   countRight(column: number, row: number, state: number): number {
     let equalsQuantity = 0
+    column++
     while (
       column < this.measures.boardWidth &&
       this.board.chips[column][row].getState() == state
@@ -195,6 +205,7 @@ export class Game {
   /** Counts the number of consecutive chips of the same player */
   countLeft(column: number, row: number, state: number): number {
     let equalsQuantity = 0
+    column--
     while (column >= 0 && this.board.chips[column][row].getState() == state) {
       equalsQuantity++
       column--
@@ -205,6 +216,7 @@ export class Game {
   /** Counts the number of consecutive chips of the same player */
   countDown(column: number, row: number, state: number): number {
     let equalsQuantity = 0
+    row++
     while (
       row < this.measures.boardHeigth &&
       this.board.chips[column][row].getState() == state
@@ -218,6 +230,8 @@ export class Game {
   /** Counts the number of consecutive chips of the same player */
   countDownLeft(column: number, row: number, state: number): number {
     let equalsQuantity = 0
+    row++
+    column--
     while (
       row < this.measures.boardHeigth &&
       column >= 0 &&
@@ -233,6 +247,8 @@ export class Game {
   /** Counts the number of consecutive chips of the same player */
   countDownRight(column: number, row: number, state: number): number {
     let equalsQuantity = 0
+    row++
+    column++
     while (
       row < this.measures.boardHeigth &&
       column < this.measures.boardWidth &&
@@ -240,6 +256,40 @@ export class Game {
     ) {
       equalsQuantity++
       row++
+      column++
+    }
+    return equalsQuantity
+  }
+
+  /** Counts the number of consecutive chips of the same player */
+  countUpLeft(column: number, row: number, state: number): number {
+    let equalsQuantity = 0
+    row--
+    column--
+    while (
+      row >= 0 &&
+      column >= 0 &&
+      this.board.chips[column][row].getState() == state
+    ) {
+      equalsQuantity++
+      row--
+      column--
+    }
+    return equalsQuantity
+  }
+
+  /** Counts the number of consecutive chips of the same player */
+  countUpRight(column: number, row: number, state: number): number {
+    let equalsQuantity = 0
+    row--
+    column++
+    while (
+      row >= 0 &&
+      column < this.measures.boardWidth &&
+      this.board.chips[column][row].getState() == state
+    ) {
+      equalsQuantity++
+      row--
       column++
     }
     return equalsQuantity
