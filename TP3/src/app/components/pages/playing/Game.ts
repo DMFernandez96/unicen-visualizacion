@@ -99,6 +99,11 @@ export class Game {
       this.board.repaint()
     }
   }
+  /** Assign event listener to canvas on mouseleave  */
+  canvasMouseLeave(): void {
+    this.mouseDown = false
+    this.chipSelected = undefined
+  }
 
   /** Insert chip in a column, calculate the number of column
    * and set the board position based on player turn */
