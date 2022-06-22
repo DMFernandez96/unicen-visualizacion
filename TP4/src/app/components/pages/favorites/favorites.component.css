@@ -1,0 +1,23 @@
+.favorites {
+  background-color: var(--black);
+  padding-top: var(--space-x-large);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: var(--space-xx-large);
+  color: white;
+}
+
+.title > span {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .favorites {
+    padding-left: 0;
+  }
+  .title > span {
+    display: inline;
+  }
+}

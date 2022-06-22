@@ -1,0 +1,209 @@
+<app-advertising
+  class="advertising"
+  *ngIf="game != undefined"
+></app-advertising>
+
+<section *ngIf="game != undefined" class="for-playing">
+  <div class="top">
+    <div>
+      <span class="link body" routerLink="/">Inicio/</span>
+      <span class="link body" routerLink="/categorias/{{ game!.category }}">
+        {{ game!.category }}/
+      </span>
+    </div>
+  </div>
+  <div class="title">
+    <h1>{{ game!.name }}</h1>
+  </div>
+
+  <div *ngIf="game!.id == 21" class="game-container">
+    <app-button
+      class="btn-play-game"
+      text="Jugar"
+      classList="background-success"
+      size="large"
+      (click)="hideElement()"
+      *ngIf="isVisible"
+    ></app-button>
+    <div class="opacity opacity-game" *ngIf="isVisible"></div>
+    <app-playing> </app-playing>
+  </div>
+
+  <div class="image-container">
+    <app-button
+      class="btn-play"
+      text="Jugar"
+      classList="background-success"
+      size="large"
+      routerLink="/jugando/{{ game!.id }}"
+    ></app-button>
+    <div class="opacity opacity-img"></div>
+    <app-card-game
+      class="image-for-playing"
+      src="{{ game!.image }}"
+      [width]="328"
+    ></app-card-game>
+  </div>
+
+  <div class="icons-right">
+    <app-icon (click)="showHelpInfo()" [width]="30" name="question"></app-icon>
+    <app-icon
+      tabindex="0"
+      class="scale-animation"
+      (click)="toggleLike('like')"
+      name="{{ like == true ? 'like-fill' : 'like' }}"
+      [width]="30"
+    ></app-icon>
+    <app-icon
+      tabindex="0"
+      class="scale-animation"
+      (click)="toggleLike('dislike')"
+      name="{{ like == false ? 'dislike-fill' : 'dislike' }}"
+      [width]="30"
+    ></app-icon>
+    <app-icon name="share" [width]="30" (click)="showShareLinks()"></app-icon>
+    <app-icon
+      tabindex="0"
+      class="scale-animation"
+      name="{{ isFavorite ? 'favorites-fill' : 'favorites-empty' }}"
+      [width]="30"
+      (click)="toggleFavorite()"
+    ></app-icon>
+  </div>
+
+  <div class="help-info" *ngIf="infoVisible">
+    <p>
+      Tus <b>me gusta</b> nos ayudan a recomendarte más juegos de acuerdo a tus
+      gustos!
+    </p>
+    <p>Agrega los juegos que más te gustaron a <b>favoritos</b>!</p>
+  </div>
+
+  <div *ngIf="shareLinksVisible" class="share-links-container">
+    <p>
+      Compartir <b> {{ game!.name }}</b>
+    </p>
+    <div class="container-icons">
+      <app-icon name="facebook-color" [width]="36"></app-icon>
+      <app-icon name="twitter-color" [width]="36"></app-icon>
+      <app-icon name="whatsapp" [width]="36"></app-icon>
+    </div>
+    <div class="container-url">
+      <p class="url">
+        https://dmfernandez96.github.io/unicen-visualizacion/TP2/EntregaFinal/juego/{{
+          game.id
+        }}
+      </p>
+      <app-icon class="url-icon-copy" name="copy" [width]="30"></app-icon>
+    </div>
+  </div>
+
+  <div class="tabs-container">
+    <app-tabs-header [(tabSelected)]="tabSelected"></app-tabs-header>
+    <app-tab-content *ngIf="tabSelected == 1">
+      {{ game!.description }}
+    </app-tab-content>
+    <app-tab-content *ngIf="tabSelected == 2">
+      <app-how-to-play></app-how-to-play>
+    </app-tab-content>
+    <app-tab-content *ngIf="tabSelected == 3">
+      <div class="multimedia">
+        <p>Video</p>
+        <div class="video">
+          <img
+            class="img-video"
+            *ngIf="game!.id == 21"
+            src="assets/images/puzzle/connect4video.jpg"
+            alt="video"
+          />
+          <img
+            *ngIf="game!.id != 21"
+            src="assets/images/infantiles/3pandasenjaponvideo.jpg"
+            alt="video"
+          />
+        </div>
+      </div>
+      <div class="multimedia">
+        <p>Imágenes</p>
+        <div class="multimedia-container">
+          <!--<app-icon
+            *ngIf="game!.id == 21"
+            (click)="scrollLeft(scrollTarget)"
+            class="arrow-scroll arrow-scroll-left"
+            name="arrow-left"
+          ></app-icon>-->
+          <div #scrollTarget class="multimedia-flex">
+            <div class="image_one">
+              <img
+                *ngIf="game!.id == 21"
+                src="assets/images/puzzle/connect4multimedia1.jpg"
+                alt="video"
+              />
+              <img
+                *ngIf="game!.id != 21"
+                src="assets/images/infantiles/3pandasenjaponmultimedia3.jpg"
+                alt="image3"
+              />
+            </div>
+            <div class="image two">
+              <img
+                *ngIf="game!.id == 21"
+                src="assets/images/puzzle/connect4multimedia2.jpg"
+                alt="video"
+              />
+              <img
+                *ngIf="game!.id != 21"
+                src="assets/images/infantiles/3pandasenjaponmultimedia4.jpg"
+                alt="image4"
+              />
+            </div>
+            <div class="image three">
+              <img
+                *ngIf="game!.id == 21"
+                src="assets/images/puzzle/connect4multimedia3.jpg"
+                alt="video"
+              />
+              <img
+                *ngIf="game!.id != 21"
+                src="assets/images/infantiles/3pandasenjaponmultimedia5.jpg"
+                alt="image5"
+              />
+            </div>
+            <div class="image four">
+              <img
+                *ngIf="game!.id == 21"
+                src="assets/images/puzzle/connect4multimedia4.jpg"
+                alt="video"
+              />
+              <img
+                *ngIf="game!.id != 21"
+                src="assets/images/infantiles/3pandasenjaponmultimedia6.jpeg"
+                alt="image6"
+              />
+            </div>
+            <div class="image five">
+              <img
+                *ngIf="game!.id != 21"
+                src="assets/images/infantiles/3pandasenjaponmultimedia7.jpg"
+                alt="image7"
+              />
+            </div>
+          </div>
+          <!-- <app-icon
+            *ngIf="game!.id == 21"
+            (click)="scrollRight(scrollTarget)"
+            class="arrow-scroll arrow-scroll-right"
+            name="arrow-right"
+          ></app-icon>-->
+        </div>
+      </div>
+    </app-tab-content>
+  </div>
+</section>
+
+<section *ngIf="game == undefined" class="for-playing">
+  <p>
+    No se encontro el juego! Prueba acceder con tu cuenta o adquirir una cuenta
+    especial!
+  </p>
+</section>

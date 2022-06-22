@@ -1,0 +1,16 @@
+.instructions {
+  list-style: inside;
+  text-align: left;
+}
+
+.how-to-play {
+  margin-top: var(--space-large);
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .how-to-play {
+    width: 400px;
+    height: 253px;
+  }
+}
