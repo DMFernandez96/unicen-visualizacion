@@ -1,0 +1,35 @@
+.popover {
+  position: relative;
+  display: inline-block;
+}
+
+.popover-text {
+  width: 200px;
+  visibility: hidden;
+  background-color: var(--primary);
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 4px 8px;
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+  margin-left: 5px;
+}
+
+.popover-text::after {
+  content: ' ';
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: var(--primary) transparent transparent transparent;
+}
+
+.visible {
+  visibility: visible;
+}

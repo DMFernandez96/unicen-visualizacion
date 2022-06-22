@@ -1,0 +1,11 @@
+<section *ngIf="visible" class="container-overlay">
+  <div
+    class="content"
+    [class.overlay-right]="right == true"
+    [class.overlay-help]="help"
+  >
+    <span (click)="toggleVisible()" class="close">&times;</span>
+    <ng-content></ng-content>
+  </div>
+  <div class="modal" (click)="toggleVisible()"></div>
+</section>

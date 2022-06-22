@@ -1,0 +1,23 @@
+.card-favorites {
+    cursor: pointer;
+}
+
+.name {
+    max-width: 250px;
+}
+
+img {
+    width: 250px;
+}
+
+.container-fav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-xx-small);
+}
+
+@media (min-width: 1024px) {
+    img {
+        width: 300px;
+    }
+}
