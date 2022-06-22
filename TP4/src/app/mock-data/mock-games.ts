@@ -225,5 +225,13 @@ export const GAMES: Game[] = [
     image: 'assets/images/puzzle/acertijosdevelas3.png',
     category: 'puzzle',
     premium: false
+  },
+  {
+    id: 26,
+    name: 'Juego por nombrar',
+    description: 'Este juego que va a hacer es un misterio!',
+    image: 'assets/images/puzzle/acertijosdevelas3.png',
+    category: 'puzzle',
+    premium: false
   }
 ]
