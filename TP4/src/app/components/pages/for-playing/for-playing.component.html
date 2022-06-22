@@ -16,16 +16,16 @@
     <h1>{{ game!.name }}</h1>
   </div>
 
-  <div *ngIf="game!.id == 21" class="game-container">
-    <app-button
+  <div *ngIf="game!.id == 21 || game!.id == 26" class="game-container">
+    <!-- <app-button
       class="btn-play-game"
       text="Jugar"
       classList="background-success"
       size="large"
       (click)="hideElement()"
       *ngIf="isVisible"
-    ></app-button>
-    <div class="opacity opacity-game" *ngIf="isVisible"></div>
+    ></app-button> -->
+    <!-- <div class="opacity opacity-game" *ngIf="isVisible"></div> -->
     <app-playing> </app-playing>
   </div>
 
