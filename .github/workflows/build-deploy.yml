@@ -21,7 +21,15 @@ jobs:
             ${{ runner.os }}-node-
       - name: Build
         run: |
-          cd TP3
+          cd TP2
+          npm install
+          npm run-script deploy
+          cd EntregaFinal
+          echo "---" >> 404.html
+          echo "permalink: /404.html" >> 404.html
+          echo "---" >> 404.html
+          echo $(cat index.html) >> 404.html
+          cd ../../TP3
           npm install
           npm run-script deploy
           cd EntregaFinal
