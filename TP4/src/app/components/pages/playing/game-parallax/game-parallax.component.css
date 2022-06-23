@@ -1,0 +1,92 @@
+@keyframes scroll {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -1024px;
+  }
+}
+.container {
+  /* height: 600px;*/
+  position: relative;
+}
+
+.layer {
+  width: 1024px;
+  height: 576px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: repeat-x;
+  background-size: cover;
+}
+#girl {
+  width: 142.9px;
+  height: 156px;
+  background: url('../../../../../assets/images/parallax/walkinggirl.png');
+  animation: walk 2s steps(16) infinite;
+  position: relative;
+  bottom: 10px;
+  margin: auto;
+}
+
+.layer-8 {
+  background-image: url('../../../../../assets/images/parallax/sky.png');
+}
+.layer-7 {
+  background-image: url('../../../../../assets/images/parallax/clouds_1.png');
+  animation: scroll 55s infinite linear;
+}
+
+.layer-6 {
+  background-image: url('../../../../../assets/images/parallax/clouds_2.png');
+  animation: scroll 50s infinite linear;
+}
+
+.layer-5 {
+  background-image: url('../../../../../assets/images/parallax/rocks.png');
+  animation: scroll 35s infinite linear;
+}
+.layer-4 {
+  background-image: url('../../../../../assets/images/parallax/ground_1.png');
+  animation: scroll 18s infinite linear;
+}
+.layer-3 {
+  background-image: url('../../../../../assets/images/parallax/ground_2.png');
+  animation: scroll 16s infinite linear;
+}
+.layer-2 {
+  background-image: url('../../../../../assets/images/parallax/ground_3.png');
+  animation: scroll 15s infinite linear;
+}
+.layer-1 {
+  background-image: url('../../../../../assets/images/parallax/plant.png');
+  animation: scroll 10s infinite linear;
+}
+
+@keyframes dead {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -2428px;
+  }
+}
+
+@keyframes jump {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -2144px;
+  }
+}
+
+@keyframes walk {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -2287px;
+  }
+}
