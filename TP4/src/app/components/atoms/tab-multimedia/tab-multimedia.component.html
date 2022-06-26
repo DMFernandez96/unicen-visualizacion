@@ -1,0 +1,117 @@
+<div class="multimedia">
+  <p>Video</p>
+  <div class="video">
+    <img
+      class="img-video"
+      *ngIf="id == 21"
+      src="assets/images/puzzle/connect4video.jpg"
+      alt="video"
+    />
+    <img
+      class="img-video"
+      *ngIf="id == 26"
+      src="assets/images/puzzle/parallaxvideo.jpg"
+      alt="video"
+    />
+    <img
+      *ngIf="id != 21 && id != 26"
+      src="assets/images/infantiles/3pandasenjaponvideo.jpg"
+      alt="video"
+    />
+  </div>
+</div>
+
+<div class="multimedia">
+  <p>Imágenes</p>
+  <div class="multimedia-container">
+    <!--<app-icon
+            *ngIf="id == 21"
+            (click)="scrollLeft(scrollTarget)"
+            class="arrow-scroll arrow-scroll-left"
+            name="arrow-left"
+          ></app-icon>-->
+    <div #scrollTarget class="multimedia-flex">
+      <div class="image_one">
+        <img
+          *ngIf="id == 21"
+          src="assets/images/puzzle/connect4multimedia1.jpg"
+          alt="video"
+        />
+        <img
+          *ngIf="id == 26"
+          src="assets/images/puzzle/parallaxmultimedia1.jpg"
+          alt="video"
+        />
+        <img
+          *ngIf="id != 21 && id != 26"
+          src="assets/images/infantiles/3pandasenjaponmultimedia3.jpg"
+          alt="image3"
+        />
+      </div>
+      <div class="image two">
+        <img
+          *ngIf="id == 21"
+          src="assets/images/puzzle/connect4multimedia2.jpg"
+          alt="video"
+        />
+        <img
+          *ngIf="id == 26"
+          src="assets/images/puzzle/parallaxmultimedia2.jpg"
+          alt="video"
+        />
+        <img
+          *ngIf="id != 21 && id != 26"
+          src="assets/images/infantiles/3pandasenjaponmultimedia4.jpg"
+          alt="image4"
+        />
+      </div>
+      <div class="image three">
+        <img
+          *ngIf="id == 21"
+          src="assets/images/puzzle/connect4multimedia3.jpg"
+          alt="video"
+        />
+        <img
+          *ngIf="id == 26"
+          src="assets/images/puzzle/parallaxmultimedia3.jpg"
+          alt="video"
+        />
+        <img
+          *ngIf="id != 21 && id != 26"
+          src="assets/images/infantiles/3pandasenjaponmultimedia5.jpg"
+          alt="image5"
+        />
+      </div>
+      <div class="image four">
+        <img
+          *ngIf="id == 21"
+          src="assets/images/puzzle/connect4multimedia4.jpg"
+          alt="video"
+        />
+        <img
+          *ngIf="id == 26"
+          src="assets/images/puzzle/parallaxmultimedia4.jpg"
+          alt="video"
+        />
+        <img
+          *ngIf="id != 21 && id != 26"
+          src="assets/images/infantiles/3pandasenjaponmultimedia6.jpeg"
+          alt="image6"
+        />
+      </div>
+      <div class="image five">
+        <img
+          *ngIf="id != 21 && id != 26"
+          src="assets/images/infantiles/3pandasenjaponmultimedia7.jpg"
+          alt="image7"
+        />
+      </div>
+    </div>
+    <!-- <app-icon
+            *ngIf="id == 21"
+            (click)="scrollRight(scrollTarget)"
+            class="arrow-scroll arrow-scroll-right"
+            name="arrow-right"
+          ></app-icon>-->
+  </div>
+</div>
