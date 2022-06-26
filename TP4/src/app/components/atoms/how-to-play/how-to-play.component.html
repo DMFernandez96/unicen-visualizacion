@@ -1,4 +1,4 @@
-<ul class="instructions">
+<ul class="instructions" *ngIf="game.id == 21">
   <li><b>Click:</b> seleccionar ficha</li>
   <li><b>Mover mouse con click apretado:</b> mover la ficha</li>
   <li><b>Soltar mouse en una columna:</b> insertar ficha en columna</li>
@@ -12,5 +12,32 @@
     class="how-to-play"
     src="assets/images/puzzle/connect4howtoplay2.png"
     alt="Como jugar imagen 2"
+  />
+</ul>
+
+<ul class="instructions" *ngIf="game.id == 26">
+  <li><b>Click:</b> seleccionar ficha</li>
+  <li><b>Mover mouse con click apretado:</b> mover la ficha</li>
+  <li><b>Soltar mouse en una columna:</b> insertar ficha en columna</li>
+
+  <img
+    class="how-to-play"
+    src="assets/images/puzzle/parallaxhowtoplay1.png"
+    alt="Como jugar imagen 1"
+  />
+  <img
+    class="how-to-play"
+    src="assets/images/puzzle/parallaxhowtoplay2.png"
+    alt="Como jugar imagen 2"
+  />
+</ul>
+
+<ul class="instructions" *ngIf="game.id != 21 && game.id != 26">
+  <li><b>Un toque:</b> saltar</li>
+  <li><b>Dos toques:</b> salto largo</li>
+  <img
+    class="how-to-play"
+    src="assets/images/how-to-play.jpg"
+    alt="Como jugar imagen"
   />
 </ul>

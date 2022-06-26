@@ -7,8 +7,10 @@
   }
 }
 .container {
-  /* height: 600px;*/
   position: relative;
+  width: 1024px;
+  height: 576px;
+  margin-top: var(--space-large);
 }
 
 .layer {
