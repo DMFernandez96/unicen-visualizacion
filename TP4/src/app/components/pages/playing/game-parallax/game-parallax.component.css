@@ -22,48 +22,76 @@
   background-repeat: repeat-x;
   background-size: cover;
 }
-#girl {
+
+#character {
   width: 142.9px;
   height: 156px;
   background: url('../../../../../assets/images/parallax/walkinggirl.png');
   animation: walk 2s steps(16) infinite;
-  position: relative;
-  bottom: 10px;
-  margin: auto;
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
+
+.zombie {
+  width: 128px;
+  height: 128px;
+  animation: walk-reverse 2s steps(4) infinite;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  transform: scaleX(-1);
+}
+
+#zombie1 {
+  background: url('../../../../../assets/images/parallax/zombie1.png');
+}
+
+#zombie2 {
+  background: url('../../../../../assets/images/parallax/zombie2.png');
+}
+
+#zombie3 {
+  background: url('../../../../../assets/images/parallax/zombie3.png');
+}
+
+#zombie4 {
+  background: url('../../../../../assets/images/parallax/zombie4.png');
 }
 
 .layer-8 {
   background-image: url('../../../../../assets/images/parallax/sky.png');
 }
+
 .layer-7 {
   background-image: url('../../../../../assets/images/parallax/clouds_1.png');
-  animation: scroll 55s infinite linear;
+  animation: scroll 45s infinite linear;
 }
 
 .layer-6 {
   background-image: url('../../../../../assets/images/parallax/clouds_2.png');
-  animation: scroll 50s infinite linear;
+  animation: scroll 30s infinite linear;
 }
 
 .layer-5 {
   background-image: url('../../../../../assets/images/parallax/rocks.png');
-  animation: scroll 35s infinite linear;
+  animation: scroll 25s infinite linear;
 }
 .layer-4 {
   background-image: url('../../../../../assets/images/parallax/ground_1.png');
-  animation: scroll 18s infinite linear;
+  animation: scroll 20s infinite linear;
 }
 .layer-3 {
   background-image: url('../../../../../assets/images/parallax/ground_2.png');
-  animation: scroll 16s infinite linear;
+  animation: scroll 10s infinite linear;
 }
 .layer-2 {
   background-image: url('../../../../../assets/images/parallax/ground_3.png');
-  animation: scroll 15s infinite linear;
+  animation: scroll 9s infinite linear;
 }
 .layer-1 {
   background-image: url('../../../../../assets/images/parallax/plant.png');
-  animation: scroll 10s infinite linear;
+  animation: scroll 7s infinite linear;
 }
 
 @keyframes dead {
@@ -90,5 +118,14 @@
   }
   100% {
     background-position: -2287px;
+  }
+}
+
+@keyframes walk-reverse {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -512px;
   }
 }

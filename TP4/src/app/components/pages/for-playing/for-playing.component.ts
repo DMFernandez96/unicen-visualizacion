@@ -31,7 +31,7 @@ export class ForPlayingComponent implements OnInit {
     this.game = this.gamesService.getById(this.id)
     this.infoVisible = false
     this.shareLinksVisible = false
-    this.gameIsPlaying = false
+    this.gameIsPlaying = true
   }
 
   ngOnInit(): void {
