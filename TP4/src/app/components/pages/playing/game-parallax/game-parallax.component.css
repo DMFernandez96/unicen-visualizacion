@@ -24,10 +24,10 @@
 }
 
 #character {
-  width: 142.9px;
-  height: 156px;
-  background: url('../../../../../assets/images/parallax/walkinggirl.png');
-  animation: walk 2s steps(16) infinite;
+  width: calc(1282px / 8);
+  height: 136px;
+  background: url('../../../../../assets/images/parallax/character-walk.png');
+  animation: walk 1.2s steps(8) infinite;
   position: absolute;
   bottom: 16px;
   left: 16px;
@@ -36,7 +36,7 @@
 .zombie {
   width: 128px;
   height: 128px;
-  animation: walk-reverse 2s steps(4) infinite;
+  animation: walk-zombie 2s steps(4) infinite;
   position: absolute;
   bottom: 16px;
   right: 16px;
@@ -94,12 +94,12 @@
   animation: scroll 7s infinite linear;
 }
 
-@keyframes dead {
+@keyframes die {
   0% {
     background-position: 0px;
   }
   100% {
-    background-position: -2428px;
+    background-position: -1363px;
   }
 }
 
@@ -108,7 +108,7 @@
     background-position: 0px;
   }
   100% {
-    background-position: -2144px;
+    background-position: -1603px;
   }
 }
 
@@ -117,11 +117,11 @@
     background-position: 0px;
   }
   100% {
-    background-position: -2287px;
+    background-position: -1282px;
   }
 }
 
-@keyframes walk-reverse {
+@keyframes walk-zombie {
   0% {
     background-position: 0px;
   }

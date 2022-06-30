@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-game-parallax',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-parallax.component.css']
 })
 export class GameParallaxComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+    requestAnimationFrame(this.gameLoop.bind(this))
+    window.addEventListener('keypress', (e) => {
+      console.log(e)
+    })
   }
 
+  gameLoop(e: any): void {
+    requestAnimationFrame(this.gameLoop.bind(this))
+  }
 }
