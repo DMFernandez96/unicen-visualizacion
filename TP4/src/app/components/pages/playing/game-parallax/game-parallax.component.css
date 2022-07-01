@@ -3,6 +3,7 @@
   width: 1024px;
   height: 576px;
   margin-top: var(--space-large);
+  overflow: hidden;
 }
 
 /* CHARACTER -------------------------------------------------------- */
@@ -74,27 +75,33 @@
 .zombie {
   width: 128px;
   height: 128px;
-  animation: walk-zombie 2s steps(4) infinite;
+  /* animation: walk-zombie 2s steps(4) infinite; */
   position: absolute;
+  display: none;
   bottom: 16px;
   right: 16px;
   transform: scaleX(-1);
 }
 
-#zombie1 {
+.zombie1 {
   background: url('../../../../../assets/images/parallax/zombie1.png');
 }
 
-#zombie2 {
+.zombie2 {
   background: url('../../../../../assets/images/parallax/zombie2.png');
 }
 
-#zombie3 {
+.zombie3 {
   background: url('../../../../../assets/images/parallax/zombie3.png');
 }
 
-#zombie4 {
+.zombie4 {
   background: url('../../../../../assets/images/parallax/zombie4.png');
+}
+
+.zombie-move {
+  display: block;
+  animation: walk-zombie 2s steps(4) infinite, zombie-move 6s linear infinite;
 }
 
 @keyframes walk-zombie {
@@ -103,6 +110,15 @@
   }
   100% {
     background-position: -512px;
+  }
+}
+
+@keyframes zombie-move {
+  from {
+    right: -128px;
+  }
+  to {
+    right: 1024px;
   }
 }
 

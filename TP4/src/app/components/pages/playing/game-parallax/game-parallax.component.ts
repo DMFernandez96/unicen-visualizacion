@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 import { Character } from './Character'
+import { Zombie } from './Zombie'
 
 @Component({
   selector: 'app-game-parallax',
@@ -10,14 +11,29 @@ export class GameParallaxComponent implements OnInit {
   @ViewChild('characterElement', { static: true })
   characterElement!: ElementRef
 
-  character!: Character
+  @ViewChild('zombie1Element', { static: true })
+  zombie1Element!: ElementRef
+  @ViewChild('zombie2Element', { static: true })
+  zombie2Element!: ElementRef
+  @ViewChild('zombie3Element', { static: true })
+  zombie3Element!: ElementRef
+  @ViewChild('zombie4Element', { static: true })
+  zombie4Element!: ElementRef
 
-  constructor() {}
+  character!: Character
+  zombiesToChoose: Zombie[]
+  zombiesInGame: Zombie[]
+  maxZombiesInGame = 4
+
+  constructor() {
+    this.zombiesToChoose = []
+    this.zombiesInGame = []
+  }
 
   ngOnInit(): void {
     this.character = new Character(this.characterElement.nativeElement)
-    requestAnimationFrame(this.gameLoop.bind(this))
     window.addEventListener('keydown', this.keyHandler.bind(this))
+    requestAnimationFrame(this.gameLoop.bind(this))
   }
 
   keyHandler(event: KeyboardEvent) {
@@ -31,6 +47,15 @@ export class GameParallaxComponent implements OnInit {
   }
 
   gameLoop(): void {
+    this.createZombies()
     requestAnimationFrame(this.gameLoop.bind(this))
+  }
+
+  createZombies(): void {
+    //TODO: crearlos a diferente tiempo para que no vallan todos juntos
+    this.zombiesInGame.push(new Zombie(this.zombie1Element.nativeElement))
+    this.zombiesInGame.push(new Zombie(this.zombie2Element.nativeElement))
+    this.zombiesInGame.push(new Zombie(this.zombie3Element.nativeElement))
+    this.zombiesInGame.push(new Zombie(this.zombie4Element.nativeElement))
   }
 }
