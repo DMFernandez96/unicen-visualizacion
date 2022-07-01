@@ -53,9 +53,17 @@ export class GameParallaxComponent implements OnInit {
 
   createZombies(): void {
     //TODO: crearlos a diferente tiempo para que no vallan todos juntos
-    this.zombiesInGame.push(new Zombie(this.zombie1Element.nativeElement))
-    this.zombiesInGame.push(new Zombie(this.zombie2Element.nativeElement))
-    this.zombiesInGame.push(new Zombie(this.zombie3Element.nativeElement))
-    this.zombiesInGame.push(new Zombie(this.zombie4Element.nativeElement))
+    setTimeout(() => {
+      this.zombiesInGame.push(new Zombie(this.zombie1Element.nativeElement))
+    }, 2000)
+    setTimeout(() => {
+      this.zombiesInGame.push(new Zombie(this.zombie2Element.nativeElement))
+    }, 5000)
+    setTimeout(() => {
+      this.zombiesInGame.push(new Zombie(this.zombie3Element.nativeElement))
+    }, 13000)
+    setTimeout(() => {
+      this.zombiesInGame.push(new Zombie(this.zombie4Element.nativeElement))
+    }, 21000)
   }
 }
