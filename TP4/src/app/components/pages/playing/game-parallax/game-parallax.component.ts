@@ -13,14 +13,14 @@ export class GameParallaxComponent implements OnInit {
   characterElement!: ElementRef
 
   character!: Character
+  score: number
   zombiesToChoose: string[]
   zombiesInGame: Zombie[]
-  maxZombiesInGame = 4
-
   gemsInGame: Gem[]
   gemsColors: string[]
 
   constructor() {
+    this.score = 14 //ToDo: change for 0 on improvements
     this.zombiesToChoose = ['zombie1', 'zombie2', 'zombie3', 'zombie4']
     this.zombiesInGame = []
     this.gemsInGame = []
@@ -53,11 +53,10 @@ export class GameParallaxComponent implements OnInit {
     if (this.zombiesInGame.length < 1) {
       const zombie = new Zombie(
         this.zombiesToChoose[
-          this.randomIntFromInterval(0, this.zombiesToChoose.length)
+          this.randomIntFromInterval(0, this.zombiesToChoose.length - 1)
         ]
       )
       this.zombiesInGame.push(zombie)
-      console.log(zombie)
       setTimeout(() => {
         this.zombiesInGame.splice(this.zombiesInGame.indexOf(zombie), 1)
       }, 5000)
@@ -70,7 +69,9 @@ export class GameParallaxComponent implements OnInit {
       // 200-300px from right to create a new gem to gain separation between gems
       // How to get the right position?? Hint: see collisions
       const gem = new Gem(
-        this.gemsColors[this.randomIntFromInterval(1, this.gemsColors.length)],
+        this.gemsColors[
+          this.randomIntFromInterval(0, this.gemsColors.length - 1)
+        ],
         this.randomIntFromInterval(100, 300)
       )
       this.gemsInGame.push(gem)
