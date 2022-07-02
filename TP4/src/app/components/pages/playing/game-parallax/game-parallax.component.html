@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="score">
+    <div class="score-img-container">
+      <img src="/assets/images/parallax/gem-yellow.png" alt="" />
+    </div>
+    <span>{{ score }}</span>
+  </div>
   <div class="layer layer-8"></div>
   <div class="layer layer-7"></div>
   <div class="layer layer-6"></div>
@@ -9,9 +15,8 @@
   <div class="layer layer-1"></div>
   <div #characterElement class="character walk"></div>
   <div
-    #zombieElement
     *ngFor="let zombie of zombiesInGame"
-    class="zombie-move zombie"
+    class="zombie"
     class="{{ zombie.type }}"
   ></div>
   <div

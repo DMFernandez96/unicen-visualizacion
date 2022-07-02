@@ -6,6 +6,24 @@
   overflow: hidden;
 }
 
+.score {
+  position: absolute;
+  z-index: 100;
+  padding: var(--space-medium);
+  display: flex;
+  align-items: center;
+}
+
+.score-img-container {
+  width: 32px;
+  overflow: hidden;
+}
+
+.score > span {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 /* CHARACTER -------------------------------------------------------- */
 .character {
   height: 136px;
@@ -75,9 +93,8 @@
 .zombie {
   width: 128px;
   height: 128px;
-  /* animation: walk-zombie 2s steps(4) infinite; */
+  animation: walk-zombie 2s steps(4) infinite, zombie-move 5s linear infinite;
   position: absolute;
-  display: none;
   bottom: 16px;
   right: 16px;
   transform: scaleX(-1);
@@ -97,11 +114,6 @@
 
 .zombie4 {
   background: url('../../../../../assets/images/parallax/zombie4.png');
-}
-
-.zombie-move {
-  display: block;
-  animation: walk-zombie 2s steps(4) infinite, zombie-move 5s linear infinite;
 }
 
 @keyframes walk-zombie {
