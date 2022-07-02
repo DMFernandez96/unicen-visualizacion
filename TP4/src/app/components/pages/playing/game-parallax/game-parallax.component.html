@@ -8,10 +8,12 @@
   <div class="layer layer-2"></div>
   <div class="layer layer-1"></div>
   <div #characterElement class="character walk"></div>
-  <div #zombie1Element class="zombie zombie1"></div>
-  <div #zombie2Element class="zombie zombie2"></div>
-  <div #zombie3Element class="zombie zombie3"></div>
-  <div #zombie4Element class="zombie zombie4"></div>
+  <div
+    #zombieElement
+    *ngFor="let zombie of zombiesInGame"
+    class="zombie-move zombie"
+    class="{{ zombie.type }}"
+  ></div>
   <div
     *ngFor="let gem of gemsInGame"
     class="gem"
