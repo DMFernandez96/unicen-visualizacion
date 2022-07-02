@@ -127,9 +127,7 @@
   width: 32px;
   height: 32px;
   position: absolute;
-  left: 300px;
-  bottom: 200px;
-  animation: gem-move 2s steps(8) infinite;
+  animation: gem 2s steps(8) infinite, gem-move 6s linear 1 forwards;
 }
 
 .gem-blue {
@@ -156,12 +154,21 @@
   background: url('../../../../../assets/images/parallax/gem-yellow.png');
 }
 
-@keyframes gem-move {
+@keyframes gem {
   0% {
     background-position: 0px;
   }
   100% {
     background-position: -256px;
+  }
+}
+
+@keyframes gem-move {
+  from {
+    right: -32px;
+  }
+  to {
+    right: 1024px;
   }
 }
 
