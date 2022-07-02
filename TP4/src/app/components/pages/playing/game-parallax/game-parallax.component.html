@@ -12,5 +12,10 @@
   <div #zombie2Element class="zombie zombie2"></div>
   <div #zombie3Element class="zombie zombie3"></div>
   <div #zombie4Element class="zombie zombie4"></div>
-  <div class="gem gem-yellow"></div>
+  <div
+    *ngFor="let gem of gemsInGame"
+    class="gem"
+    class="gem-{{ gem.color }}"
+    [ngStyle]="{ bottom: gem.bottom + 'px' }"
+  ></div>
 </div>
