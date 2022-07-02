@@ -101,7 +101,7 @@
 
 .zombie-move {
   display: block;
-  animation: walk-zombie 2s steps(4) infinite, zombie-move 6s linear infinite;
+  animation: walk-zombie 2s steps(4) infinite, zombie-move 5s linear infinite;
 }
 
 @keyframes walk-zombie {
