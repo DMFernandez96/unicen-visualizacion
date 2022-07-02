@@ -122,6 +122,49 @@
   }
 }
 
+/* GEMS -------------------------------------------------------- */
+.gem {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 300px;
+  bottom: 200px;
+  animation: gem-move 2s steps(8) infinite;
+}
+
+.gem-blue {
+  background: url('../../../../../assets/images/parallax/gem-blue.png');
+}
+
+.gem-green {
+  background: url('../../../../../assets/images/parallax/gem-green.png');
+}
+
+.gem-grey {
+  background: url('../../../../../assets/images/parallax/gem-grey.png');
+}
+
+.gem-orange {
+  background: url('../../../../../assets/images/parallax/gem-orange.png');
+}
+
+.gem-pink {
+  background: url('../../../../../assets/images/parallax/gem-pink.png');
+}
+
+.gem-yellow {
+  background: url('../../../../../assets/images/parallax/gem-yellow.png');
+}
+
+@keyframes gem-move {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: -256px;
+  }
+}
+
 /* BACKGROUND -------------------------------------------------------- */
 @keyframes scroll {
   0% {
