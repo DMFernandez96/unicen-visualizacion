@@ -45,13 +45,14 @@
 }
 
 .walk {
-  width: calc(1282px / 8);
+  width: calc(856px / 8);
   background: url('../../../../../assets/images/parallax/character-walk.png');
   animation: walk 1.2s steps(8) infinite;
 }
 
 .jump {
-  width: calc(1603px / 10);
+  height: 125px;
+  width: calc(910px / 10);
   background: url('../../../../../assets/images/parallax/character-jump.png');
   animation: jump 1.8s steps(10) 1;
 }
@@ -67,7 +68,7 @@
     background-position: 0px;
   }
   100% {
-    background-position: -1282px;
+    background-position: -856px;
   }
 }
 
@@ -77,17 +78,17 @@
     background-position: 0;
   }
   25% {
-    transform: translate(0px, -180px);
+    transform: translate(0px, -170px);
   }
   50% {
-    transform: translate(0px, -200px);
+    transform: translate(0px, -190px);
   }
   75% {
-    transform: translate(0px, -180px);
+    transform: translate(0px, -170px);
   }
   100% {
     transform: translate(0px, 0px);
-    background-position: -1603px;
+    background-position: -910px;
   }
 }
 
