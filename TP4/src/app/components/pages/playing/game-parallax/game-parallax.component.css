@@ -6,9 +6,19 @@
   overflow: hidden;
 }
 
+.game-over {
+  z-index: 20;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .score {
   position: absolute;
-  z-index: 100;
+  z-index: 15;
   padding: var(--space-medium);
   display: flex;
   align-items: center;
@@ -30,6 +40,8 @@
   position: absolute;
   bottom: 16px;
   left: 16px;
+  z-index: 11;
+  border: 1px solid red;
 }
 
 .walk {
@@ -98,6 +110,8 @@
   bottom: 16px;
   right: 16px;
   transform: scaleX(-1);
+  z-index: 10;
+  border: 1px solid blue;
 }
 
 .zombie1 {
@@ -139,7 +153,10 @@
   width: 32px;
   height: 32px;
   position: absolute;
+  bottom: 200px;
   animation: gem 2s steps(8) infinite, gem-move 6s linear 1 forwards;
+  z-index: 9;
+  border: 1px solid green;
 }
 
 .gem-blue {
@@ -206,36 +223,47 @@
 
 .layer-8 {
   background-image: url('../../../../../assets/images/parallax/sky.png');
+  z-index: 1;
 }
 
 .layer-7 {
   background-image: url('../../../../../assets/images/parallax/clouds_1.png');
   animation: scroll 45s infinite linear;
+  z-index: 2;
 }
 
 .layer-6 {
   background-image: url('../../../../../assets/images/parallax/clouds_2.png');
   animation: scroll 30s infinite linear;
+  z-index: 3;
 }
 
 .layer-5 {
   background-image: url('../../../../../assets/images/parallax/rocks.png');
   animation: scroll 25s infinite linear;
+  z-index: 4;
 }
+
 .layer-4 {
   background-image: url('../../../../../assets/images/parallax/ground_1.png');
   animation: scroll 20s infinite linear;
+  z-index: 5;
 }
+
 .layer-3 {
   background-image: url('../../../../../assets/images/parallax/ground_2.png');
   animation: scroll 10s infinite linear;
+  z-index: 6;
 }
+
 .layer-2 {
   background-image: url('../../../../../assets/images/parallax/ground_3.png');
   animation: scroll 9s infinite linear;
+  z-index: 7;
 }
+
 .layer-1 {
   background-image: url('../../../../../assets/images/parallax/plant.png');
   animation: scroll 7s infinite linear;
-  z-index: 1;
+  z-index: 8;
 }
