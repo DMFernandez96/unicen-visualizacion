@@ -93,7 +93,7 @@
 .zombie {
   width: 128px;
   height: 128px;
-  animation: walk-zombie 2s steps(4) infinite, zombie-move 5s linear infinite;
+  animation: walk-zombie 1s steps(4) infinite, zombie-move 5s linear infinite;
   position: absolute;
   bottom: 16px;
   right: 16px;
@@ -237,4 +237,5 @@
 .layer-1 {
   background-image: url('../../../../../assets/images/parallax/plant.png');
   animation: scroll 7s infinite linear;
+  z-index: 1;
 }
