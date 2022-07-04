@@ -18,9 +18,10 @@ export class GameParallaxComponent implements OnInit {
   zombiesInGame: Zombie[]
   gemsInGame: Gem[]
   gemsColors: string[]
+  cont = 1
 
   constructor() {
-    this.score = 14 //ToDo: change for 0 on improvements
+    this.score = 0 //ToDo: change for 0 on improvements
     this.zombiesToChoose = ['zombie1', 'zombie2', 'zombie3', 'zombie4']
     this.zombiesInGame = []
     this.gemsInGame = []
@@ -54,8 +55,10 @@ export class GameParallaxComponent implements OnInit {
       const zombie = new Zombie(
         this.zombiesToChoose[
           this.randomIntFromInterval(0, this.zombiesToChoose.length - 1)
-        ]
+        ],
+        this.cont
       )
+      this.cont++
       this.zombiesInGame.push(zombie)
       setTimeout(() => {
         this.zombiesInGame.splice(this.zombiesInGame.indexOf(zombie), 1)
