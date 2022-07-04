@@ -229,7 +229,8 @@ export const GAMES: Game[] = [
   {
     id: 26,
     name: 'Juego por nombrar',
-    description: 'Este juego que va a hacer es un misterio!',
+    description:
+      'Nuestro protagonista corre a lo largo del bosque en busca de gemas preciosas. Sin embargo, a su paso hay zombies que ponen en riesgo su vida. Recoge todas las gemas que puedas en esta aventura de correr infinita, esquivando los zombies que encuentres en tu camino y resistiendo el mayor tiempo posible!',
     image: 'assets/images/puzzle/acertijosdevelas3.png',
     category: 'puzzle',
     premium: false
