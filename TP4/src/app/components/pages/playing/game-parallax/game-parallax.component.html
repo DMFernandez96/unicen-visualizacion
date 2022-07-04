@@ -1,28 +1,59 @@
 <div class="container">
+  <div *ngIf="gameOver" class="game-over">
+    <h1>Has perdido!</h1>
+    <p>Tu puntuacion fue {{ score }}</p>
+    <app-button (click)="reset()" text="Reiniciar"></app-button>
+  </div>
   <div class="score">
     <div class="score-img-container">
       <img src="/assets/images/parallax/gem-yellow.png" alt="" />
     </div>
     <span>{{ score }}</span>
   </div>
-  <div class="layer layer-8"></div>
-  <div class="layer layer-7"></div>
-  <div class="layer layer-6"></div>
-  <div class="layer layer-5"></div>
-  <div class="layer layer-4"></div>
-  <div class="layer layer-3"></div>
-  <div class="layer layer-2"></div>
-  <div class="layer layer-1"></div>
-  <div #characterElement class="character walk"></div>
+  <div
+    class="layer layer-8"
+    [ngStyle]="{ animation: gameOver ? 'none' : '' }"
+  ></div>
+  <div
+    class="layer layer-7"
+    [ngStyle]="{ animation: gameOver ? 'none' : '' }"
+  ></div>
+  <div
+    class="layer layer-6"
+    [ngStyle]="{ animation: gameOver ? 'none' : '' }"
+  ></div>
+  <div
+    class="layer layer-5"
+    [ngStyle]="{ animation: gameOver ? 'none' : '' }"
+  ></div>
+  <div
+    class="layer layer-4"
+    [ngStyle]="{ animation: gameOver ? 'none' : '' }"
+  ></div>
+  <div
+    class="layer layer-3"
+    [ngStyle]="{ animation: gameOver ? 'none' : '' }"
+  ></div>
+  <div
+    class="layer layer-2"
+    [ngStyle]="{ animation: gameOver ? 'none' : '' }"
+  ></div>
+  <div
+    class="layer layer-1"
+    [ngStyle]="{ animation: gameOver ? 'none' : '' }"
+  ></div>
+  <div id="character" class="character walk"></div>
   <div
     *ngFor="let zombie of zombiesInGame"
+    id="{{ zombie.id }}"
     class="zombie"
     class="{{ zombie.type }}"
   ></div>
   <div
     *ngFor="let gem of gemsInGame"
+    id="{{ gem.id }}"
     class="gem"
     class="gem-{{ gem.color }}"
-    [ngStyle]="{ bottom: gem.bottom + 'px' }"
+    [ngStyle]="{ bottom: gem.bottomStyle + 'px' }"
   ></div>
 </div>
