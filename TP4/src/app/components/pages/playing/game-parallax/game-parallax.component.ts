@@ -15,6 +15,7 @@ export class GameParallaxComponent implements OnInit {
   zombiesInGame: Zombie[]
   gemsInGame: Gem[]
   gemsColors: string[]
+  gemsValues: number[]
   counterId: number
 
   previousTime: number | undefined
@@ -25,7 +26,8 @@ export class GameParallaxComponent implements OnInit {
     this.zombiesToChoose = ['zombie1', 'zombie2', 'zombie3', 'zombie4']
     this.zombiesInGame = []
     this.gemsInGame = []
-    this.gemsColors = ['blue', 'green', 'grey', 'orange', 'pink', 'yellow']
+    this.gemsColors = ['grey', 'blue', 'green', 'orange', 'pink', 'yellow']
+    this.gemsValues = [1, 2, 2, 3, 3, 5]
     this.counterId = 1
     this.gameOver = false
   }
@@ -60,14 +62,18 @@ export class GameParallaxComponent implements OnInit {
           this.gemsInGame.splice(this.gemsInGame.indexOf(gem), 1)
         }
       })
-      this.createZombies()
+      this.checkZombies()
       this.checkGems()
     }
     if (!this.gameOver) requestAnimationFrame(this.gameLoop.bind(this))
   }
 
-  createZombies(): void {
-    if (this.zombiesInGame.length < 1) {
+  checkZombies(): void {
+    if (
+      this.zombiesInGame.length == 0 ||
+      this.zombiesInGame[this.zombiesInGame.length - 1].left <
+        this.randomIntFromInterval(400, 600)
+    ) {
       const zombie = new Zombie(
         'zombie' + this.counterId,
         this.zombiesToChoose[
@@ -87,12 +93,12 @@ export class GameParallaxComponent implements OnInit {
       //ToDo: check that the position 'right' from the last gem in array almost
       // 200-300px from right to create a new gem to gain separation between gems
       // How to get the right position?? Hint: see collisions
+      const random = this.randomIntFromInterval(0, this.gemsColors.length - 1)
       const gem = new Gem(
         'gem' + this.counterId,
-        this.gemsColors[
-          this.randomIntFromInterval(0, this.gemsColors.length - 1)
-        ],
-        this.randomIntFromInterval(100, 300)
+        this.gemsColors[random],
+        this.randomIntFromInterval(100, 300),
+        this.gemsValues[random]
       )
       this.counterId++
       this.gemsInGame.push(gem)
