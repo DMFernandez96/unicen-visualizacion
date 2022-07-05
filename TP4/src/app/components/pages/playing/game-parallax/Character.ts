@@ -25,11 +25,13 @@ export class Character extends Entity {
     entity.updatePosition()
 
     // console.log(entity)
+    // console.log(this.bottom + this.height > entity.bottom)
+    // console.log(this.bottom < entity.bottom + entity.height)
     if (
       this.left + this.width > entity.left &&
       this.left < entity.left + entity.width &&
-      this.bottom + this.height > entity.bottom &&
-      this.bottom < entity.bottom + entity.height
+      this.bottom > entity.bottom - this.height &&
+      this.bottom - this.height < entity.bottom
     ) {
       return true
     }
