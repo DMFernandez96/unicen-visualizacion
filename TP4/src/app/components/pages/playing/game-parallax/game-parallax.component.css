@@ -64,7 +64,6 @@
 }
 
 .jump {
-  height: 125px;
   width: calc(910px / 10);
   background: url('../../../../../assets/images/parallax/character-jump.png');
   animation: jump 1.8s steps(10) 1;
