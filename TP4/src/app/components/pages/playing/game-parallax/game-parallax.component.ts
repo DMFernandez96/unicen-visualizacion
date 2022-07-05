@@ -48,20 +48,20 @@ export class GameParallaxComponent implements OnInit {
   gameLoop(timestamp: number): void {
     if (this.previousTime == undefined) this.previousTime = timestamp
     const elapsed = timestamp - this.previousTime
-    if (elapsed > 50) {
+    if_elapsed_50: if (elapsed > 50) {
       this.previousTime = timestamp
-      this.zombiesInGame.forEach((zombie) => {
-        if (this.character.checkCollision(zombie)) {
+      for (let index = 0; index < this.zombiesInGame.length; index++) {
+        if (this.character.checkCollision(this.zombiesInGame[index])) {
           this.setGameOver()
-          return
+          break if_elapsed_50
         }
-      })
-      this.gemsInGame.forEach((gem) => {
-        if (this.character.checkCollision(gem)) {
-          this.score += gem.value
-          this.gemsInGame.splice(this.gemsInGame.indexOf(gem), 1)
+      }
+      for (let index = 0; index < this.gemsInGame.length; index++) {
+        if (this.character.checkCollision(this.gemsInGame[index])) {
+          this.score += this.gemsInGame[index].value
+          this.gemsInGame.splice(index, 1)
         }
-      })
+      }
       this.checkZombies()
       this.checkGems()
     }
@@ -74,25 +74,34 @@ export class GameParallaxComponent implements OnInit {
       this.zombiesInGame[this.zombiesInGame.length - 1].left <
         this.randomIntFromInterval(400, 600)
     ) {
-      const zombie = new Zombie(
-        'zombie' + this.counterId,
-        this.zombiesToChoose[
-          this.randomIntFromInterval(0, this.zombiesToChoose.length - 1)
-        ]
-      )
-      this.counterId++
-      this.zombiesInGame.push(zombie)
-      setTimeout(() => {
-        this.zombiesInGame.splice(this.zombiesInGame.indexOf(zombie), 1)
-      }, 5000)
+      // 20% generate one zombie, 80% generate horde
+      if (this.randomIntFromInterval(1, 100) > 20) {
+        this.generateZombie()
+      } else {
+        //Generate zombies horde
+        for (let index = 0; index < 5; index++) {
+          this.generateZombie()
+        }
+      }
     }
+  }
+
+  generateZombie(): void {
+    const zombie = new Zombie(
+      'zombie' + this.counterId,
+      this.zombiesToChoose[
+        this.randomIntFromInterval(0, this.zombiesToChoose.length - 1)
+      ]
+    )
+    this.counterId++
+    this.zombiesInGame.push(zombie)
+    setTimeout(() => {
+      this.zombiesInGame.splice(this.zombiesInGame.indexOf(zombie), 1)
+    }, 5000)
   }
 
   checkGems(): void {
     if (this.gemsInGame.length < 10) {
-      //ToDo: check that the position 'right' from the last gem in array almost
-      // 200-300px from right to create a new gem to gain separation between gems
-      // How to get the right position?? Hint: see collisions
       const random = this.randomIntFromInterval(0, this.gemsColors.length - 1)
       const gem = new Gem(
         'gem' + this.counterId,
@@ -104,7 +113,7 @@ export class GameParallaxComponent implements OnInit {
       this.gemsInGame.push(gem)
       setTimeout(() => {
         this.gemsInGame.splice(this.gemsInGame.indexOf(gem), 1)
-      }, 6000)
+      }, 7000)
     }
   }
 
@@ -115,6 +124,12 @@ export class GameParallaxComponent implements OnInit {
 
   setGameOver(): void {
     this.character.die()
+    this.gemsInGame.forEach((gem) => {
+      gem.paused = true
+    })
+    this.zombiesInGame.forEach((zombie) => {
+      zombie.paused = true
+    })
     this.previousTime = undefined
     this.gameOver = true
   }

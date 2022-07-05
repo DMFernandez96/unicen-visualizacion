@@ -5,6 +5,7 @@ export class Entity {
   height!: number
   left!: number
   bottom!: number
+  paused = false
 
   constructor(id: string) {
     this.id = id
