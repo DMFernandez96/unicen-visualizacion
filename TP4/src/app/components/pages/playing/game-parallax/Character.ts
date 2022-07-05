@@ -12,6 +12,10 @@ export class Character extends Entity {
     }, 1800)
   }
 
+  isJump(): boolean {
+    return this.domElement.classList.contains('jump')
+  }
+
   reset(): void {
     this.domElement.classList.remove('die')
   }
@@ -24,9 +28,6 @@ export class Character extends Entity {
     this.updatePosition()
     entity.updatePosition()
 
-    // console.log(entity)
-    // console.log(this.bottom + this.height > entity.bottom)
-    // console.log(this.bottom < entity.bottom + entity.height)
     if (
       this.left + this.width > entity.left &&
       this.left < entity.left + entity.width &&

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { Character } from './Character'
 import { Gem } from './Gem'
 import { Zombie } from './Zombie'
@@ -39,10 +39,7 @@ export class GameParallaxComponent implements OnInit {
   keyHandler(event: KeyboardEvent) {
     event.preventDefault()
     if (event.key == 'ArrowUp' || event.key == 'w') {
-      this.character.jump()
-    }
-    if (event.key == 'd') {
-      this.character.die()
+      if (!this.character.isJump()) this.character.jump()
     }
   }
 
