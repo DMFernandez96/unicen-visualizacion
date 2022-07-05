@@ -8,6 +8,19 @@
   width: 100%;
 }
 
+.gem-list {
+  display: flex;
+  gap: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.img-gem {
+  width: 32px;
+  overflow: hidden;
+  margin: auto;
+}
+
 @media (min-width: 1024px) {
   .how-to-play {
     width: 400px;

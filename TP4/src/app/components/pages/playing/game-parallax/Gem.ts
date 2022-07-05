@@ -3,12 +3,13 @@ import { Entity } from './Entity'
 export class Gem extends Entity {
   color: string
   bottomStyle: number
-  value = 1 //Todo: improve with diferent values
+  value: number
 
-  constructor(id: string, color: string, bottom: number) {
+  constructor(id: string, color: string, bottom: number, value: number) {
     super(id)
     this.color = color
     this.bottomStyle = bottom
+    this.value = value
   }
 
   override updatePosition(): void {
