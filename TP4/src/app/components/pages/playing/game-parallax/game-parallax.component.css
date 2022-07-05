@@ -54,7 +54,7 @@
   bottom: 16px;
   left: 16px;
   z-index: 11;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .walk {
@@ -118,13 +118,13 @@
 .zombie {
   width: 128px;
   height: 128px;
-  animation: walk-zombie 1s steps(4) infinite, zombie-move 5s linear infinite;
+  animation: walk-zombie 1s steps(4) infinite, zombie-move 5s linear 1;
   position: absolute;
   bottom: 16px;
   right: 16px;
   transform: scaleX(-1);
   z-index: 10;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 .zombie1 {
@@ -192,7 +192,7 @@
   bottom: 200px;
   animation: gem 2s steps(8) infinite, gem-move 6s linear 1 forwards;
   z-index: 9;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 
 .gem-blue {
@@ -302,4 +302,8 @@
   background-image: url('../../../../../assets/images/parallax/plant.png');
   animation: scroll 7s infinite linear;
   z-index: 8;
+}
+
+.paused {
+  animation-play-state: paused;
 }
