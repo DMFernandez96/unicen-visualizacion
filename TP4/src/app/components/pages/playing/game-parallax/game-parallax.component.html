@@ -25,6 +25,7 @@
     id="{{ zombie.id }}"
     class="zombie"
     class="{{ zombie.type }}"
+    [class.paused]="zombie.paused"
   ></div>
   <div
     *ngFor="let gem of gemsInGame"
@@ -32,5 +33,6 @@
     class="gem"
     class="gem-{{ gem.color }}"
     [ngStyle]="{ bottom: gem.bottomStyle + 'px' }"
+    [class.paused]="gem.paused"
   ></div>
 </div>
