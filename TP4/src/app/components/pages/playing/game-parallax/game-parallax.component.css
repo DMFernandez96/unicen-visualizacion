@@ -69,7 +69,21 @@
 }
 
 .game-over p {
+  font-family: 'Creepster', cursive;
+  font-size: 1.3rem;
   padding-top: 20px;
+}
+
+.btn-reset-game {
+  font-family: 'Creepster', cursive;
+  font-size: 1.3rem;
+  padding: 8px 16px;
+  border-radius: 10px;
+}
+
+.btn-reset-game:hover {
+  background-color: green;
+  color: white;
 }
 
 .score {
@@ -108,7 +122,6 @@
   bottom: 16px;
   left: 16px;
   z-index: 11;
-  /* border: 1px solid red; */
 }
 
 .walk {
@@ -178,7 +191,6 @@
   right: 16px;
   transform: scaleX(-1);
   z-index: 10;
-  /* border: 1px solid blue; */
 }
 
 .zombie1 {
@@ -246,7 +258,11 @@
   bottom: 200px;
   animation: gem 2s steps(8) infinite, gem-move 6s linear 1 forwards;
   z-index: 9;
-  /* border: 1px solid green; */
+}
+
+.gem-collected {
+  animation: gem 2s steps(8) infinite, gem-move 6s linear 1 forwards,
+    gem-collected 0.7s linear 1 forwards;
 }
 
 .gem-blue {
@@ -288,6 +304,21 @@
   }
   to {
     right: 1024px;
+  }
+}
+
+@keyframes gem-collected {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.2);
+  }
+  20% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
   }
 }
 

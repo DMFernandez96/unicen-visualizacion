@@ -28,7 +28,10 @@
       *ngIf="!gameIsPlaying"
     ></app-button>
     <app-game-connect-four *ngIf="game!.id == 21"></app-game-connect-four>
-    <app-game-parallax *ngIf="game!.id == 26"></app-game-parallax>
+    <app-game-parallax
+      *ngIf="game!.id == 26"
+      [gameStart]="gameIsPlaying"
+    ></app-game-parallax>
     <div
       class="opacity"
       [class.opacity-connect4]="id == 21"
