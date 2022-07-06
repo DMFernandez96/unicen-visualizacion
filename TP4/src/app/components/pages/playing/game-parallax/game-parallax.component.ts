@@ -9,7 +9,9 @@ import { Zombie } from './Zombie'
   styleUrls: ['./game-parallax.component.css']
 })
 export class GameParallaxComponent implements OnInit {
-  @Input() gameStart!: boolean
+  @Input() gameStartInput!: boolean
+  gameStart: boolean
+  characterSelected: number
   character!: Character
   score: number
   zombiesToChoose: string[]
@@ -23,6 +25,8 @@ export class GameParallaxComponent implements OnInit {
   gameOver: boolean
 
   constructor() {
+    this.gameStart = this.gameStartInput
+    this.characterSelected = 1
     this.score = 0
     this.zombiesToChoose = ['zombie1', 'zombie2', 'zombie3', 'zombie4']
     this.zombiesInGame = []
@@ -42,7 +46,7 @@ export class GameParallaxComponent implements OnInit {
   keyHandler(event: KeyboardEvent) {
     event.preventDefault()
     if (event.key == 'ArrowUp' || event.key == 'w') {
-      if (!this.character.isJump()) this.character.jump()
+      if (!this.character.isJump()) this.character.jump(this.characterSelected)
     }
   }
 
@@ -52,6 +56,7 @@ export class GameParallaxComponent implements OnInit {
     if_elapsed_50: if (elapsed > 50 && this.gameStart) {
       this.previousTime = timestamp
       for (let index = 0; index < this.zombiesInGame.length; index++) {
+        // if(llege ) borro
         if (this.character.checkCollision(this.zombiesInGame[index])) {
           this.setGameOver()
           break if_elapsed_50
@@ -124,7 +129,7 @@ export class GameParallaxComponent implements OnInit {
   }
 
   setGameOver(): void {
-    this.character.die()
+    this.character.die(this.characterSelected)
     this.gemsInGame.forEach((gem) => {
       gem.paused = true
     })
@@ -136,9 +141,15 @@ export class GameParallaxComponent implements OnInit {
   }
 
   reset(): void {
+    this.zombiesInGame = []
+    this.gemsInGame = []
     this.gameOver = false
     this.character.reset()
     this.score = 0
     requestAnimationFrame(this.gameLoop.bind(this))
+  }
+
+  changeCharacter(number: number): void {
+    this.characterSelected = number
   }
 }
