@@ -114,13 +114,13 @@
   z-index: 20;
   position: absolute;
   width: 500px;
-  /* height: 300px; */
   background-color: #061539;
   display: flex;
   top: 144px;
   left: 250px;
   flex-direction: column;
   gap: 20px;
+  padding-top: 20px;
   padding-bottom: 30px;
   align-items: center;
   border-radius: 20px;
@@ -133,9 +133,25 @@
   gap: 32px;
 }
 
-.container-img-character {
-  width: calc(856px / 8);
-  overflow: hidden;
+.container-img-character:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.chosenCharacter {
+  animation: scale-animation 2s ease-in-out infinite;
+}
+
+@keyframes scale-animation {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
 }
 
 .opacity {
@@ -436,7 +452,7 @@
 .layer-1 {
   background-image: url('../../../../../assets/images/parallax/plant.png');
   animation: scroll 7s infinite linear;
-  z-index: 8;
+  z-index: 12;
 }
 
 .paused {
