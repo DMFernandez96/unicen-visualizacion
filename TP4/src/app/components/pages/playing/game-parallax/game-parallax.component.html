@@ -6,12 +6,7 @@
   <div *ngIf="gameOver" class="game-over">
     <h1>Has sido devorado!</h1>
     <p>Tu puntuación fue {{ score }}</p>
-    <app-button
-      class="btn-replay-game"
-      (click)="reset()"
-      text="Volver a jugar"
-      classList="background-success"
-    ></app-button>
+    <button (click)="reset()" class="btn-reset-game">Volver a jugar</button>
   </div>
   <div class="score">
     <div class="score-img-container">
@@ -20,15 +15,15 @@
     <span>{{ score }}</span>
   </div>
   <div *ngIf="gameOver" class="opacity opacity-img"></div>
-  <div class="layer layer-8" [class.paused]="gameOver"></div>
-  <div class="layer layer-7" [class.paused]="gameOver"></div>
-  <div class="layer layer-6" [class.paused]="gameOver"></div>
-  <div class="layer layer-5" [class.paused]="gameOver"></div>
-  <div class="layer layer-4" [class.paused]="gameOver"></div>
-  <div class="layer layer-3" [class.paused]="gameOver"></div>
-  <div class="layer layer-2" [class.paused]="gameOver"></div>
-  <div class="layer layer-1" [class.paused]="gameOver"></div>
-  <div id="character" class="character walk"></div>
+  <div class="layer layer-8" [class.paused]="gameOver || !gameStart"></div>
+  <div class="layer layer-7" [class.paused]="gameOver || !gameStart"></div>
+  <div class="layer layer-6" [class.paused]="gameOver || !gameStart"></div>
+  <div class="layer layer-5" [class.paused]="gameOver || !gameStart"></div>
+  <div class="layer layer-4" [class.paused]="gameOver || !gameStart"></div>
+  <div class="layer layer-3" [class.paused]="gameOver || !gameStart"></div>
+  <div class="layer layer-2" [class.paused]="gameOver || !gameStart"></div>
+  <div class="layer layer-1" [class.paused]="gameOver || !gameStart"></div>
+  <div id="character" class="character walk" [class.paused]="!gameStart"></div>
   <div
     *ngFor="let zombie of zombiesInGame"
     id="{{ zombie.id }}"
@@ -43,5 +38,6 @@
     class="gem-{{ gem.color }}"
     [ngStyle]="{ bottom: gem.bottomStyle + 'px' }"
     [class.paused]="gem.paused"
+    [class.gem-collected]="gem.collected"
   ></div>
 </div>

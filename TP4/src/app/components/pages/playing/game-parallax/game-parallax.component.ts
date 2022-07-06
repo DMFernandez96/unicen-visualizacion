@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { Character } from './Character'
 import { Gem } from './Gem'
 import { Zombie } from './Zombie'
@@ -9,6 +9,7 @@ import { Zombie } from './Zombie'
   styleUrls: ['./game-parallax.component.css']
 })
 export class GameParallaxComponent implements OnInit {
+  @Input() gameStart!: boolean
   character!: Character
   score: number
   zombiesToChoose: string[]
@@ -48,7 +49,7 @@ export class GameParallaxComponent implements OnInit {
   gameLoop(timestamp: number): void {
     if (this.previousTime == undefined) this.previousTime = timestamp
     const elapsed = timestamp - this.previousTime
-    if_elapsed_50: if (elapsed > 50) {
+    if_elapsed_50: if (elapsed > 50 && this.gameStart) {
       this.previousTime = timestamp
       for (let index = 0; index < this.zombiesInGame.length; index++) {
         if (this.character.checkCollision(this.zombiesInGame[index])) {
@@ -59,7 +60,7 @@ export class GameParallaxComponent implements OnInit {
       for (let index = 0; index < this.gemsInGame.length; index++) {
         if (this.character.checkCollision(this.gemsInGame[index])) {
           this.score += this.gemsInGame[index].value
-          this.gemsInGame.splice(index, 1)
+          this.gemsInGame[index].collected = true
         }
       }
       this.checkZombies()
