@@ -8,6 +8,10 @@
   width: 100%;
 }
 
+.margin-right {
+  margin-right: 16px;
+}
+
 .gem-list {
   display: flex;
   gap: 16px;
