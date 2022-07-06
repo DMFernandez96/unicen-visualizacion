@@ -1,8 +1,17 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Creepster&display=swap"
+  rel="stylesheet"
+/>
 <div class="container">
   <div *ngIf="gameOver" class="game-over">
-    <h1>Has perdido!</h1>
+    <h1>Has sido devorado!</h1>
     <p>Tu puntuación fue {{ score }}</p>
-    <app-button (click)="reset()" text="Reiniciar"></app-button>
+    <app-button
+      class="btn-replay-game"
+      (click)="reset()"
+      text="Volver a jugar"
+      classList="background-success"
+    ></app-button>
   </div>
   <div class="score">
     <div class="score-img-container">
