@@ -21,7 +21,8 @@ export class Character extends Entity {
   }
 
   reset(): void {
-    this.domElement.classList.remove('die')
+    this.domElement.classList.remove('die1')
+    this.domElement.classList.remove('die2')
   }
 
   die(characterSelected: number): void {
@@ -31,7 +32,6 @@ export class Character extends Entity {
 
   checkCollision(entity: Entity) {
     this.updatePosition()
-    entity.updatePosition()
 
     if (
       this.left + this.width > entity.left &&
@@ -45,14 +45,7 @@ export class Character extends Entity {
   }
 
   override updatePosition(): void {
-    if (this.domElement == undefined) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      this.domElement = document.getElementById(this.id)!
-      this.width = this.domElement.getBoundingClientRect().width
-      this.height = this.domElement.getBoundingClientRect().height
-      this.bottom = this.domElement.getBoundingClientRect().bottom
-    }
-    this.left = this.domElement.offsetLeft
+    super.updatePosition()
     this.bottom = this.domElement.getBoundingClientRect().bottom
   }
 }
