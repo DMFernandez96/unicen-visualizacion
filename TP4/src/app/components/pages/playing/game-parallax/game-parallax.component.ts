@@ -155,4 +155,9 @@ export class GameParallaxComponent implements OnInit {
   changeCharacter(number: number): void {
     this.characterSelected = number
   }
+
+  openSelectCharacterInReset(): void {
+    this.reset()
+    this.gameStart = false
+  }
 }
