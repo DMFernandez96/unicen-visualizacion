@@ -6,7 +6,12 @@
   <div *ngIf="gameOver" class="game-over">
     <h1>Has sido devorado!</h1>
     <p>Tu puntuación fue {{ score }}</p>
-    <button (click)="reset()" class="btn-reset-game">Volver a jugar</button>
+    <div class="flex">
+      <button (click)="openSelectCharacterInReset()" class="btn-reset-game">
+        Seleccionar personaje
+      </button>
+      <button (click)="reset()" class="btn-reset-game">Volver a jugar</button>
+    </div>
   </div>
 
   <div class="score">
@@ -14,7 +19,6 @@
       <img src="/assets/images/parallax/gem-yellow.png" alt="" />
     </div>
     <span>{{ score }}</span>
-    <span>-{{ zombiesInGame.length }}</span>
   </div>
 
   <div *ngIf="!gameStart" class="choose-character">
