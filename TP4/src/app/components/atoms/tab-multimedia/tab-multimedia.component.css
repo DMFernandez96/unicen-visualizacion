@@ -53,6 +53,29 @@ div.image_one img {
   div.image_one img {
     width: 400px;
   }
+
+  .multimedia-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-large);
+    overflow: hidden;
+    animation-delay: 4s;
+    display: flex;
+    width: 400px;
+  }
+  .multimedia .multimedia-flex {
+    width: 400%;
+    overflow-x: hidden;
+    animation: automationDesktop 20s infinite linear;
+    transition: all 0.75s ease-in;
+    animation-delay: 3s;
+    gap: 0;
+  }
+
+  .multimedia p {
+    margin-bottom: var(--space-medium);
+    text-align: center;
+  }
 }
 
 @keyframes automation {
