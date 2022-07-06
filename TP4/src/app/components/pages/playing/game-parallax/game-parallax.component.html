@@ -8,12 +8,37 @@
     <p>Tu puntuación fue {{ score }}</p>
     <button (click)="reset()" class="btn-reset-game">Volver a jugar</button>
   </div>
+
   <div class="score">
     <div class="score-img-container">
       <img src="/assets/images/parallax/gem-yellow.png" alt="" />
     </div>
     <span>{{ score }}</span>
   </div>
+
+  <div *ngIf="!gameStart" class="choose-character">
+    <h1>Elegi tu personaje</h1>
+    <div class="flex">
+      <div class="container-img-character">
+        <img
+          (click)="changeCharacter(1)"
+          src="assets/images/parallax/character-walk.png"
+          alt="pj1"
+          [class.algunaclase]="characterSelected == 1"
+        />
+      </div>
+      <div class="container-img-character">
+        <img
+          (click)="changeCharacter(2)"
+          src="assets/images/parallax/character2-walk.png"
+          alt="pj2"
+          [class.algunaclase]="characterSelected == 2"
+        />
+      </div>
+    </div>
+    <button class="btn-reset-game" (click)="gameStart = true">Empezar</button>
+  </div>
+
   <div *ngIf="gameOver" class="opacity opacity-img"></div>
   <div class="layer layer-8" [class.paused]="gameOver || !gameStart"></div>
   <div class="layer layer-7" [class.paused]="gameOver || !gameStart"></div>
@@ -23,7 +48,13 @@
   <div class="layer layer-3" [class.paused]="gameOver || !gameStart"></div>
   <div class="layer layer-2" [class.paused]="gameOver || !gameStart"></div>
   <div class="layer layer-1" [class.paused]="gameOver || !gameStart"></div>
-  <div id="character" class="character walk" [class.paused]="!gameStart"></div>
+  <div
+    id="character"
+    class="character"
+    [class.walk1]="characterSelected == 1"
+    [class.walk2]="characterSelected == 2"
+    [class.paused]="!gameStart"
+  ></div>
   <div
     *ngFor="let zombie of zombiesInGame"
     id="{{ zombie.id }}"

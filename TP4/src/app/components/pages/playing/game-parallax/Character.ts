@@ -5,23 +5,28 @@ export class Character extends Entity {
     super(id)
   }
 
-  jump(): void {
-    this.domElement.classList.add('jump')
+  jump(characterSelected: number): void {
+    const className = characterSelected == 1 ? 'jump1' : 'jump2'
+    this.domElement.classList.add(className)
     setTimeout(() => {
-      this.domElement.classList.remove('jump')
+      this.domElement.classList.remove(className)
     }, 1800)
   }
 
   isJump(): boolean {
-    return this.domElement.classList.contains('jump')
+    return (
+      this.domElement.classList.contains('jump1') ||
+      this.domElement.classList.contains('jump2')
+    )
   }
 
   reset(): void {
     this.domElement.classList.remove('die')
   }
 
-  die(): void {
-    this.domElement.classList.add('die')
+  die(characterSelected: number): void {
+    const className = characterSelected == 1 ? 'die1' : 'die2'
+    this.domElement.classList.add(className)
   }
 
   checkCollision(entity: Entity) {
