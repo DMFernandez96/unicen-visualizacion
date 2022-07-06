@@ -235,7 +235,7 @@
 .zombie {
   width: 128px;
   height: 128px;
-  animation: walk-zombie 1s steps(4) infinite, zombie-move 5s linear 1;
+  animation: walk-zombie 1s steps(4) infinite, zombie-move 5s linear 1 forwards;
   position: absolute;
   bottom: 16px;
   right: 16px;
@@ -247,7 +247,7 @@
   width: 104px;
   height: 98px;
   background: url('../../../../../assets/images/parallax/zombie1.png');
-  animation: walk-zombie1 1s steps(4) infinite, zombie-move 5s linear infinite;
+  animation: walk-zombie1 1s steps(4) infinite, zombie-move 5s linear 1 forwards;
 }
 
 .zombie2 {
@@ -261,7 +261,7 @@
 .zombie4 {
   width: 61px;
   background: url('../../../../../assets/images/parallax/zombie4.png');
-  animation: walk-zombie4 1s steps(4) infinite, zombie-move 5s linear infinite;
+  animation: walk-zombie4 1s steps(4) infinite, zombie-move 5s linear 1 forwards;
 }
 
 @keyframes walk-zombie {

@@ -56,13 +56,22 @@ export class GameParallaxComponent implements OnInit {
     if_elapsed_50: if (elapsed > 50 && this.gameStart) {
       this.previousTime = timestamp
       for (let index = 0; index < this.zombiesInGame.length; index++) {
-        // if(llege ) borro
+        this.zombiesInGame[index].updatePosition()
+        if (this.zombiesInGame[index].isOutOfScreen()) {
+          this.zombiesInGame.splice(index, 1)
+          break
+        }
         if (this.character.checkCollision(this.zombiesInGame[index])) {
           this.setGameOver()
           break if_elapsed_50
         }
       }
       for (let index = 0; index < this.gemsInGame.length; index++) {
+        this.gemsInGame[index].updatePosition()
+        if (this.gemsInGame[index].isOutOfScreen()) {
+          this.gemsInGame.splice(index, 1)
+          break
+        }
         if (this.character.checkCollision(this.gemsInGame[index])) {
           this.score += this.gemsInGame[index].value
           this.gemsInGame[index].collected = true
@@ -101,9 +110,6 @@ export class GameParallaxComponent implements OnInit {
     )
     this.counterId++
     this.zombiesInGame.push(zombie)
-    setTimeout(() => {
-      this.zombiesInGame.splice(this.zombiesInGame.indexOf(zombie), 1)
-    }, 5000)
   }
 
   checkGems(): void {
@@ -117,9 +123,6 @@ export class GameParallaxComponent implements OnInit {
       )
       this.counterId++
       this.gemsInGame.push(gem)
-      setTimeout(() => {
-        this.gemsInGame.splice(this.gemsInGame.indexOf(gem), 1)
-      }, 7000)
     }
   }
 
