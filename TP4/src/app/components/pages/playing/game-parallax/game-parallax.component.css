@@ -184,6 +184,10 @@
   animation: walk 1.2s steps(8) infinite;
 }
 
+.img-jump {
+  display: none;
+}
+
 .jump1 {
   width: calc(910px / 10);
   background: url('../../../../../assets/images/parallax/character-jump.png');

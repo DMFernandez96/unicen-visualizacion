@@ -26,9 +26,9 @@ export class Character extends Entity {
   }
 
   die(characterSelected: number): void {
-    const audio = new Audio('/assets/sounds/blood-splash.wav')
-    audio.volume = 0.1
-    audio.play()
+    // const audio = new Audio('assets/sounds/blood-splash.wav')
+    // audio.volume = 0.1
+    // audio.play()
     const className = characterSelected == 1 ? 'die1' : 'die2'
     this.domElement.classList.add(className)
   }
